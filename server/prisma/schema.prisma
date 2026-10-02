@@ -1,0 +1,116 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id              Int              @id @default(autoincrement())
+  email           String           @unique
+  password        String
+  name            String
+  phone           String?
+  role            String           @default("customer") // customer, provider, admin
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+
+  providerProfile ProviderProfile?
+  bookings        Booking[]
+  reviews         Review[]
+  conversations   Conversation[]   @relation("CustomerConversations")
+  messages        Message[]
+}
+
+model Category {
+  id          Int       @id @default(autoincrement())
+  name        String    @unique
+  description String?
+  icon        String?   // Bootstrap icon class name (e.g. bi-wrench-adjustable)
+  services    Service[]
+}
+
+model ProviderProfile {
+  id           Int       @id @default(autoincrement())
+  userId       Int       @unique
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  businessName String?
+  bio          String?
+  experience   Int       @default(1)
+  hourlyRate   Float?    @default(0)
+  serviceArea  String?
+  city         String    @default("Mumbai")
+  isVerified   Boolean   @default(false)
+
+  services     Service[]
+  reviews      Review[]
+  conversations Conversation[] @relation("ProviderConversations")
+}
+
+model Service {
+  id          Int             @id @default(autoincrement())
+  providerId  Int
+  provider    ProviderProfile @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  categoryId  Int
+  category    Category        @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  title       String
+  description String?
+  price       Float
+  createdAt   DateTime        @default(now())
+
+  bookings    Booking[]
+}
+
+model Booking {
+  id          Int      @id @default(autoincrement())
+  customerId  Int
+  customer    User     @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  serviceId   Int
+  service     Service  @relation(fields: [serviceId], references: [id], onDelete: Cascade)
+  bookingDate DateTime
+  address     String
+  status      String   @default("pending") // pending, accepted, completed, cancelled
+  totalAmount Float
+  notes       String?
+  createdAt   DateTime @default(now())
+}
+
+model Review {
+  id         Int             @id @default(autoincrement())
+  customerId Int
+  customer   User            @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  providerId Int
+  provider   ProviderProfile @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  rating     Int             // 1 to 5 stars
+  comment    String
+  createdAt  DateTime        @default(now())
+}
+
+model Conversation {
+  id             Int       @id @default(autoincrement())
+  customerId     Int
+  customer       User      @relation("CustomerConversations", fields: [customerId], references: [id], onDelete: Cascade)
+  providerId     Int
+  provider       ProviderProfile @relation("ProviderConversations", fields: [providerId], references: [id], onDelete: Cascade)
+  lastMessage    String?
+  lastMessageAt  DateTime?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  messages       Message[]
+
+  @@unique([customerId, providerId])
+}
+
+model Message {
+  id             Int          @id @default(autoincrement())
+  conversationId Int
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderId       Int
+  sender         User         @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  content        String
+  read           Boolean      @default(false)
+  createdAt      DateTime     @default(now())
+}
