@@ -10,22 +10,33 @@ import NotFound from './pages/NotFound';
 import ChatPanel from './components/ChatPanel';
 import SupportChatBot from './components/SupportChatBot';
 
+import ProviderDashboard from './pages/ProviderDashboard';
+import Demo from './components/ui/demo';
+import { ThemeProvider } from './context/ThemeContext';
+import NotificationBanner from './components/NotificationBanner';
+
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/bookings" element={<MyBookings />} />
-        <Route path="/providers/:id" element={<ProviderDetail />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <ChatPanel />
-      <SupportChatBot />
-    </Router>
+    <ThemeProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/demo" element={<Demo />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/bookings" element={<MyBookings />} />
+          <Route path="/providers/:id" element={<ProviderDetail />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/dashboard" element={<ProviderDashboard />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        <ChatPanel />
+        <SupportChatBot />
+        <NotificationBanner />
+      </Router>
+    </ThemeProvider>
   );
 }
+
 
 export default App;

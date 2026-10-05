@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { API_BASE } from '../config/api';
 
 function ReviewModal({ booking, onClose, onSuccess }) {
   const { token } = useAuth();
@@ -21,7 +22,7 @@ function ReviewModal({ booking, onClose, onSuccess }) {
     setError('');
 
     try {
-      const res = await fetch('http://localhost:5000/api/reviews', {
+      const res = await fetch(`${API_BASE}/api/reviews`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -77,7 +78,7 @@ function ReviewModal({ booking, onClose, onSuccess }) {
                         background: 'none',
                         border: 'none',
                         fontSize: 28,
-                        color: star <= rating ? '#fbb02d' : '#90e0ef',
+                        color: star <= rating ? '#FBB02D' : 'rgba(202, 240, 248, 0.35)',
                         cursor: 'pointer',
                         padding: 0
                       }}
@@ -109,7 +110,7 @@ function ReviewModal({ booking, onClose, onSuccess }) {
               </div>
             </div>
 
-            <div className="modal-footer bg-light border-0 py-2">
+            <div className="modal-footer border-0 py-2" style={{ background: "rgba(3, 14, 40, 0.7)", borderTop: "1px solid rgba(0, 180, 216, 0.25)" }}>
               <button type="button" className="btn btn-light-aesthetic btn-sm" onClick={onClose}>
                 Cancel
               </button>

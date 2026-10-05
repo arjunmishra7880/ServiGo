@@ -14,8 +14,18 @@ async function main() {
   await prisma.category.deleteMany();
   await prisma.user.deleteMany();
 
-  // 1. Seed Categories
+  // 1. Seed Categories (8 Main Categories)
   const categoriesData = [
+    {
+      name: 'IT & Electronics',
+      icon: 'bi-laptop',
+      description: 'Laptops, desktops, mobile phones, printers, WiFi networking, data recovery and gaming consoles.'
+    },
+    {
+      name: 'Home Appliances',
+      icon: 'bi-tv',
+      description: 'AC servicing, washing machines, refrigerators, microwaves, TVs, chimneys, and RO water purifiers.'
+    },
     {
       name: 'Plumbing',
       icon: 'bi-wrench-adjustable',
@@ -42,9 +52,9 @@ async function main() {
       description: 'Interior & exterior wall painting, waterproof coating, and texture designs.'
     },
     {
-      name: 'Appliance Repair',
-      icon: 'bi-tv',
-      description: 'AC servicing, refrigerator repair, washing machine fixing, and microwave servicing.'
+      name: 'Pest Control',
+      icon: 'bi-shield-shaded',
+      description: 'Herbal cockroach gel, termite eradication, bed bug spray, and mosquito control.'
     }
   ];
 
@@ -300,7 +310,232 @@ async function main() {
     }
   });
 
-  console.log('✔ Service providers & profiles created: 4');
+  // Provider 5: IT & Electronics
+  const userIT = await prisma.user.create({
+    data: {
+      name: 'Rohit Sen',
+      email: 'rohit.techfix@example.com',
+      password: defaultPassword,
+      phone: '9876544445',
+      role: 'provider',
+      providerProfile: {
+        create: {
+          businessName: 'TechFix Electronics & IT Care',
+          bio: 'Certified chip-level hardware technician with 7+ years fixing laptops, desktops, mobiles, gaming consoles, and home networking.',
+          experience: 7,
+          hourlyRate: 499,
+          serviceArea: 'Bandra, Andheri, Powai, Thane',
+          city: 'Mumbai',
+          isVerified: true,
+          services: {
+            create: [
+              {
+                title: 'Laptop Repair & Diagnostics',
+                description: 'Screen replacement, keyboard fix, hinge repair, overheating service, and thermal paste reapplication.',
+                price: 499,
+                categoryId: categories['IT & Electronics'].id
+              },
+              {
+                title: 'Desktop PC Setup & Tune-up',
+                description: 'Custom PC assembly, slow performance fix, RAM/SSD upgrade, and power supply troubleshooting.',
+                price: 599,
+                categoryId: categories['IT & Electronics'].id
+              },
+              {
+                title: 'Mobile Phone Screen & Battery Fix',
+                description: 'Original screen display combo, battery replacement, speaker repair, and water damage recovery.',
+                price: 699,
+                categoryId: categories['IT & Electronics'].id
+              },
+              {
+                title: 'Printer Setup & Cartridge Servicing',
+                description: 'Inkjet/LaserJet printer driver install, paper jam clearing, and head cleaning.',
+                price: 349,
+                categoryId: categories['IT & Electronics'].id
+              },
+              {
+                title: 'Tablet / iPad Screen & Port Repair',
+                description: 'Digitizer replacement, charging port fix, and software flashing for iPads & Android tabs.',
+                price: 799,
+                categoryId: categories['IT & Electronics'].id
+              },
+              {
+                title: 'Gaming Console Service & Thermal Paste',
+                description: 'PS4/PS5/Xbox deep dust clean, disc drive repair, HDMI port fix, and liquid metal/thermal pad upgrade.',
+                price: 649,
+                categoryId: categories['IT & Electronics'].id
+              },
+              {
+                title: 'Hard Drive Data Recovery & Backup',
+                description: 'Recover deleted documents, photos, corrupted SSDs, and external hard drive data restoration.',
+                price: 1199,
+                categoryId: categories['IT & Electronics'].id
+              },
+              {
+                title: 'Software & OS Clean Installation',
+                description: 'Windows 11 / MacOS genuine reinstall, virus/malware removal, and MS Office suite setup.',
+                price: 399,
+                categoryId: categories['IT & Electronics'].id
+              },
+              {
+                title: 'WiFi Router & High-Speed Mesh Setup',
+                description: 'Dead-zone removal, dual-band router configuration, LAN cable crimping, and repeater setup.',
+                price: 450,
+                categoryId: categories['IT & Electronics'].id
+              }
+            ]
+          }
+        }
+      }
+    },
+    include: {
+      providerProfile: {
+        include: { services: true }
+      }
+    }
+  });
+
+  // Provider 6: Home Appliances
+  const userAppliance = await prisma.user.create({
+    data: {
+      name: 'Manoj Verma',
+      email: 'manoj.appliances@example.com',
+      password: defaultPassword,
+      phone: '9876544446',
+      role: 'provider',
+      providerProfile: {
+        create: {
+          businessName: 'CoolCare Appliance Pros',
+          bio: '12 years specialized in split/inverter AC servicing, frost-free refrigerators, front/top load washing machines, and microwave ovens.',
+          experience: 12,
+          hourlyRate: 550,
+          serviceArea: 'Dadar, Kurla, Ghatkopar, Vashi',
+          city: 'Mumbai',
+          isVerified: true,
+          services: {
+            create: [
+              {
+                title: 'AC Deep Jet Cleaning & Gas Refill',
+                description: 'Foam jet wash of indoor/outdoor coils, gas leak testing, cooling coil inspection, and cooling boost.',
+                price: 899,
+                categoryId: categories['Home Appliances'].id
+              },
+              {
+                title: 'Washing Machine Drum & Motor Fix',
+                description: 'Front load & top load spin issue, drainage pipe clogging, belt replacement, and PCB repair.',
+                price: 650,
+                categoryId: categories['Home Appliances'].id
+              },
+              {
+                title: 'Refrigerator Cooling & Compressor Fix',
+                description: 'Defrost timer fix, compressor relay, thermostat replacement, and R600a eco-gas charging.',
+                price: 750,
+                categoryId: categories['Home Appliances'].id
+              },
+              {
+                title: 'Microwave & Oven Magnetron Repair',
+                description: 'Heating failure fix, turntable motor replacement, spark issue resolution, and door latch repair.',
+                price: 550,
+                categoryId: categories['Home Appliances'].id
+              },
+              {
+                title: 'Smart LED TV Display & Motherboard Repair',
+                description: 'Backlight strip replacement, sound without picture fix, motherboard servicing, and wall mounting.',
+                price: 899,
+                categoryId: categories['Home Appliances'].id
+              },
+              {
+                title: 'Kitchen Chimney & Hob Deep Degreasing',
+                description: 'Baffle filter scrub, blower motor degreasing, carbon filter check, and duct pipe inspection.',
+                price: 599,
+                categoryId: categories['Home Appliances'].id
+              },
+              {
+                title: 'Water Purifier (RO) Filter Service',
+                description: 'Sediment, carbon & RO membrane replacement, TDS adjustment, and UV chamber sterilizing.',
+                price: 449,
+                categoryId: categories['Home Appliances'].id
+              },
+              {
+                title: 'Water Geyser Coil & Thermostat Fix',
+                description: 'Instant and storage geyser element descaling, thermostat replacement, and tank leakage seal.',
+                price: 499,
+                categoryId: categories['Home Appliances'].id
+              }
+            ]
+          }
+        }
+      }
+    },
+    include: {
+      providerProfile: {
+        include: { services: true }
+      }
+    }
+  });
+
+  // Provider 7: Pest Control
+  const userPest = await prisma.user.create({
+    data: {
+      name: 'Deepa Joshi',
+      email: 'deepa.pestcontrol@example.com',
+      password: defaultPassword,
+      phone: '9876544447',
+      role: 'provider',
+      providerProfile: {
+        create: {
+          businessName: 'ShieldGuard Pest Control',
+          bio: 'Eco-safe, odorless herbal pest eradication certified experts. Over 9 years protecting residential & commercial spaces.',
+          experience: 9,
+          hourlyRate: 500,
+          serviceArea: 'All Mumbai, Navi Mumbai & Thane',
+          city: 'Mumbai',
+          isVerified: true,
+          services: {
+            create: [
+              {
+                title: 'Cockroach & Ant Herbal Gel Treatment',
+                description: '100% odorless herbal gel application in kitchen crevices, bathrooms, and wardrobes. Zero evacuation needed.',
+                price: 699,
+                categoryId: categories['Pest Control'].id
+              },
+              {
+                title: 'Termite Drill & Fill Anti-Termite Shield',
+                description: 'Subterranean termite protection with chemical barrier drilling along skirting and wooden door frames.',
+                price: 1799,
+                categoryId: categories['Pest Control'].id
+              },
+              {
+                title: 'Bed Bug Eradication Double Spray',
+                description: 'Two-stage intensive spray treatment targeting mattress seams, bed frames, and baseboards.',
+                price: 1199,
+                categoryId: categories['Pest Control'].id
+              },
+              {
+                title: 'Mosquito Fogging & Larva Shield',
+                description: 'Thermal fogging for gardens, society compounds, and indoor misting targeting stagnant water zones.',
+                price: 549,
+                categoryId: categories['Pest Control'].id
+              },
+              {
+                title: 'Rodent & Rat Proofing Treatment',
+                description: 'Bait stations, glue traps, and entry point sealing to eliminate mice and rats permanently.',
+                price: 749,
+                categoryId: categories['Pest Control'].id
+              }
+            ]
+          }
+        }
+      }
+    },
+    include: {
+      providerProfile: {
+        include: { services: true }
+      }
+    }
+  });
+
+  console.log('✔ Service providers & profiles created: 7');
 
   // 5. Seed Sample Bookings
   const plumberService = userPlumber.providerProfile.services[0];

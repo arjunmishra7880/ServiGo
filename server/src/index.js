@@ -12,7 +12,8 @@ const PORT = process.env.PORT || 5000;
 const server = http.createServer(app);
 
 // Setup Socket.io
-setupSocket(server);
+const io = setupSocket(server);
+app.set('io', io);
 
 // Middlewares
 app.use(cors());
@@ -34,6 +35,7 @@ const providerRoutes = require('./routes/providerRoutes');
 const bookingRoutes = require('./routes/bookingRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
 const conversationRoutes = require('./routes/conversationRoutes');
+const analyticsRoutes = require('./routes/analyticsRoutes');
 
 // Mount Routes
 app.use('/api/auth', authRoutes);
@@ -42,6 +44,7 @@ app.use('/api/providers', providerRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/conversations', conversationRoutes);
+app.use('/api/analytics', analyticsRoutes);
 
 // Root route
 app.get('/', (req, res) => {

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import GradientBackground from "../components/GradientBackground";
+import { API_BASE } from "../config/api";
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -37,7 +38,7 @@ function Register() {
     setSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
+      const response = await fetch(`${API_BASE}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -137,7 +138,7 @@ function Register() {
                     cursor: "pointer",
                     outline:
                       formData.role === "customer"
-                        ? "2px solid #00b4d8"
+                        ? "2px solid #00B4D8"
                         : "none",
                   }}
                 >
@@ -156,7 +157,7 @@ function Register() {
                     cursor: "pointer",
                     outline:
                       formData.role === "provider"
-                        ? "2px solid #00b4d8"
+                        ? "2px solid #00B4D8"
                         : "none",
                   }}
                 >
@@ -366,8 +367,8 @@ function Register() {
               <Link
                 to="/login"
                 style={{
-                  color: "#023E8A",
-                  fontWeight: 600,
+                  color: "#00B4D8",
+                  fontWeight: 700,
                   textDecoration: "none",
                 }}
               >

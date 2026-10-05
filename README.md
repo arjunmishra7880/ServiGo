@@ -131,7 +131,39 @@ Authorization: Bearer <jwt-token>
 ## Useful Commands
 
 ```bash
-npm run build       # Build the frontend
-npm run start       # Start only the API
-npm run seed        # Reset and load demo data
+npm run dev              # Run frontend & backend concurrently
+npm run build            # Build the frontend
+npm run start            # Start only the API
+npm run seed             # Reset and load demo data
+npm run share            # Launch interactive project sharing helper
+npm run share:cloudflare # Share via Cloudflare Quick Tunnel
 ```
+
+## 🌐 Sharing Your Project Remotely (Cloudflare Quick Tunnels)
+
+Want to share your locally running ServiGo app with a friend, professor, or client anywhere in the world without deploying to AWS or Vercel? You can use **Cloudflare Quick Tunnels (`cloudflared`)**:
+
+### Steps:
+1. **Install `cloudflared`** on your computer:
+   - **Windows**: `winget install --id Cloudflare.cloudflared` (or download from Cloudflare)
+   - **macOS**: `brew install cloudflared`
+   - **Linux**: `sudo apt install cloudflared`
+2. **Start ServiGo normally**:
+   ```bash
+   npm run dev
+   ```
+   Check that it is running on `http://localhost:5173`.
+3. **Open a second terminal** and run:
+   ```bash
+   cloudflared tunnel --url http://localhost:5173
+   # Or using the npm script:
+   npm run share:cloudflare
+   ```
+4. **Wait for the public link**: Cloudflare will print an HTTPS link ending in `.trycloudflare.com` (e.g., `https://random-words.trycloudflare.com`).
+5. **Copy and share that link** instead of `localhost`. Anyone in the world can test the live application directly from your laptop!
+6. **Keep both terminals open**: While people need access, leave both `npm run dev` and `cloudflared` running. Closing the terminal kills the tunnel.
+
+> [!NOTE]
+> - **Free & No Account Needed**: Quick Tunnels require no registration, no port-forwarding, and no credit card.
+> - **Public Access**: Anyone with the link can view the project; do not expose private credentials.
+> - **Temporary Link**: The URL changes each time you restart the tunnel — it's designed for demos and rapid review.

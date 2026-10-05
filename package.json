@@ -4,14 +4,17 @@
   "version": "1.0.0",
   "description": "ServiGo local services marketplace",
   "scripts": {
-    "dev": "concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
-    "dev:client": "npm --prefix client run dev",
+    "dev": "concurrently \"npm --prefix server run dev\" \"npm --prefix client run dev -- --host\"",
     "dev:server": "npm --prefix server run dev",
+    "share": "node scripts/share.js",
+    "share:cloudflare": "cloudflared tunnel --url http://localhost:5173",
+    "share:tunnel": "ssh -R 80:localhost:5173 nokey@localhost.run",
     "build": "npm --prefix client run build",
     "start": "npm --prefix server start",
     "seed": "npm --prefix server run seed"
   },
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "concurrently": "^9.2.1",
+    "localtunnel": "^2.0.2"
   }
 }

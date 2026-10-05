@@ -1,10 +1,17 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import { io } from 'socket.io-client';
 import { useAuth } from './AuthContext';
+import {
+  registerServiceWorker,
+  showPushNotification,
+  requestNotificationPermission,
+  getNotificationPermission
+} from '../utils/notificationService';
+import { API_BASE, SOCKET_URL } from '../config/api';
 
 const SocketContext = createContext(null);
 
-const SERVER_URL = 'http://localhost:5000';
+const SERVER_URL = SOCKET_URL || (typeof window !== 'undefined' ? window.location.origin : 'http://localhost:5000');
 
 export function SocketProvider({ children }) {
   const { token, user } = useAuth();
@@ -14,6 +21,14 @@ export function SocketProvider({ children }) {
   const [activeConversation, setActiveConversation] = useState(null);
   const [messages, setMessages] = useState({});
   const [unreadCounts, setUnreadCounts] = useState({});
+  const [notificationPermission, setNotificationPermission] = useState(() => getNotificationPermission());
+  const [lastBookingNotification, setLastBookingNotification] = useState(null);
+
+  useEffect(() => {
+    // Automatically register Service Worker on mount
+    registerServiceWorker();
+    setNotificationPermission(getNotificationPermission());
+  }, []);
 
   useEffect(() => {
     if (!token || !user) return;
@@ -38,6 +53,36 @@ export function SocketProvider({ children }) {
       setConnected(false);
     });
 
+    // ── Listen for new booking request notifications ──
+    newSocket.on('new:booking', (data) => {
+      console.log('🔔 Received new booking notification:', data);
+      setLastBookingNotification(data);
+
+      // Trigger Service Worker push notification
+      showPushNotification({
+        title: `📅 New Booking: ${data.serviceTitle || 'Service Request'}`,
+        body: `${data.customerName || 'A customer'} booked "${data.serviceTitle || 'a service'}" for ₹${data.totalAmount || ''}!`,
+        data: {
+          url: '/bookings',
+          bookingId: data.bookingId,
+          conversationId: data.conversationId
+        },
+        tag: `booking-${data.bookingId || Date.now()}`
+      });
+
+      // If message is attached, update conversation messages
+      if (data.message) {
+        setMessages(prev => ({
+          ...prev,
+          [data.message.conversationId]: [...(prev[data.message.conversationId] || []), data.message]
+        }));
+        setUnreadCounts(prev => ({
+          ...prev,
+          [data.message.conversationId]: (prev[data.message.conversationId] || 0) + 1
+        }));
+      }
+    });
+
     newSocket.on('new:message', (data) => {
       const { message } = data;
       setMessages(prev => ({
@@ -50,6 +95,19 @@ export function SocketProvider({ children }) {
           ...prev,
           [message.conversationId]: (prev[message.conversationId] || 0) + 1
         }));
+
+        // Trigger Service Worker push notification for messages sent to current user
+        if (message.senderId !== user.id) {
+          showPushNotification({
+            title: `💬 ${message.senderName || 'New Message'}`,
+            body: message.content || 'Sent you a message.',
+            data: {
+              url: '/bookings',
+              conversationId: message.conversationId
+            },
+            tag: `msg-${message.id || Date.now()}`
+          });
+        }
       }
     });
 
@@ -65,12 +123,31 @@ export function SocketProvider({ children }) {
       });
     });
 
-    newSocket.on('conversation:updated', (data) => {
-      setConversations(prev => prev.map(c =>
-        c.id === data.conversationId
-          ? { ...c, lastMessage: data.lastMessage, lastMessageAt: data.lastMessageAt }
-          : c
-      ));
+    newSocket.on('conversation:updated', async (data) => {
+      setConversations(prev => {
+        const exists = prev.some(c => c.id === data.conversationId);
+        if (exists) {
+          return prev.map(c =>
+            c.id === data.conversationId
+              ? { ...c, lastMessage: data.lastMessage, lastMessageAt: data.lastMessageAt }
+              : c
+          );
+        }
+        return prev;
+      });
+
+      // If conversation is new or not in local state, fetch fresh list
+      try {
+        const res = await fetch(`${API_BASE}/api/conversations`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        const d = await res.json();
+        if (d.conversations) {
+          setConversations(d.conversations);
+        }
+      } catch (err) {
+        // silent fallback
+      }
     });
 
     setSocket(newSocket);
@@ -125,6 +202,12 @@ export function SocketProvider({ children }) {
     ));
   }, []);
 
+  const requestPushPermission = useCallback(async () => {
+    const perm = await requestNotificationPermission();
+    setNotificationPermission(perm);
+    return perm;
+  }, []);
+
   return (
     <SocketContext.Provider value={{
       socket,
@@ -141,7 +224,10 @@ export function SocketProvider({ children }) {
       joinConversation,
       leaveConversation,
       sendMessage,
-      markAsRead
+      markAsRead,
+      notificationPermission,
+      requestPushPermission,
+      lastBookingNotification
     }}>
       {children}
     </SocketContext.Provider>

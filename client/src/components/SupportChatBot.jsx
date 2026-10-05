@@ -229,12 +229,12 @@ export default function SupportChatBot() {
         .sb-dot:nth-child(1){animation:sbDot 1.2s ease-in-out infinite;}
         .sb-dot:nth-child(2){animation:sbDot 1.2s ease-in-out 0.2s infinite;}
         .sb-dot:nth-child(3){animation:sbDot 1.2s ease-in-out 0.4s infinite;}
-        .sb-quick:hover{background:#023E8A!important;color:#fff!important;border-color:#023E8A!important;transform:translateY(-1px);}
-        .sb-send:not(:disabled):hover{background:linear-gradient(135deg,#03045E,#023E8A)!important;transform:scale(1.06);}
-        .sb-input:focus{outline:none;border-color:#00B4D8!important;box-shadow:0 0 0 3px rgba(0,180,216,0.18)!important;}
+        .sb-quick:hover{background:linear-gradient(135deg, #023EBA 0%, #03045E 100%)!important;color:#FFFFFF!important;border-color:#00B4D8!important;transform:translateY(-1px);}
+        .sb-send:not(:disabled):hover{background:#FBB02D!important;transform:scale(1.06);}
+        .sb-input:focus{outline:none;border-color:#00B4D8!important;box-shadow:0 0 0 3px rgba(0,180,216,0.22)!important;}
         .sb-msgs::-webkit-scrollbar{width:4px;}
         .sb-msgs::-webkit-scrollbar-track{background:transparent;}
-        .sb-msgs::-webkit-scrollbar-thumb{background:#CAF0F8;border-radius:4px;}
+        .sb-msgs::-webkit-scrollbar-thumb{background:#023EBA;border-radius:4px;}
         .sb-ctrl:hover{background:rgba(255,255,255,0.2)!important;}
       `}</style>
 
@@ -243,10 +243,11 @@ export default function SupportChatBot() {
         <div style={{ position:'fixed', bottom:24, left:24, zIndex:1060, display:'flex', flexDirection:'column', alignItems:'flex-start', gap:8 }}>
           <div
             style={{
-              background:'#03045E', color:'#fff', fontSize:12, fontWeight:700,
+              background:'#051838', color:'#CAF0F8', fontSize:12, fontWeight:700,
               padding:'5px 12px', borderRadius:20, whiteSpace:'nowrap',
               fontFamily:'Plus Jakarta Sans,sans-serif',
-              boxShadow:'0 4px 12px rgba(3,4,94,0.3)',
+              border:'1px solid rgba(0, 180, 216, 0.4)',
+              boxShadow:'0 4px 15px rgba(0, 180, 216, 0.25)',
               animation:'sbBounce 2.4s ease-in-out infinite',
             }}
           >
@@ -263,14 +264,14 @@ export default function SupportChatBot() {
               aria-label="Open support chat"
               style={{
                 width:58, height:58, borderRadius:'50%',
-                background:'linear-gradient(135deg,#023E8A 0%,#00B4D8 100%)',
-                border:'none', cursor:'pointer',
+                background:'linear-gradient(135deg, #00B4D8 0%, #0077B6 100%)',
+                border:'2px solid #FFFFFF', cursor:'pointer',
                 display:'flex', alignItems:'center', justifyContent:'center',
-                boxShadow:'0 6px 24px rgba(2,62,138,0.45)',
+                boxShadow:'0 8px 26px rgba(0, 180, 216, 0.55)',
                 transition:'all 0.2s ease', position:'relative',
               }}
             >
-              <i className="bi bi-headset" style={{ fontSize:24, color:'#fff' }} />
+              <i className="bi bi-headset" style={{ fontSize:24, color:'#FFFFFF' }} />
               {hasUnread && (
                 <span style={{
                   position:'absolute', top:4, right:4, width:12, height:12,
@@ -289,29 +290,30 @@ export default function SupportChatBot() {
           style={{
             position:'fixed', bottom:24, left:24, zIndex:1060,
             width:370, borderRadius:20, overflow:'hidden',
-            boxShadow:'0 20px 60px rgba(3,4,94,0.3),0 4px 16px rgba(0,0,0,0.1)',
+            boxShadow:'0 20px 60px rgba(0,0,0,0.7),0 4px 16px rgba(0, 180, 216, 0.25)',
             display:'flex', flexDirection:'column',
             fontFamily:'Plus Jakarta Sans,sans-serif',
             animation:'sbSlideUp 0.3s cubic-bezier(0.34,1.56,0.64,1)',
-            border:'1px solid rgba(202,240,248,0.8)',
-            background:'#FFFFFF',
+            border:'1.5px solid rgba(0,180,216,0.4)',
+            background:'linear-gradient(155deg, rgba(4, 20, 54, 0.98) 0%, rgba(2, 10, 32, 0.99) 100%)',
           }}
         >
           {/* Header */}
           <div style={{
-            background:'linear-gradient(135deg,#03045E 0%,#023E8A 60%,#00B4D8 100%)',
+            background:'linear-gradient(135deg, rgba(0, 119, 182, 0.95) 0%, rgba(4, 20, 54, 0.95) 100%)',
             padding:'14px 16px', display:'flex', alignItems:'center', gap:12,
+            borderBottom:'1px solid rgba(0,180,216,0.25)'
           }}>
             <div style={{
               width:42, height:42, borderRadius:'50%',
-              background:'rgba(255,255,255,0.15)', backdropFilter:'blur(8px)',
+              background:'rgba(0,180,216,0.15)', backdropFilter:'blur(8px)',
               display:'flex', alignItems:'center', justifyContent:'center',
-              flexShrink:0, border:'2px solid rgba(255,255,255,0.3)',
+              flexShrink:0, border:'2px solid rgba(0,180,216,0.35)',
             }}>
-              <i className="bi bi-headset" style={{ fontSize:20, color:'#fff' }} />
+              <i className="bi bi-headset" style={{ fontSize:20, color:'#00B4D8' }} />
             </div>
             <div style={{ flex:1 }}>
-              <div style={{ color:'#fff', fontWeight:700, fontSize:15, lineHeight:1.2 }}>
+              <div style={{ color:'#FFFFFF', fontWeight:700, fontSize:15, lineHeight:1.2 }}>
                 ServiGo Assistant
               </div>
               <div style={{ display:'flex', alignItems:'center', gap:5, marginTop:2 }}>
@@ -319,7 +321,7 @@ export default function SupportChatBot() {
                   width:7, height:7, borderRadius:'50%', background:'#2ed573',
                   display:'inline-block', boxShadow:'0 0 6px #2ed573',
                 }} />
-                <span style={{ color:'rgba(255,255,255,0.75)', fontSize:11 }}>
+                <span style={{ color:'rgba(202,240,248,0.85)', fontSize:11 }}>
                   Online · Always ready to help
                 </span>
               </div>
@@ -331,7 +333,7 @@ export default function SupportChatBot() {
                 aria-label="Minimize"
                 style={{
                   background:'rgba(255,255,255,0.1)', border:'none', borderRadius:8,
-                  width:30, height:30, cursor:'pointer', color:'#fff',
+                  width:30, height:30, cursor:'pointer', color:'#CAF0F8',
                   display:'flex', alignItems:'center', justifyContent:'center',
                   transition:'background 0.15s',
                 }}
@@ -344,7 +346,7 @@ export default function SupportChatBot() {
                 aria-label="Close support chat"
                 style={{
                   background:'rgba(255,255,255,0.1)', border:'none', borderRadius:8,
-                  width:30, height:30, cursor:'pointer', color:'#fff',
+                  width:30, height:30, cursor:'pointer', color:'#CAF0F8',
                   display:'flex', alignItems:'center', justifyContent:'center',
                   transition:'background 0.15s',
                 }}
@@ -362,7 +364,7 @@ export default function SupportChatBot() {
                 style={{
                   overflowY:'auto', padding:'16px 14px 8px',
                   display:'flex', flexDirection:'column', gap:10,
-                  maxHeight:340, background:'#F4FAFC',
+                  maxHeight:340, background:'rgba(3, 14, 40, 0.96)',
                 }}
               >
                 {messages.map(msg => (
@@ -378,28 +380,29 @@ export default function SupportChatBot() {
                     {msg.type === 'bot' && (
                       <div style={{
                         width:28, height:28, borderRadius:'50%', flexShrink:0,
-                        background:'linear-gradient(135deg,#023E8A,#00B4D8)',
+                        background:'linear-gradient(135deg, #00B4D8 0%, #0077B6 100%)',
                         display:'flex', alignItems:'center', justifyContent:'center',
+                        border:'1px solid rgba(0, 180, 216, 0.4)'
                       }}>
-                        <i className="bi bi-robot" style={{ fontSize:13, color:'#fff' }} />
+                        <i className="bi bi-robot" style={{ fontSize:13, color:'#FFFFFF' }} />
                       </div>
                     )}
                     <div style={{
                       maxWidth:'80%', padding:'10px 14px',
                       borderRadius: msg.type === 'user' ? '18px 18px 4px 18px' : '4px 18px 18px 18px',
                       background: msg.type === 'user'
-                        ? 'linear-gradient(135deg,#023E8A 0%,#00B4D8 100%)'
-                        : '#FFFFFF',
-                      color: msg.type === 'user' ? '#fff' : '#03045E',
+                        ? 'linear-gradient(135deg, #00B4D8 0%, #0077B6 100%)'
+                        : 'rgba(0, 180, 216, 0.12)',
+                      color: '#FFFFFF',
                       fontSize:13.5, lineHeight:1.55, wordBreak:'break-word',
                       boxShadow: msg.type === 'user'
-                        ? '0 4px 12px rgba(2,62,138,0.25)'
-                        : '0 2px 8px rgba(0,0,0,0.07)',
-                      border: msg.type === 'bot' ? '1px solid #CAF0F8' : 'none',
+                        ? '0 4px 14px rgba(0, 180, 216, 0.35)'
+                        : '0 2px 8px rgba(0,0,0,0.2)',
+                      border: msg.type === 'bot' ? '1px solid rgba(0, 180, 216, 0.25)' : 'none',
                     }}>
                       {renderText(msg.text)}
                       <div style={{
-                        fontSize:10, marginTop:5, opacity:0.55,
+                        fontSize:10, marginTop:5, opacity:0.75, color:'#CAF0F8',
                         textAlign: msg.type === 'user' ? 'right' : 'left',
                       }}>
                         {formatTime(msg.time)}
@@ -408,20 +411,22 @@ export default function SupportChatBot() {
                   </div>
                 ))}
 
+
                 {/* Typing indicator */}
                 {isTyping && (
                   <div className="sb-msg" style={{ display:'flex', alignItems:'flex-end', gap:8 }}>
                     <div style={{
                       width:28, height:28, borderRadius:'50%', flexShrink:0,
-                      background:'linear-gradient(135deg,#023E8A,#00B4D8)',
+                      background:'linear-gradient(135deg, #00B4D8 0%, #0077B6 100%)',
                       display:'flex', alignItems:'center', justifyContent:'center',
+                      border:'1px solid rgba(0, 180, 216, 0.4)'
                     }}>
-                      <i className="bi bi-robot" style={{ fontSize:13, color:'#fff' }} />
+                      <i className="bi bi-robot" style={{ fontSize:13, color:'#FFFFFF' }} />
                     </div>
                     <div style={{
-                      background:'#FFFFFF', border:'1px solid #CAF0F8',
+                      background:'rgba(0, 180, 216, 0.12)', border:'1px solid rgba(0, 180, 216, 0.25)',
                       borderRadius:'4px 18px 18px 18px', padding:'12px 16px',
-                      boxShadow:'0 2px 8px rgba(0,0,0,0.07)',
+                      boxShadow:'0 2px 8px rgba(0,0,0,0.2)',
                       display:'flex', alignItems:'center', gap:2,
                     }}>
                       <span className="sb-dot" />
@@ -435,8 +440,8 @@ export default function SupportChatBot() {
 
               {/* Quick Replies */}
               <div style={{
-                padding:'8px 14px', background:'#FFFFFF',
-                borderTop:'1px solid #CAF0F8',
+                padding:'8px 14px', background:'rgba(3, 14, 40, 0.98)',
+                borderTop:'1px solid rgba(0, 180, 216, 0.2)',
                 display:'flex', flexWrap:'wrap', gap:6,
               }}>
                 {QUICK_REPLIES.map(qr => (
@@ -447,8 +452,8 @@ export default function SupportChatBot() {
                     disabled={isTyping}
                     style={{
                       fontSize:11, padding:'4px 10px', borderRadius:20,
-                      border:'1.5px solid #00B4D8', background:'#CAF0F8',
-                      color:'#023E8A', cursor:'pointer', fontWeight:600,
+                      border:'1.5px solid rgba(0, 180, 216, 0.35)', background:'rgba(0, 180, 216, 0.15)',
+                      color:'#CAF0F8', cursor:'pointer', fontWeight:600,
                       transition:'all 0.18s ease', fontFamily:'inherit',
                       whiteSpace:'nowrap',
                     }}
@@ -460,8 +465,8 @@ export default function SupportChatBot() {
 
               {/* Input */}
               <div style={{
-                padding:'10px 14px 12px', background:'#FFFFFF',
-                borderTop:'1px solid #CAF0F8',
+                padding:'10px 14px 12px', background:'rgba(3, 14, 40, 0.98)',
+                borderTop:'1px solid rgba(0, 180, 216, 0.2)',
                 display:'flex', gap:8, alignItems:'center',
               }}>
                 <input
@@ -477,9 +482,9 @@ export default function SupportChatBot() {
                   maxLength={300}
                   style={{
                     flex:1, padding:'9px 14px', borderRadius:24,
-                    border:'1.5px solid #BEE3F8', fontSize:13.5,
+                    border:'1.5px solid rgba(0, 180, 216, 0.35)', fontSize:13.5,
                     fontFamily:'inherit', outline:'none',
-                    background:'#F4FAFC', color:'#03045E',
+                    background:'rgba(0, 180, 216, 0.12)', color:'#FFFFFF',
                     transition:'border-color 0.2s,box-shadow 0.2s',
                   }}
                 />
@@ -492,23 +497,23 @@ export default function SupportChatBot() {
                   style={{
                     width:40, height:40, borderRadius:'50%',
                     background: inputText.trim()
-                      ? 'linear-gradient(135deg,#023E8A 0%,#00B4D8 100%)'
-                      : '#e0e0e0',
+                      ? 'linear-gradient(135deg, #FBB02D 0%, #E59F24 100%)'
+                      : 'rgba(0, 180, 216, 0.2)',
                     border:'none',
                     cursor: inputText.trim() ? 'pointer' : 'not-allowed',
                     display:'flex', alignItems:'center', justifyContent:'center',
                     flexShrink:0, transition:'all 0.2s ease',
-                    boxShadow: inputText.trim() ? '0 4px 12px rgba(2,62,138,0.3)' : 'none',
+                    boxShadow: inputText.trim() ? '0 4px 12px rgba(251,176,45,0.4)' : 'none',
                   }}
                 >
-                  <i className="bi bi-send-fill" style={{ fontSize:15, color: inputText.trim() ? '#fff' : '#aaa' }} />
+                  <i className="bi bi-send-fill" style={{ fontSize:15, color: inputText.trim() ? '#03045E' : 'rgba(202, 240, 248, 0.5)' }} />
                 </button>
               </div>
 
               {/* Footer */}
               <div style={{
-                padding:'5px 14px 10px', background:'#fff',
-                textAlign:'center', fontSize:10.5, color:'#90a0b0',
+                padding:'5px 14px 10px', background:'rgba(3, 14, 40, 0.98)',
+                textAlign:'center', fontSize:10.5, color:'rgba(202, 240, 248, 0.65)',
                 fontFamily:'inherit',
               }}>
                 🤖 Powered by ServiGo AI Support · Always available

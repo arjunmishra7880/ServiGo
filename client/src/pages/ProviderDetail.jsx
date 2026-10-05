@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useSocket } from '../context/SocketContext';
 import BookingModal from '../components/BookingModal';
+import { API_BASE } from '../config/api';
 
 function ProviderDetail() {
   const { id } = useParams();
@@ -21,7 +22,7 @@ function ProviderDetail() {
       return;
     }
     try {
-      const res = await fetch('http://localhost:5000/api/conversations', {
+      const res = await fetch(`${API_BASE}/api/conversations`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -46,7 +47,7 @@ function ProviderDetail() {
   const fetchProvider = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:5000/api/providers/' + id);
+      const res = await fetch(`${API_BASE}/api/providers/` + id);
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Provider not found');
       setProvider(data.provider);
@@ -127,7 +128,7 @@ function ProviderDetail() {
           <div className="col-lg-4">
             <div className="card-aesthetic p-4 sticky-top" style={{ top: 90 }}>
               <div className="text-center pb-3 border-bottom mb-3">
-                <div style={{ width: 72, height: 72, borderRadius: '50%', background: '#caf0f8', color: '#023eba', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32, margin: '0 auto 12px' }}>
+                <div style={{ width: 72, height: 72, borderRadius: '50%', background: 'rgba(0, 180, 216, 0.15)', color: '#00B4D8', border: '1.5px solid rgba(0, 180, 216, 0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32, margin: '0 auto 12px' }}>
                   <i className="bi bi-person-fill"></i>
                 </div>
                 <h4 style={{ fontWeight: 800, color: 'var(--text-primary)', marginBottom: 2 }}>
@@ -136,28 +137,25 @@ function ProviderDetail() {
                 {user && user.id !== provider.userId && user.role === 'customer' && (
                 <button
                   onClick={handleStartChat}
-                  className="btn w-100 mb-2"
+                  className="btn btn-primary-aesthetic w-100 mb-2"
                   style={{
-                    background: 'linear-gradient(135deg, #023eba 0%, #0077b6 100%)',
-                    border: 'none',
-                    color: '#fff',
-                    fontWeight: 600,
-                    padding: '10px'
+                    padding: '10px',
+                    fontWeight: 700
                   }}
                 >
                   <i className="bi bi-chat-dots-fill me-2"></i>Message Provider
                 </button>
               )}
               {provider.isVerified && (
-                <span className="badge" style={{ background: '#caf0f8', color: '#03045e', fontWeight: 600 }}>
-                  <i className="bi bi-patch-check-fill me-1"></i>Verified Specialist
+                <span className="badge" style={{ background: 'rgba(0, 180, 216, 0.15)', color: '#FFFFFF', border: '1px solid rgba(0, 180, 216, 0.35)', fontWeight: 600 }}>
+                  <i className="bi bi-patch-check-fill me-1" style={{ color: '#00B4D8' }}></i>Verified Specialist
                 </span>
               )}
               </div>
 
-              <div className="d-flex justify-content-around text-center py-2 mb-3 bg-light rounded-3">
+              <div className="d-flex justify-content-around text-center py-2 mb-3 rounded-3" style={{ background: 'rgba(0, 180, 216, 0.12)', border: '1px solid rgba(0, 180, 216, 0.28)' }}>
                 <div>
-                  <div style={{ fontWeight: 800, fontSize: 18, color: '#ca8a04' }}>
+                  <div style={{ fontWeight: 800, fontSize: 18, color: '#FBB02D' }}>
                     ★ {provider.rating}
                   </div>
                   <small style={{ color: 'var(--text-muted)' }}>{provider.reviewCount} reviews</small>
@@ -171,7 +169,7 @@ function ProviderDetail() {
                 </div>
                 <div style={{ borderLeft: '1px solid var(--border-light)' }}></div>
                 <div>
-                  <div style={{ fontWeight: 800, fontSize: 18, color: '#059669' }}>
+                  <div style={{ fontWeight: 800, fontSize: 18, color: '#00B4D8' }}>
                     ₹{provider.hourlyRate}
                   </div>
                   <small style={{ color: 'var(--text-muted)' }}>per hr base</small>
@@ -190,7 +188,7 @@ function ProviderDetail() {
                   <span><strong>City:</strong> {provider.city}</span>
                 </div>
                 <div className="d-flex align-items-center gap-2" style={{ fontSize: 14, color: 'var(--text-secondary)' }}>
-                  <i className="bi bi-map-fill text-primary"></i>
+                  <i className="bi bi-map-fill" style={{ color: '#00B4D8' }}></i>
                   <span><strong>Service Areas:</strong> {provider.serviceArea}</span>
                 </div>
               </div>
@@ -207,10 +205,10 @@ function ProviderDetail() {
 
               <div className="d-flex flex-column gap-3">
                 {provider.services && provider.services.map((s) => (
-                  <div key={s.id} className="p-3 rounded-3" style={{ background: '#ffffff', border: '1px solid var(--border-light)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
+                  <div key={s.id} className="p-3 rounded-3" style={{ background: 'rgba(0, 180, 216, 0.12)', border: '1px solid rgba(0, 180, 216, 0.25)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 12 }}>
                     <div>
                       <div className="d-flex align-items-center gap-2 mb-1">
-                        <span className="badge" style={{ background: '#caf0f8', color: '#03045e' }}>
+                        <span className="badge" style={{ background: 'rgba(0, 180, 216, 0.22)', color: '#FFFFFF', border: '1px solid rgba(0, 180, 216, 0.35)' }}>
                           {s.category?.name || 'General'}
                         </span>
                         <h6 style={{ fontWeight: 700, margin: 0, color: 'var(--text-primary)' }}>{s.title}</h6>
@@ -219,7 +217,7 @@ function ProviderDetail() {
                     </div>
 
                     <div className="d-flex align-items-center gap-3 ms-auto">
-                      <span style={{ fontSize: 18, fontWeight: 800, color: '#059669' }}>₹{s.price}</span>
+                      <span style={{ fontSize: 18, fontWeight: 800, color: '#00B4D8' }}>₹{s.price}</span>
                       <button
                         onClick={() => setActiveBooking({ service: s, provider })}
                         className="btn-primary-aesthetic btn btn-sm"
@@ -247,7 +245,7 @@ function ProviderDetail() {
               {provider.reviews && provider.reviews.length > 0 ? (
                 <div className="d-flex flex-column gap-3">
                   {provider.reviews.map((r) => (
-                    <div key={r.id} className="p-3 rounded-3" style={{ background: '#ffffff', border: '1px solid var(--border-light)' }}>
+                    <div key={r.id} className="p-3 rounded-3" style={{ background: 'rgba(0, 180, 216, 0.10)', border: '1px solid rgba(0, 180, 216, 0.22)' }}>
                       <div className="d-flex justify-content-between align-items-center mb-2">
                         <div>
                           <strong style={{ color: 'var(--text-primary)', fontSize: 14 }}>
@@ -257,7 +255,7 @@ function ProviderDetail() {
                             {new Date(r.createdAt).toLocaleDateString()}
                           </span>
                         </div>
-                        <span style={{ color: '#f59e0b', fontWeight: 700 }}>
+                        <span style={{ color: '#FBB02D', fontWeight: 700 }}>
                           {'★'.repeat(r.rating)}{'☆'.repeat(5 - r.rating)}
                         </span>
                       </div>

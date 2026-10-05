@@ -1,10 +1,5 @@
 import React from "react";
-
-// Simplified background component (no animation) to keep the same API
-// as before so Home / Login / Register keep working:
-//   fixed — full-viewport layer pinned behind the page while it scrolls
-//   className / style — passed to the wrapper
-//   children — content rendered above the background (non-fixed mode)
+import { useTheme } from "../context/ThemeContext";
 
 export default function GradientBackground({
   children,
@@ -14,8 +9,20 @@ export default function GradientBackground({
   overlay = false,
   overlayOpacity = 0.3,
 }) {
-  const hasOverlay = Boolean(overlay);
+  let isLight = false;
+  try {
+    const { theme } = useTheme();
+    isLight = theme === 'light';
+  } catch (e) {
+    // Fallback if rendered outside ThemeProvider
+  }
+
+  const hasOverlay = Boolean(overlay) && !isLight;
   const overlayAlpha = typeof overlay === "number" ? overlay : overlayOpacity;
+
+  const bgGradient = isLight
+    ? "radial-gradient(130% 90% at 50% 0%, #E0F7FA 0%, #CAF0F8 35%, #F0F9FF 68%, #FFFFFF 100%)"
+    : "radial-gradient(130% 90% at 50% 0%, rgba(0, 180, 216, 0.45) 0%, rgba(0, 119, 182, 0.28) 28%, #061B40 58%, #020C1F 100%)";
 
   const wrapperStyle = fixed
     ? {
@@ -26,7 +33,8 @@ export default function GradientBackground({
         zIndex: 0,
         pointerEvents: "none",
         overflow: "hidden",
-        backgroundColor: "#03045E", // Ocean Royale Primary Background
+        background: bgGradient,
+        transition: "background 0.3s ease",
         ...style,
       }
     : {
@@ -34,13 +42,14 @@ export default function GradientBackground({
         width: "100%",
         minHeight: "100vh",
         overflow: "hidden",
-        backgroundColor: "#03045E", // Ocean Royale Primary Background
+        background: bgGradient,
+        transition: "background 0.3s ease",
         ...style,
       };
 
   return (
     <div className={className} style={wrapperStyle}>
-      {/* Optional dark overlay to keep white text readable if needed */}
+      {/* Optional dark overlay to keep white text readable if needed in dark mode */}
       {hasOverlay && (
         <div
           style={{

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { API_BASE } from '../config/api';
 
 function AdminDashboard() {
   const { user, token } = useAuth();
@@ -28,19 +29,19 @@ function AdminDashboard() {
     setLoading(true);
     try {
       // 1. Fetch providers
-      const resP = await fetch('http://localhost:5000/api/providers');
+      const resP = await fetch(`${API_BASE}/api/providers`);
       const dataP = await resP.json();
       setProviders(dataP.providers || []);
 
       // 2. Fetch users
-      const resU = await fetch('http://localhost:5000/api/auth/users', {
+      const resU = await fetch(`${API_BASE}/api/auth/users`, {
         headers: { 'Authorization': 'Bearer ' + token }
       });
       const dataU = await resU.json();
       setUsers(dataU.users || []);
 
       // 3. Fetch all bookings
-      const resB = await fetch('http://localhost:5000/api/bookings/my', {
+      const resB = await fetch(`${API_BASE}/api/bookings/my`, {
         headers: { 'Authorization': 'Bearer ' + token }
       });
       const dataB = await resB.json();
@@ -54,7 +55,7 @@ function AdminDashboard() {
 
   const handleToggleVerify = async (providerId) => {
     try {
-      const res = await fetch('http://localhost:5000/api/providers/' + providerId + '/verify', {
+      const res = await fetch(`${API_BASE}/api/providers/` + providerId + '/verify', {
         method: 'PATCH',
         headers: { 'Authorization': 'Bearer ' + token }
       });
@@ -92,16 +93,19 @@ function AdminDashboard() {
         <div className="container d-flex align-items-center justify-content-between py-3">
           <Link to="/" style={{ textDecoration: 'none' }}>
             <span className="brand-text fs-4">
-              <i className="bi bi-tools me-2" style={{ color: '#023eba' }}></i>
-              ServiGo <span className="badge ms-2" style={{ background: '#caf0f8', color: '#03045e', fontSize: 12 }}>Admin Panel</span>
+              <i className="bi bi-tools me-2" style={{ color: '#00B4D8' }}></i>
+              ServiGo <span className="badge ms-2" style={{ background: 'rgba(0, 180, 216, 0.18)', color: '#CAF0F8', border: '1px solid rgba(0, 180, 216, 0.4)', fontSize: 12 }}>Admin Panel</span>
             </span>
           </Link>
           <div className="d-flex align-items-center gap-3">
+            <Link to="/dashboard" className="btn btn-sm btn-primary-aesthetic" style={{ borderRadius: 10, fontSize: 13 }}>
+              <i className="bi bi-graph-up-arrow me-1"></i>Analytics Studio
+            </Link>
             <Link to="/" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: 15, fontWeight: 500 }}>
               <i className="bi bi-house-door me-1"></i>View Site
             </Link>
-            <span className="badge bg-light text-dark p-2">
-              <i className="bi bi-shield-check text-primary me-1"></i>{user.name}
+            <span className="badge p-2" style={{ background: 'rgba(0, 180, 216, 0.15)', color: '#CAF0F8', border: '1px solid rgba(0, 180, 216, 0.35)' }}>
+              <i className="bi bi-shield-check me-1" style={{ color: '#00B4D8' }}></i>{user.name}
             </span>
           </div>
         </div>
@@ -111,11 +115,16 @@ function AdminDashboard() {
         <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
           <div>
             <h3 style={{ fontWeight: 800, color: 'var(--text-primary)', marginBottom: 2 }}>System Overview</h3>
-            <p style={{ color: 'var(--text-secondary)', margin: 0, fontSize: 14 }}>Manage platform users, provider verification, and bookings</p>
+            <p style={{ color: 'var(--text-secondary)', margin: 0, fontSize: 14 }}>Manage platform users, provider verification, bookings, and performance telemetry</p>
           </div>
-          <button onClick={loadData} className="btn btn-light-aesthetic btn-sm">
-            <i className="bi bi-arrow-clockwise me-1"></i>Refresh Data
-          </button>
+          <div className="d-flex gap-2">
+            <Link to="/dashboard" className="btn btn-sm btn-light-aesthetic" style={{ fontWeight: 700, borderRadius: 10, fontSize: 13 }}>
+              <i className="bi bi-speedometer2 me-1"></i>Provider Performance
+            </Link>
+            <button onClick={loadData} className="btn btn-light-aesthetic btn-sm">
+              <i className="bi bi-arrow-clockwise me-1"></i>Refresh Data
+            </button>
+          </div>
         </div>
 
         {message && (
@@ -128,33 +137,33 @@ function AdminDashboard() {
         <div className="row g-3 mb-4">
           <div className="col-md-4">
             <div className="card-aesthetic p-3 d-flex align-items-center gap-3">
-              <div style={{ width: 50, height: 50, borderRadius: 12, background: '#caf0f8', color: '#023eba', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
+              <div style={{ width: 50, height: 50, borderRadius: 12, background: 'rgba(0, 180, 216, 0.18)', color: '#00B4D8', border: '1px solid rgba(0, 180, 216, 0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
                 <i className="bi bi-people-fill"></i>
               </div>
               <div>
-                <h4 style={{ fontWeight: 800, margin: 0 }}>{users.length}</h4>
+                <h4 style={{ fontWeight: 800, margin: 0, color: '#FFFFFF' }}>{users.length}</h4>
                 <small style={{ color: 'var(--text-muted)' }}>Registered Accounts</small>
               </div>
             </div>
           </div>
           <div className="col-md-4">
             <div className="card-aesthetic p-3 d-flex align-items-center gap-3">
-              <div style={{ width: 50, height: 50, borderRadius: 12, background: '#fef3c7', color: '#d97706', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
+              <div style={{ width: 50, height: 50, borderRadius: 12, background: 'rgba(2, 62, 186, 0.25)', color: '#00B4D8', border: '1px solid rgba(0, 180, 216, 0.45)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
                 <i className="bi bi-patch-check-fill"></i>
               </div>
               <div>
-                <h4 style={{ fontWeight: 800, margin: 0 }}>{providers.length}</h4>
+                <h4 style={{ fontWeight: 800, margin: 0, color: '#FFFFFF' }}>{providers.length}</h4>
                 <small style={{ color: 'var(--text-muted)' }}>Service Providers</small>
               </div>
             </div>
           </div>
           <div className="col-md-4">
             <div className="card-aesthetic p-3 d-flex align-items-center gap-3">
-              <div style={{ width: 50, height: 50, borderRadius: 12, background: '#dcfce7', color: '#059669', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
+              <div style={{ width: 50, height: 50, borderRadius: 12, background: 'rgba(2, 62, 186, 0.45)', color: '#CAF0F8', border: '1px solid rgba(0, 180, 216, 0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
                 <i className="bi bi-calendar2-check-fill"></i>
               </div>
               <div>
-                <h4 style={{ fontWeight: 800, margin: 0 }}>{bookings.length}</h4>
+                <h4 style={{ fontWeight: 800, margin: 0, color: '#FFFFFF' }}>{bookings.length}</h4>
                 <small style={{ color: 'var(--text-muted)' }}>Total Appointments</small>
               </div>
             </div>
@@ -186,7 +195,7 @@ function AdminDashboard() {
         {/* Tab Content */}
         {loading ? (
           <div className="text-center py-5">
-            <div className="spinner-border" style={{ color: '#00b4d8' }}></div>
+            <div className="spinner-border" style={{ color: '#00B4D8' }}></div>
             <p className="text-muted mt-2">Loading data...</p>
           </div>
         ) : (
@@ -243,6 +252,21 @@ function AdminDashboard() {
                             >
                               {p.isVerified ? 'Revoke' : 'Approve'}
                             </button>
+                            <Link
+                              to="/dashboard"
+                              className="btn btn-sm ms-1"
+                              style={{
+                                borderRadius: 8,
+                                fontSize: 12,
+                                background: 'rgba(0, 180, 216, 0.15)',
+                                color: '#CAF0F8',
+                                border: '1px solid rgba(0, 180, 216, 0.3)',
+                                fontWeight: 600
+                              }}
+                              title="View Provider Analytics"
+                            >
+                              <i className="bi bi-bar-chart-fill me-1"></i>Metrics
+                            </Link>
                           </td>
                         </tr>
                       ))}
@@ -276,8 +300,9 @@ function AdminDashboard() {
                           <td>{u.phone || '—'}</td>
                           <td>
                             <span className="badge text-capitalize" style={{
-                              background: u.role === 'admin' ? '#caf0f8' : u.role === 'provider' ? '#fbb02d' : '#caf0f8',
-                              color: u.role === 'admin' ? '#03045e' : u.role === 'provider' ? '#03045e' : '#023eba'
+                              background: u.role === 'admin' ? 'rgba(0, 180, 216, 0.25)' : u.role === 'provider' ? '#FBB02D' : 'rgba(2, 62, 186, 0.3)',
+                              color: u.role === 'admin' ? '#FFFFFF' : u.role === 'provider' ? '#03045E' : '#CAF0F8',
+                              border: '1px solid rgba(0, 180, 216, 0.3)'
                             }}>
                               {u.role}
                             </span>

@@ -2,16 +2,20 @@ const { Server } = require('socket.io');
 const jwt = require('jsonwebtoken');
 const prisma = require('./prisma');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key';
+const JWT_SECRET = process.env.JWT_SECRET || 'local_service_finder_secret_key_2026';
+
+let ioInstance = null;
 
 function setupSocket(server) {
   const io = new Server(server, {
     cors: {
-      origin: process.env.CLIENT_URL || 'http://localhost:5173',
+      origin: true,
       methods: ['GET', 'POST'],
       credentials: true
     }
   });
+
+  ioInstance = io;
 
   // Authenticate socket connection
   io.use(async (socket, next) => {
@@ -22,8 +26,9 @@ function setupSocket(server) {
       }
 
       const decoded = jwt.verify(token, JWT_SECRET);
+      const userId = decoded.id || decoded.userId;
       const user = await prisma.user.findUnique({
-        where: { id: decoded.userId },
+        where: { id: userId },
         include: { providerProfile: true }
       });
 
@@ -182,4 +187,8 @@ function setupSocket(server) {
   return io;
 }
 
-module.exports = { setupSocket };
+function getIO() {
+  return ioInstance;
+}
+
+module.exports = { setupSocket, getIO };

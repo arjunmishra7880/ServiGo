@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useSocket } from '../context/SocketContext';
 import ReviewModal from '../components/ReviewModal';
+import { API_BASE } from '../config/api';
 
 function MyBookings() {
   const { user, token } = useAuth();
@@ -24,7 +25,7 @@ function MyBookings() {
       let providerId;
       if (user.role === 'provider' && otherUserRole === 'customer') {
         // Provider wants to chat with customer - find the provider profile
-        const res = await fetch('http://localhost:5000/api/providers/me', {
+        const res = await fetch(`${API_BASE}/api/providers/me`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = await res.json();
@@ -38,7 +39,7 @@ function MyBookings() {
 
       if (!providerId) return;
 
-      const res = await fetch('http://localhost:5000/api/conversations', {
+      const res = await fetch(`${API_BASE}/api/conversations`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -68,7 +69,7 @@ function MyBookings() {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('http://localhost:5000/api/bookings/my', {
+      const res = await fetch(`${API_BASE}/api/bookings/my`, {
         headers: {
           'Authorization': 'Bearer ' + token
         }
@@ -85,7 +86,7 @@ function MyBookings() {
 
   const handleStatusChange = async (bookingId, newStatus) => {
     try {
-      const res = await fetch('http://localhost:5000/api/bookings/' + bookingId + '/status', {
+      const res = await fetch(`${API_BASE}/api/bookings/` + bookingId + '/status', {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
@@ -160,7 +161,7 @@ function MyBookings() {
 
         {loading ? (
           <div className="text-center py-5">
-            <div className="spinner-border" style={{ color: '#00b4d8' }}></div>
+            <div className="spinner-border" style={{ color: '#00B4D8' }}></div>
             <p style={{ color: 'var(--text-muted)', marginTop: 8, fontSize: 14 }}>Loading your bookings...</p>
           </div>
         ) : bookings.length === 0 ? (
@@ -180,7 +181,7 @@ function MyBookings() {
               <div key={b.id} className="col-md-6 col-lg-4">
                 <div className="card-aesthetic p-4 h-100 d-flex flex-column">
                   <div className="d-flex justify-content-between align-items-start mb-2">
-                    <span className="badge" style={{ background: '#caf0f8', color: '#03045e' }}>
+                    <span className="badge" style={{ background: 'rgba(0, 180, 216, 0.18)', color: '#CAF0F8', border: '1px solid rgba(0, 180, 216, 0.3)' }}>
                       {b.service?.category?.name || 'Service'}
                     </span>
                     {getStatusBadge(b.status)}
@@ -205,13 +206,13 @@ function MyBookings() {
                   </div>
 
                   {b.notes && (
-                    <div style={{ background: '#ffffff', padding: 8, borderRadius: 8, fontSize: 12, color: 'var(--text-secondary)', marginBottom: 12 }}>
+                    <div style={{ background: 'rgba(0, 180, 216, 0.12)', border: '1px solid rgba(0, 180, 216, 0.25)', padding: 8, borderRadius: 8, fontSize: 12, color: '#CAF0F8', marginBottom: 12 }}>
                       <em>Note: {b.notes}</em>
                     </div>
                   )}
 
                   <div className="d-flex justify-content-between align-items-center pt-3 border-top mt-auto">
-                    <span style={{ fontWeight: 800, color: '#059669', fontSize: 16 }}>₹{b.totalAmount}</span>
+                    <span style={{ fontWeight: 800, color: '#FBB02D', fontSize: 16 }}>₹{b.totalAmount}</span>
 
                     <div className="d-flex gap-1">
                       {/* Provider Actions */}
@@ -276,11 +277,11 @@ function MyBookings() {
                           )}
                           className="btn btn-sm"
                           style={{
-                            background: 'linear-gradient(135deg, #023eba 0%, #0077b6 100%)',
-                            color: '#fff',
+                            background: 'linear-gradient(135deg, #023EBA 0%, #00B4D8 100%)',
+                            color: '#FFFFFF',
                             fontWeight: 600,
                             borderRadius: 8,
-                            border: 'none'
+                            border: '1px solid rgba(0, 180, 216, 0.4)'
                           }}
                           title="Message"
                         >

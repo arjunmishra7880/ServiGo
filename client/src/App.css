@@ -1,6 +1,6 @@
 /* Custom styles for Local Service Finder */
 .hero-section {
-  background: linear-gradient(135deg, #03045e 0%, #023eba 100%);
+  background: radial-gradient(120% 80% at 50% 0%, rgba(0, 180, 216, 0.40) 0%, rgba(0, 119, 182, 0.25) 30%, #051937 65%, #020C1F 100%);
 }
 
 .card {

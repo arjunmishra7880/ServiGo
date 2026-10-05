@@ -93,7 +93,7 @@ export default function ChatWindow({ conversation, currentUser, messages: initia
         </button>
         <div className="flex-shrink-0">
           <div className="rounded-circle bg-primary-aesthetic d-flex align-items-center justify-content-center"
-            style={{ width: 40, height: 40, fontSize: 16, color: '#023E8A' }}>
+            style={{ width: 40, height: 40, fontSize: 16, color: '#03045E' }}>
             <i className={currentUser.role === 'provider' ? 'bi bi-person-fill' : 'bi bi-building-fill'}></i>
           </div>
         </div>
@@ -171,11 +171,11 @@ export default function ChatWindow({ conversation, currentUser, messages: initia
               width: 44,
               height: 44,
               borderRadius: 50,
-              background: 'linear-gradient(135deg, #023E8A 0%, #00B4D8 100%)',
+              background: '#FBB02D',
               border: 'none'
             }}
           >
-            <i className="bi bi-send-fill" style={{ fontSize: 18, color: '#fff' }}></i>
+            <i className="bi bi-send-fill" style={{ fontSize: 18, color: '#03045E' }}></i>
           </button>
         </div>
       </form>
@@ -202,10 +202,10 @@ function MessageBubble({ message, isOwn, currentUser }) {
           className={`rounded-3 px-4 py-2 ${isOwn ? 'rounded-end-0' : 'rounded-start-0'}`}
           style={{
             background: isOwn
-              ? 'linear-gradient(135deg, #023E8A 0%, #00B4D8 100%)'
-              : '#CAF0F8',
-            color: isOwn ? '#fff' : '#03045E',
-            boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+              ? 'linear-gradient(135deg, #00B4D8 0%, #0077B6 100%)'
+              : 'rgba(0, 180, 216, 0.12)',
+            color: isOwn ? '#FFFFFF' : '#03045E',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.15)',
             fontSize: 14,
             lineHeight: 1.5,
             wordWrap: 'break-word'

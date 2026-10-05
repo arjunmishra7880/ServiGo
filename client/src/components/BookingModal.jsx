@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE } from '../config/api';
 
 function BookingModal({ service, provider, onClose, onSuccess }) {
   const { user, token } = useAuth();
@@ -25,7 +26,7 @@ function BookingModal({ service, provider, onClose, onSuccess }) {
     setError('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/bookings', {
+      const response = await fetch(`${API_BASE}/api/bookings`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,10 +57,10 @@ function BookingModal({ service, provider, onClose, onSuccess }) {
   return (
     <div className="modal show d-block" tabIndex="-1" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
       <div className="modal-dialog modal-dialog-centered">
-        <div className="modal-content border-0 shadow">
-          <div className="modal-header bg-primary text-white">
-            <h5 className="modal-title fw-bold">
-              <i className="bi bi-calendar-check me-2"></i>Book Service
+        <div className="modal-content border-0 shadow" style={{ borderRadius: 16, overflow: 'hidden' }}>
+          <div className="modal-header bg-primary-aesthetic text-white border-0 py-3">
+            <h5 className="modal-title fw-bold fs-6">
+              <i className="bi bi-calendar-check me-2" style={{ color: '#00B4D8' }}></i>Book Service
             </h5>
             <button type="button" className="btn-close btn-close-white" onClick={onClose}></button>
           </div>
@@ -71,15 +72,15 @@ function BookingModal({ service, provider, onClose, onSuccess }) {
               )}
 
               {/* Service Summary Card */}
-              <div className="card bg-light border-0 p-3 mb-3">
+              <div className="p-3 mb-3" style={{ background: 'rgba(0, 180, 216, 0.15)', border: '1px solid rgba(0, 180, 216, 0.35)', borderRadius: 12 }}>
                 <div className="d-flex justify-content-between align-items-center">
                   <div>
-                    <h6 className="fw-bold mb-1">{service.title}</h6>
-                    <small className="text-muted">
-                      Provider: <strong className="text-dark">{provider.businessName || provider.user.name}</strong>
+                    <h6 className="fw-bold mb-1" style={{ color: '#FFFFFF' }}>{service.title}</h6>
+                    <small style={{ color: '#CAF0F8', opacity: 0.9 }}>
+                      Provider: <strong style={{ color: '#FFFFFF' }}>{provider.businessName || provider.user?.name}</strong>
                     </small>
                   </div>
-                  <span className="badge bg-success fs-6 px-3 py-2">
+                  <span className="badge fs-6 px-3 py-2" style={{ background: 'linear-gradient(135deg, #FBB02D 0%, #E59F24 100%)', color: '#03045E', fontWeight: 800 }}>
                     ₹{service.price}
                   </span>
                 </div>
@@ -126,11 +127,11 @@ function BookingModal({ service, provider, onClose, onSuccess }) {
               </div>
             </div>
 
-            <div className="modal-footer bg-light border-0">
-              <button type="button" className="btn btn-secondary btn-sm" onClick={onClose}>
+            <div className="modal-footer border-0 py-2" style={{ background: 'rgba(3, 14, 40, 0.7)', borderTop: '1px solid rgba(0, 180, 216, 0.25)' }}>
+              <button type="button" className="btn btn-light-aesthetic btn-sm" onClick={onClose}>
                 Cancel
               </button>
-              <button type="submit" className="btn btn-primary btn-sm px-4 fw-semibold" disabled={loading}>
+              <button type="submit" className="btn-primary-aesthetic btn btn-sm px-4 fw-semibold" disabled={loading}>
                 {loading ? 'Booking...' : (user ? 'Confirm Booking' : 'Proceed to Login')}
               </button>
             </div>

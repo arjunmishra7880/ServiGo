@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useSocket } from '../context/SocketContext';
 import ChatWindow from './ChatWindow';
+import { API_BASE } from '../config/api';
 
 export default function ChatPanel() {
   const { user, token, loading } = useAuth();
@@ -28,7 +29,7 @@ export default function ChatPanel() {
     const fetchConversations = async () => {
       setLoadingConversations(true);
       try {
-        const res = await fetch('http://localhost:5000/api/conversations', {
+        const res = await fetch(`${API_BASE}/api/conversations`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         const data = await res.json();
@@ -51,7 +52,7 @@ export default function ChatPanel() {
 
       const fetchMessages = async () => {
         try {
-          const res = await fetch(`http://localhost:5000/api/conversations/${activeConversation.id}/messages`, {
+          const res = await fetch(`${API_BASE}/api/conversations/${activeConversation.id}/messages`, {
             headers: { Authorization: `Bearer ${token}` }
           });
           const data = await res.json();
@@ -109,8 +110,9 @@ export default function ChatPanel() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 4px 20px rgba(2,62,138,0.35)',
-            border: 'none'
+            boxShadow: '0 4px 20px rgba(251, 176, 45, 0.45)',
+            border: 'none',
+            background: '#FBB02D'
           }}
           aria-label="Open chat"
         >
@@ -137,8 +139,8 @@ export default function ChatPanel() {
             flexDirection: 'column',
             background: '#fff',
             borderRadius: 16,
-            boxShadow: '0 8px 40px rgba(0,0,0,0.15)',
-            border: '1px solid var(--border-light)',
+            boxShadow: '0 8px 40px rgba(3,4,94,0.25)',
+            border: '1px solid rgba(0, 180, 216, 0.25)',
             overflow: 'hidden',
             animation: 'slideUp 0.3s ease-out'
           }}
@@ -153,9 +155,9 @@ export default function ChatPanel() {
           {/* Header */}
           <div className="d-flex align-items-center justify-content-between p-3"
             style={{
-              background: 'linear-gradient(135deg, #03045E 0%, #023E8A 60%, #00B4D8 100%)',
-              color: '#fff',
-              borderBottom: 'none'
+              background: 'linear-gradient(135deg, #00B4D8 0%, #0077B6 100%)',
+              color: '#FFFFFF',
+              borderBottom: '1px solid rgba(0, 180, 216, 0.3)'
             }}
           >
             <div className="d-flex align-items-center gap-2">
@@ -228,7 +230,7 @@ export default function ChatPanel() {
                       >
                         <div className="position-relative flex-shrink-0">
                           <div className="rounded-circle bg-primary-aesthetic d-flex align-items-center justify-content-center"
-                            style={{ width: 44, height: 44, fontSize: 18, color: '#023E8A' }}>
+                            style={{ width: 44, height: 44, fontSize: 18, color: '#03045E' }}>
                             <i className={user.role === 'provider' ? 'bi bi-person-fill' : 'bi bi-building-fill'}></i>
                           </div>
                           {unread > 0 && (
