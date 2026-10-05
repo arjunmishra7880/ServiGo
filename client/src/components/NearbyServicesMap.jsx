@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 // Category colors and icons mapping
 const CATEGORY_MAP = {
   "IT & Electronics": { color: "#F97316", icon: "bi-laptop", label: "IT & Tech" },
-  "Home Appliances":  { color: "#00B4D8", icon: "bi-tv", label: "Appliances" },
-  "Plumbing":         { color: "#38BDF8", icon: "bi-wrench-adjustable", label: "Plumbing" },
-  "Electrician":      { color: "#FBB02D", icon: "bi-lightning-charge", label: "Electrician" },
-  "Home Cleaning":    { color: "#10B981", icon: "bi-stars", label: "Cleaning" },
+  "Home Appliances":  { color: "#10C4A8", icon: "bi-tv", label: "Appliances" },
+  "Plumbing":         { color: "#00684A", icon: "bi-wrench-adjustable", label: "Plumbing" },
+  "Electrician":      { color: "#FFB02D", icon: "bi-lightning-charge", label: "Electrician" },
+  "Home Cleaning":    { color: "#10C4A8", icon: "bi-stars", label: "Cleaning" },
   "Carpentry":        { color: "#F59E0B", icon: "bi-hammer", label: "Carpentry" },
   "Painting":         { color: "#A855F7", icon: "bi-paint-bucket", label: "Painting" },
   "Pest Control":     { color: "#EC4899", icon: "bi-shield-shaded", label: "Pest Control" }
@@ -60,7 +60,7 @@ export default function NearbyServicesMap({
         p.services?.[0]?.categoryName ||
         "Plumbing";
       const catConfig = CATEGORY_MAP[primaryCat] || {
-        color: "#00B4D8",
+        color: "#10C4A8",
         icon: "bi-tools",
         label: primaryCat
       };
@@ -206,10 +206,10 @@ export default function NearbyServicesMap({
         .map(
           (s) => `
           <div class="popup-service-item">
-            <div style="font-size:12px;font-weight:600;color:#FFFFFF;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px;">
+            <div style="font-size:12px;font-weight:600;color:#001E2B;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px;">
               ${s.title}
             </div>
-            <div style="font-weight:800;color:#34D399;font-size:12px;">₹${s.price}</div>
+            <div style="font-weight:800;color:#00684A;font-size:12px;">₹${s.price}</div>
           </div>
         `
         )
@@ -224,15 +224,15 @@ export default function NearbyServicesMap({
               </div>
               <h5 class="popup-title">
                 ${providerName}
-                ${p.isVerified ? '<i class="bi bi-patch-check-fill ms-1" style="color:#00B4D8;font-size:13px;"></i>' : ""}
+                ${p.isVerified ? '<i class="bi bi-patch-check-fill ms-1" style="color:#10C4A8;font-size:13px;"></i>' : ""}
               </h5>
             </div>
-            <span class="popup-badge" style="background:rgba(0, 180, 216, 0.25);color:#FFFFFF;border:1px solid rgba(0, 180, 216, 0.4);">
+            <span class="popup-badge" style="background:#E6FAF6;color:#00684A;border:1px solid #10C4A8;">
               ★ ${p.rating || "5.0"}
             </span>
           </div>
 
-          <div style="font-size:12px;color:#CAF0F8;opacity:0.9;margin-bottom:8px;">
+          <div style="font-size:12px;color:#3D4F58;margin-bottom:8px;">
             <i class="bi bi-geo-alt me-1 text-danger"></i>${p.serviceArea || p.city || "Mumbai"}
             <span class="mx-1">·</span>
             <i class="bi bi-briefcase me-1"></i>${p.experience || 5} yrs exp
@@ -241,7 +241,7 @@ export default function NearbyServicesMap({
           ${
             topServices.length > 0
               ? `
-            <div style="font-size:11px;font-weight:700;color:#00B4D8;text-transform:uppercase;margin-bottom:4px;">
+            <div style="font-size:11px;font-weight:700;color:#00684A;text-transform:uppercase;margin-bottom:4px;">
               Top Services:
             </div>
             ${servicesHtml}
@@ -324,14 +324,14 @@ export default function NearbyServicesMap({
                 display: "inline-flex",
                 alignItems: "center",
                 gap: 6,
-                background: "rgba(0, 180, 216, 0.2)",
-                color: "#00B4D8",
+                background: "#E6FAF6",
+                color: "#00684A",
                 padding: "4px 14px",
                 borderRadius: 20,
                 fontSize: 12,
                 fontWeight: 700,
                 letterSpacing: 0.5,
-                border: "1px solid rgba(0, 180, 216, 0.35)",
+                border: "1.5px solid #10C4A8",
                 marginBottom: 8
               }}
             >
@@ -341,14 +341,13 @@ export default function NearbyServicesMap({
               style={{
                 fontWeight: 800,
                 fontSize: "clamp(1.6rem, 3vw, 2.2rem)",
-                color: "#FFFFFF",
-                margin: 0,
-                textShadow: "0 2px 14px rgba(1, 10, 26, 0.7)"
+                color: "#001E2B",
+                margin: 0
               }}
             >
               Nearby Service Providers
             </h2>
-            <p style={{ color: "rgba(202, 240, 248, 0.85)", fontSize: 14, margin: "4px 0 0" }}>
+            <p style={{ color: "#3D4F58", fontSize: 14, margin: "4px 0 0" }}>
               Click any <strong>Lollipop Pin</strong> on the map to see instant prices and book verified professionals nearby.
             </p>
           </div>
@@ -360,14 +359,14 @@ export default function NearbyServicesMap({
               className="btn btn-sm"
               style={{
                 background: userLocation
-                  ? "linear-gradient(135deg, #10B981 0%, #059669 100%)"
-                  : "linear-gradient(135deg, #023EBA 0%, #00B4D8 100%)",
-                color: "#FFFFFF",
-                border: "1px solid rgba(0, 180, 216, 0.4)",
+                  ? "linear-gradient(135deg, #00684A 0%, #001E2B 100%)"
+                  : "linear-gradient(135deg, #10C4A8 0%, #0DB197 100%)",
+                color: userLocation ? "#FFFFFF" : "#001E2B",
+                border: "1px solid #10C4A8",
                 borderRadius: 12,
                 fontWeight: 700,
                 padding: "8px 16px",
-                boxShadow: "0 4px 15px rgba(1, 10, 26, 0.45)"
+                boxShadow: "0 4px 15px rgba(16, 196, 168, 0.25)"
               }}
             >
               <i
@@ -408,16 +407,16 @@ export default function NearbyServicesMap({
               fontWeight: 700,
               background:
                 activeCategoryFilter === "all"
-                  ? "#FBB02D"
-                  : "rgba(0, 180, 216, 0.16)",
-              color: activeCategoryFilter === "all" ? "#03045E" : "#CAF0F8",
+                  ? "#001E2B"
+                  : "#FFFFFF",
+              color: activeCategoryFilter === "all" ? "#FFFFFF" : "#001E2B",
               border:
                 activeCategoryFilter === "all"
-                  ? "1px solid #FBB02D"
-                  : "1px solid rgba(0, 180, 216, 0.35)",
+                  ? "1px solid #001E2B"
+                  : "1px solid rgba(0, 30, 43, 0.15)",
               boxShadow:
                 activeCategoryFilter === "all"
-                  ? "0 4px 12px rgba(251, 176, 45, 0.4)"
+                  ? "0 4px 12px rgba(0, 30, 43, 0.25)"
                   : "none"
             }}
           >
@@ -439,14 +438,14 @@ export default function NearbyServicesMap({
                   fontSize: 12,
                   fontWeight: 600,
                   background: isSelected
-                    ? `linear-gradient(135deg, ${conf.color} 0%, #0077B6 100%)`
-                    : "rgba(0, 180, 216, 0.14)",
-                  color: isSelected ? "#FFFFFF" : "#CAF0F8",
+                    ? "#001E2B"
+                    : "#FFFFFF",
+                  color: isSelected ? "#FFFFFF" : "#001E2B",
                   border: isSelected
-                    ? `1.5px solid ${conf.color}`
-                    : "1px solid rgba(0, 180, 216, 0.25)",
+                    ? "1.5px solid #001E2B"
+                    : "1px solid rgba(0, 30, 43, 0.15)",
                   boxShadow: isSelected
-                    ? `0 4px 12px ${conf.color}60`
+                    ? "0 4px 12px rgba(0, 30, 43, 0.25)"
                     : "none"
                 }}
               >
@@ -461,9 +460,9 @@ export default function NearbyServicesMap({
         <div
           className="rounded-4 overflow-hidden"
           style={{
-            border: "1.5px solid rgba(0, 180, 216, 0.40)",
-            boxShadow: "0 18px 45px rgba(1, 10, 26, 0.7), 0 0 25px rgba(0, 180, 216, 0.2)",
-            background: "rgba(3, 14, 40, 0.95)",
+            border: "2px solid #10C4A8",
+            boxShadow: "0 18px 45px rgba(16, 196, 168, 0.18), 0 4px 16px rgba(0, 30, 43, 0.08)",
+            background: "#FFFFFF",
             position: "relative"
           }}
         >
@@ -484,16 +483,16 @@ export default function NearbyServicesMap({
               top: 14,
               left: 14,
               zIndex: 500,
-              background: "rgba(3, 14, 40, 0.90)",
-              backdropFilter: "blur(10px)",
-              border: "1px solid rgba(0, 180, 216, 0.35)",
+              background: "#001E2B",
+              border: "1.5px solid #10C4A8",
               borderRadius: 12,
               padding: "6px 12px",
               display: "flex",
               alignItems: "center",
               gap: 8,
               fontSize: 12,
-              color: "#CAF0F8"
+              color: "#FFFFFF",
+              boxShadow: "0 4px 14px rgba(0, 30, 43, 0.3)"
             }}
           >
             <span
@@ -501,8 +500,8 @@ export default function NearbyServicesMap({
                 width: 8,
                 height: 8,
                 borderRadius: "50%",
-                background: "#00B4D8",
-                boxShadow: "0 0 6px #00B4D8"
+                background: "#10C4A8",
+                boxShadow: "0 0 6px #10C4A8"
               }}
             ></span>
             <span>
@@ -526,42 +525,73 @@ export default function NearbyServicesMap({
                 <div
                   key={p.id}
                   onClick={() => handleSelectProviderCard(p)}
+                  className="position-relative d-flex flex-column justify-content-between"
                   style={{
                     minWidth: 260,
                     maxWidth: 280,
-                    background: isSelected
-                      ? "linear-gradient(135deg, rgba(0, 180, 216, 0.35) 0%, rgba(0, 119, 182, 0.75) 100%)"
-                      : "linear-gradient(135deg, rgba(4, 20, 54, 0.90) 0%, rgba(2, 12, 38, 0.96) 100%)",
-                    backdropFilter: "blur(10px)",
+                    background: "#FFFFFF",
                     border: isSelected
-                      ? `2px solid ${p.catConfig.color}`
-                      : "1.5px solid rgba(0, 180, 216, 0.28)",
-                    borderRadius: 14,
-                    padding: "12px 14px",
+                      ? "2px solid #10C4A8"
+                      : "1.5px solid rgba(226, 232, 240, 0.9)",
+                    borderRadius: 18,
+                    padding: "16px",
                     cursor: "pointer",
-                    transition: "all 0.2s ease",
+                    transition: "all 0.22s cubic-bezier(0.16, 1, 0.3, 1)",
                     boxShadow: isSelected
-                      ? `0 6px 18px ${p.catConfig.color}40`
-                      : "0 4px 12px rgba(1, 10, 26, 0.4)"
+                      ? "0 8px 24px rgba(16, 196, 168, 0.25)"
+                      : "0 4px 15px rgba(0, 30, 43, 0.05)"
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isSelected) {
+                      e.currentTarget.style.borderColor = "#10C4A8";
+                      e.currentTarget.style.transform = "translateY(-3px)";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isSelected) {
+                      e.currentTarget.style.borderColor = "rgba(226, 232, 240, 0.9)";
+                      e.currentTarget.style.transform = "translateY(0)";
+                    }
                   }}
                 >
-                  <div className="d-flex justify-content-between align-items-start gap-2 mb-1">
+                  <div className="d-flex justify-content-between align-items-center mb-2">
+                    <div className="d-flex align-items-center gap-2">
+                      <div
+                        style={{
+                          width: 34,
+                          height: 34,
+                          borderRadius: 10,
+                          background: "#E6FAF6",
+                          color: "#00684A",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          fontSize: 16
+                        }}
+                      >
+                        <i className={"bi " + p.catConfig.icon}></i>
+                      </div>
+                      <span
+                        style={{
+                          fontSize: 11,
+                          color: "#00684A",
+                          fontWeight: 800,
+                          textTransform: "uppercase"
+                        }}
+                      >
+                        {p.catConfig.label}
+                      </span>
+                    </div>
+
                     <span
+                      className="badge rounded-pill"
                       style={{
+                        background: "#FFFBEB",
+                        color: "#B45309",
+                        border: "1px solid #FDE68A",
                         fontSize: 11,
-                        color: p.catConfig.color,
-                        fontWeight: 700,
-                        textTransform: "uppercase"
-                      }}
-                    >
-                      <i className={"bi " + p.catConfig.icon + " me-1"}></i>
-                      {p.catConfig.label}
-                    </span>
-                    <span
-                      style={{
-                        fontSize: 11,
-                        fontWeight: 700,
-                        color: "#F59E0B"
+                        fontWeight: 800,
+                        padding: "3px 8px"
                       }}
                     >
                       ★ {p.rating || "5.0"}
@@ -570,10 +600,10 @@ export default function NearbyServicesMap({
 
                   <h6
                     style={{
-                      fontSize: 14,
-                      fontWeight: 700,
-                      color: "#FFFFFF",
-                      margin: "0 0 4px",
+                      fontSize: 14.5,
+                      fontWeight: 800,
+                      color: "#001E2B",
+                      margin: "0 0 6px",
                       whiteSpace: "nowrap",
                       overflow: "hidden",
                       textOverflow: "ellipsis"
@@ -582,22 +612,34 @@ export default function NearbyServicesMap({
                     {p.businessName || p.user?.name}
                   </h6>
 
-                  <div
-                    style={{
-                      fontSize: 12,
-                      color: "#CAF0F8",
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center"
-                    }}
-                  >
-                    <span>
-                      <i className="bi bi-geo-alt me-1 text-danger"></i>
-                      {p.distance} km away
-                    </span>
-                    <strong style={{ color: "#34D399" }}>
-                      ₹{p.hourlyRate}/hr
-                    </strong>
+                  <div className="d-flex justify-content-between align-items-center pt-2 mt-auto border-top border-light">
+                    <div style={{ fontSize: 12 }}>
+                      <div style={{ color: "#64748B", fontSize: 11 }}>
+                        <i className="bi bi-geo-alt-fill text-danger me-1"></i>
+                        {p.distance} km away
+                      </div>
+                      <strong style={{ color: "#001E2B", fontSize: 13 }}>
+                        ₹{p.hourlyRate}/hr
+                      </strong>
+                    </div>
+
+                    <div
+                      style={{
+                        width: 28,
+                        height: 28,
+                        borderRadius: "50%",
+                        background: isSelected ? "#10C4A8" : "#E6FAF6",
+                        color: isSelected ? "#FFFFFF" : "#00684A",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: 12,
+                        fontWeight: 800,
+                        transition: "all 0.2s ease"
+                      }}
+                    >
+                      <i className="bi bi-arrow-right"></i>
+                    </div>
                   </div>
                 </div>
               );

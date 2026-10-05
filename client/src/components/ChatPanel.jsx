@@ -110,13 +110,13 @@ export default function ChatPanel() {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 4px 20px rgba(251, 176, 45, 0.45)',
-            border: 'none',
-            background: '#FBB02D'
+            boxShadow: '0 4px 20px rgba(16, 196, 168, 0.45)',
+            border: '2px solid #001E2B',
+            background: 'linear-gradient(135deg, #10C4A8 0%, #0DB197 100%)'
           }}
           aria-label="Open chat"
         >
-          <i className="bi bi-chat-dots-fill" style={{ fontSize: 24, color: '#03045E' }}></i>
+          <i className="bi bi-chat-dots-fill" style={{ fontSize: 24, color: '#001E2B' }}></i>
           {conversations.some(c => getUnreadCount(c.id) > 0) && (
             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
               style={{ fontSize: 10, padding: '2px 6px' }}>
@@ -137,10 +137,10 @@ export default function ChatPanel() {
             maxHeight: '600px',
             display: 'flex',
             flexDirection: 'column',
-            background: '#fff',
+            background: '#FFFBFC',
             borderRadius: 16,
-            boxShadow: '0 8px 40px rgba(3,4,94,0.25)',
-            border: '1px solid rgba(0, 180, 216, 0.25)',
+            boxShadow: '0 8px 40px rgba(0,30,43,0.20)',
+            border: '2px solid #10C4A8',
             overflow: 'hidden',
             animation: 'slideUp 0.3s ease-out'
           }}
@@ -155,9 +155,9 @@ export default function ChatPanel() {
           {/* Header */}
           <div className="d-flex align-items-center justify-content-between p-3"
             style={{
-              background: 'linear-gradient(135deg, #00B4D8 0%, #0077B6 100%)',
+              background: '#001E2B',
               color: '#FFFFFF',
-              borderBottom: '1px solid rgba(0, 180, 216, 0.3)'
+              borderBottom: '2px solid #10C4A8'
             }}
           >
             <div className="d-flex align-items-center gap-2">
@@ -229,8 +229,8 @@ export default function ChatPanel() {
                         }}
                       >
                         <div className="position-relative flex-shrink-0">
-                          <div className="rounded-circle bg-primary-aesthetic d-flex align-items-center justify-content-center"
-                            style={{ width: 44, height: 44, fontSize: 18, color: '#03045E' }}>
+                          <div className="rounded-circle d-flex align-items-center justify-content-center"
+                            style={{ width: 44, height: 44, fontSize: 18, color: '#00684A', background: '#E6FAF6', border: '1px solid #10C4A8' }}>
                             <i className={user.role === 'provider' ? 'bi bi-person-fill' : 'bi bi-building-fill'}></i>
                           </div>
                           {unread > 0 && (

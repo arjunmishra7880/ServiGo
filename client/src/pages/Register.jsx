@@ -86,17 +86,16 @@ function Register() {
             <span
               className="brand-text fs-2"
               style={{
-                color: "#fff",
-                textShadow: "0 2px 14px rgba(3,4,94,0.5)",
+                color: "#001E2B",
               }}
             >
-              <i className="bi bi-tools me-2" style={{ color: "#FBB02D" }}></i>
+              <i className="bi bi-tools me-2" style={{ color: "#10C4A8" }}></i>
               ServiGo
             </span>
           </Link>
           <p
             style={{
-              color: "rgba(255,255,255,0.85)",
+              color: "#3D4F58",
               fontSize: 14,
               marginTop: 4,
             }}
@@ -131,38 +130,38 @@ function Register() {
                   className={
                     "p-2 rounded-3 text-center flex-grow-1 border cursor-pointer " +
                     (formData.role === "customer"
-                      ? "border-primary bg-light"
-                      : "")
+                      ? "border-success bg-white shadow-sm"
+                      : "bg-white")
                   }
                   style={{
                     cursor: "pointer",
                     outline:
                       formData.role === "customer"
-                        ? "2px solid #00B4D8"
+                        ? "2px solid #10C4A8"
                         : "none",
                   }}
                 >
-                  <i className="bi bi-person text-primary me-1"></i>
-                  <span className="fw-semibold small">Hire Services</span>
+                  <i className="bi bi-person me-1" style={{ color: '#10C4A8' }}></i>
+                  <span className="fw-semibold small" style={{ color: '#001E2B' }}>Hire Services</span>
                 </div>
                 <div
                   onClick={() => setFormData({ ...formData, role: "provider" })}
                   className={
                     "p-2 rounded-3 text-center flex-grow-1 border cursor-pointer " +
                     (formData.role === "provider"
-                      ? "border-primary bg-light"
-                      : "")
+                      ? "border-success bg-white shadow-sm"
+                      : "bg-white")
                   }
                   style={{
                     cursor: "pointer",
                     outline:
                       formData.role === "provider"
-                        ? "2px solid #00B4D8"
+                        ? "2px solid #10C4A8"
                         : "none",
                   }}
                 >
-                  <i className="bi bi-briefcase text-success me-1"></i>
-                  <span className="fw-semibold small">Offer Services</span>
+                  <i className="bi bi-briefcase me-1" style={{ color: '#00684A' }}></i>
+                  <span className="fw-semibold small" style={{ color: '#001E2B' }}>Offer Services</span>
                 </div>
               </div>
             </div>
@@ -367,9 +366,9 @@ function Register() {
               <Link
                 to="/login"
                 style={{
-                  color: "#00B4D8",
+                  color: "#001E2B",
                   fontWeight: 700,
-                  textDecoration: "none",
+                  textDecoration: "underline",
                 }}
               >
                 Sign In

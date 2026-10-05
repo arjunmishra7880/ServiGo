@@ -46,12 +46,10 @@ export default function HowItWorks() {
         <div
           className="p-4 p-md-5 rounded-4 how-it-works-box"
           style={{
-            background:
-              "linear-gradient(145deg, rgba(4, 20, 54, 0.88) 0%, rgba(2, 12, 38, 0.96) 100%)",
-            backdropFilter: "blur(14px)",
-            border: "1.5px solid rgba(0, 180, 216, 0.32)",
-            boxShadow:
-              "0 16px 45px rgba(1, 10, 26, 0.5), 0 0 25px rgba(0, 180, 216, 0.12)"
+            background: "#FFFFFF",
+            borderRadius: 24,
+            border: "1.5px solid rgba(226, 232, 240, 0.9)",
+            boxShadow: "0 10px 35px rgba(0, 30, 43, 0.05), 0 1px 3px rgba(0, 30, 43, 0.02)"
           }}
         >
           {/* ─── Title & Tri-Color Accent Line ─── */}
@@ -59,11 +57,10 @@ export default function HowItWorks() {
             <h2
               style={{
                 fontWeight: 900,
-                color: "#FFFFFF",
+                color: "#001E2B",
                 fontSize: "clamp(1.75rem, 3.2vw, 2.35rem)",
                 letterSpacing: -0.5,
-                margin: 0,
-                textShadow: "0 2px 14px rgba(1, 10, 26, 0.7)"
+                margin: 0
               }}
             >
               How It Works
@@ -77,7 +74,7 @@ export default function HowItWorks() {
                 margin: "10px auto 0",
                 background:
                   "linear-gradient(90deg, #FF9933 33.3%, #FFFFFF 33.3%, #FFFFFF 66.6%, #138808 66.6%)",
-                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.3)"
+                boxShadow: "0 2px 8px rgba(0, 0, 0, 0.2)"
               }}
             ></div>
           </div>
@@ -112,7 +109,7 @@ export default function HowItWorks() {
                       alignItems: "center",
                       justifyContent: "center",
                       marginBottom: 18,
-                      boxShadow: `0 8px 22px rgba(0, 0, 0, 0.18)`
+                      boxShadow: "0 8px 22px rgba(0, 30, 43, 0.12)"
                     }}
                   >
                     <i
@@ -131,8 +128,8 @@ export default function HowItWorks() {
                         width: 22,
                         height: 22,
                         borderRadius: "50%",
-                        background: "#03045E",
-                        border: "1.5px solid #00B4D8",
+                        background: "#001E2B",
+                        border: "1.5px solid #FFFFFF",
                         color: "#FFFFFF",
                         display: "inline-flex",
                         alignItems: "center",
@@ -147,7 +144,7 @@ export default function HowItWorks() {
                     <h5
                       style={{
                         fontWeight: 800,
-                        color: "#FFFFFF",
+                        color: "#001E2B",
                         fontSize: 16,
                         margin: 0,
                         letterSpacing: -0.2
@@ -161,10 +158,11 @@ export default function HowItWorks() {
                   <p
                     style={{
                       fontSize: 13.5,
-                      color: "rgba(202, 240, 248, 0.85)",
+                      color: "#003B36",
                       lineHeight: 1.5,
                       maxWidth: 240,
-                      margin: 0
+                      margin: 0,
+                      fontWeight: 500
                     }}
                   >
                     {step.desc}

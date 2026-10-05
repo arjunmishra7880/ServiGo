@@ -81,19 +81,19 @@ export default function ChatWindow({ conversation, currentUser, messages: initia
     <div style={{ display: 'flex', flexDirection: 'column', height: '100%', maxHeight: '600px' }}>
       {/* Chat Header */}
       <div className="d-flex align-items-center gap-3 p-3"
-        style={{ borderBottom: '1px solid var(--border-light)', background: '#fafafa' }}
+        style={{ borderBottom: '1.5px solid #10C4A8', background: '#FFFFFF' }}
       >
         <button
           onClick={() => setActiveConversation(null)}
           className="btn btn-sm p-0 me-2"
-          style={{ color: 'var(--text-secondary)', background: 'transparent', border: 'none' }}
+          style={{ color: '#001E2B', background: 'transparent', border: 'none' }}
           aria-label="Back to conversations"
         >
           <i className="bi bi-chevron-left" style={{ fontSize: 20 }}></i>
         </button>
         <div className="flex-shrink-0">
-          <div className="rounded-circle bg-primary-aesthetic d-flex align-items-center justify-content-center"
-            style={{ width: 40, height: 40, fontSize: 16, color: '#03045E' }}>
+          <div className="rounded-circle d-flex align-items-center justify-content-center"
+            style={{ width: 40, height: 40, fontSize: 16, color: '#00684A', background: '#E6FAF6', border: '1px solid #10C4A8' }}>
             <i className={currentUser.role === 'provider' ? 'bi bi-person-fill' : 'bi bi-building-fill'}></i>
           </div>
         </div>
@@ -117,7 +117,7 @@ export default function ChatWindow({ conversation, currentUser, messages: initia
           display: 'flex',
           flexDirection: 'column',
           gap: 12,
-          background: '#fff'
+          background: '#FFFBFC'
         }}
       >
         {Object.entries(groupedMessages).map(([date, dayMessages]) => (
@@ -142,7 +142,7 @@ export default function ChatWindow({ conversation, currentUser, messages: initia
 
       {/* Message Input */}
       <form onSubmit={handleSend} className="p-3"
-        style={{ borderTop: '1px solid var(--border-light)', background: '#fafafa' }}
+        style={{ borderTop: '1.5px solid #10C4A8', background: '#FFFFFF' }}
       >
         <div className="d-flex align-items-center gap-2">
           <div className="flex-grow-1 position-relative">
@@ -154,10 +154,11 @@ export default function ChatWindow({ conversation, currentUser, messages: initia
               className="form-control form-control-sm"
               style={{
                 borderRadius: 24,
-                border: '1px solid var(--border-light)',
+                border: '1.5px solid #10C4A8',
                 padding: '8px 16px',
                 fontSize: 14,
-                background: '#fff'
+                background: '#FFFBFC',
+                color: '#001E2B'
               }}
               disabled={sending}
               maxLength={1000}
@@ -171,11 +172,11 @@ export default function ChatWindow({ conversation, currentUser, messages: initia
               width: 44,
               height: 44,
               borderRadius: 50,
-              background: '#FBB02D',
+              background: '#001E2B',
               border: 'none'
             }}
           >
-            <i className="bi bi-send-fill" style={{ fontSize: 18, color: '#03045E' }}></i>
+            <i className="bi bi-send-fill" style={{ fontSize: 18, color: '#10C4A8' }}></i>
           </button>
         </div>
       </form>
@@ -202,13 +203,15 @@ function MessageBubble({ message, isOwn, currentUser }) {
           className={`rounded-3 px-4 py-2 ${isOwn ? 'rounded-end-0' : 'rounded-start-0'}`}
           style={{
             background: isOwn
-              ? 'linear-gradient(135deg, #00B4D8 0%, #0077B6 100%)'
-              : 'rgba(0, 180, 216, 0.12)',
-            color: isOwn ? '#FFFFFF' : '#03045E',
-            boxShadow: '0 1px 3px rgba(0,0,0,0.15)',
+              ? 'linear-gradient(135deg, #10C4A8 0%, #0DB197 100%)'
+              : '#E6FAF6',
+            color: '#001E2B',
+            boxShadow: '0 1px 3px rgba(0,30,43,0.10)',
             fontSize: 14,
+            fontWeight: 600,
             lineHeight: 1.5,
-            wordWrap: 'break-word'
+            wordWrap: 'break-word',
+            border: isOwn ? '1px solid #001E2B' : '1px solid rgba(16, 196, 168, 0.35)'
           }}
         >
           {message.content}

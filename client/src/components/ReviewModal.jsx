@@ -49,22 +49,22 @@ function ReviewModal({ booking, onClose, onSuccess }) {
   return (
     <div className="modal show d-block" tabIndex="-1" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
       <div className="modal-dialog modal-dialog-centered">
-        <div className="modal-content border-0 shadow" style={{ borderRadius: 16, overflow: 'hidden' }}>
-          <div className="modal-header bg-primary-aesthetic text-white border-0 py-3">
+        <div className="modal-content border-0 shadow-lg" style={{ borderRadius: 16, overflow: 'hidden', backgroundColor: '#FFFBFC', border: '1px solid rgba(16, 196, 168, 0.3)' }}>
+          <div className="modal-header border-0 py-3" style={{ background: '#001E2B', color: '#FFFFFF' }}>
             <h5 className="modal-title fw-bold fs-6">
-              <i className="bi bi-star-fill me-2 text-warning"></i>Rate & Review Service
+              <i className="bi bi-star-fill me-2" style={{ color: '#10C4A8' }}></i>Rate & Review Service
             </h5>
             <button type="button" className="btn-close btn-close-white" onClick={onClose}></button>
           </div>
 
           <form onSubmit={handleSubmit}>
-            <div className="modal-body p-4">
+            <div className="modal-body p-4" style={{ backgroundColor: '#FFFBFC', color: '#001E2B' }}>
               {error && (
                 <div className="alert alert-danger py-2 small mb-3">{error}</div>
               )}
 
               <div className="text-center mb-3">
-                <h6 className="fw-bold mb-1">{providerName}</h6>
+                <h6 className="fw-bold mb-1" style={{ color: '#001E2B' }}>{providerName}</h6>
                 <p className="text-muted small mb-3">{booking.service?.title}</p>
 
                 {/* Interactive Star Rating */}
@@ -78,16 +78,17 @@ function ReviewModal({ booking, onClose, onSuccess }) {
                         background: 'none',
                         border: 'none',
                         fontSize: 28,
-                        color: star <= rating ? '#FBB02D' : 'rgba(202, 240, 248, 0.35)',
+                        color: star <= rating ? '#10C4A8' : '#D0E6E2',
                         cursor: 'pointer',
-                        padding: 0
+                        padding: 0,
+                        transition: 'transform 0.15s ease'
                       }}
                     >
                       ★
                     </button>
                   ))}
                 </div>
-                <small className="text-muted fw-semibold">
+                <small className="fw-bold" style={{ color: '#00684A' }}>
                   {rating === 5 && 'Excellent!'}
                   {rating === 4 && 'Very Good'}
                   {rating === 3 && 'Average'}
@@ -97,7 +98,7 @@ function ReviewModal({ booking, onClose, onSuccess }) {
               </div>
 
               <div className="mb-2">
-                <label className="form-label fw-semibold small text-muted">Your Experience / Feedback</label>
+                <label className="form-label fw-semibold small" style={{ color: '#001E2B' }}>Your Experience / Feedback</label>
                 <textarea
                   className="form-control"
                   rows="3"
@@ -105,16 +106,16 @@ function ReviewModal({ booking, onClose, onSuccess }) {
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
                   required
-                  style={{ borderRadius: 10, fontSize: 14 }}
+                  style={{ borderRadius: 10, fontSize: 14, borderColor: 'rgba(16, 196, 168, 0.4)' }}
                 ></textarea>
               </div>
             </div>
 
-            <div className="modal-footer border-0 py-2" style={{ background: "rgba(3, 14, 40, 0.7)", borderTop: "1px solid rgba(0, 180, 216, 0.25)" }}>
-              <button type="button" className="btn btn-light-aesthetic btn-sm" onClick={onClose}>
+            <div className="modal-footer border-0 py-2" style={{ background: '#F0FAF8', borderTop: '1px solid rgba(16, 196, 168, 0.2)' }}>
+              <button type="button" className="btn btn-outline-secondary btn-sm rounded-pill px-3" onClick={onClose}>
                 Cancel
               </button>
-              <button type="submit" className="btn-primary-aesthetic btn btn-sm" disabled={loading}>
+              <button type="submit" className="btn btn-sm px-4 fw-semibold rounded-pill text-white shadow-sm" style={{ background: '#10C4A8', border: 'none' }} disabled={loading}>
                 {loading ? 'Submitting...' : 'Post Review'}
               </button>
             </div>

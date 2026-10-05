@@ -12,15 +12,14 @@ import React from "react";
 //   overlay — accepted for compatibility with existing usage; not needed
 //     for this gradient (it's already dark), so it is ignored.
 
-// Ocean Royale Color Palette:
-//   #03045E  Primary background (Midnight Oceanic Navy)
-//   #023EBA  Main brand color (Royal / Sapphire Blue)
-//   #00B4D8  Highlights (Radiant Aqua Glow)
-//   #CAF0F8  Background / Cards (Ice Blue)
-//   #FBB02D  CTA Buttons (Vibrant Amber / Gold)
+// MongoDB Compass Palette:
+//   #FFFBFC  Main website background
+//   #10C4A8  Mint / Teal cards and component accent
+//   #00684A  Forest green accent
+//   #001E2B  Primary slate text
 
 const GRADIENT =
-  "radial-gradient(140% 120% at 50% 0%, rgba(0, 180, 216, 0.35) 0%, rgba(2, 62, 186, 0.45) 30%, #03045E 65%, #010A1A 100%)";
+  "radial-gradient(130% 90% at 50% 0%, rgba(16, 196, 168, 0.12) 0%, rgba(230, 250, 246, 0.40) 30%, #FFFBFC 65%, #FFFBFC 100%)";
 
 
 export default function WavyBackground({

@@ -93,8 +93,8 @@ function AdminDashboard() {
         <div className="container d-flex align-items-center justify-content-between py-3">
           <Link to="/" style={{ textDecoration: 'none' }}>
             <span className="brand-text fs-4">
-              <i className="bi bi-tools me-2" style={{ color: '#00B4D8' }}></i>
-              ServiGo <span className="badge ms-2" style={{ background: 'rgba(0, 180, 216, 0.18)', color: '#CAF0F8', border: '1px solid rgba(0, 180, 216, 0.4)', fontSize: 12 }}>Admin Panel</span>
+              <i className="bi bi-tools me-2" style={{ color: '#10C4A8' }}></i>
+              ServiGo <span className="badge ms-2" style={{ background: '#E6FAF6', color: '#00684A', border: '1px solid rgba(16, 196, 168, 0.4)', fontSize: 12 }}>Admin Panel</span>
             </span>
           </Link>
           <div className="d-flex align-items-center gap-3">
@@ -104,8 +104,8 @@ function AdminDashboard() {
             <Link to="/" style={{ color: 'var(--text-secondary)', textDecoration: 'none', fontSize: 15, fontWeight: 500 }}>
               <i className="bi bi-house-door me-1"></i>View Site
             </Link>
-            <span className="badge p-2" style={{ background: 'rgba(0, 180, 216, 0.15)', color: '#CAF0F8', border: '1px solid rgba(0, 180, 216, 0.35)' }}>
-              <i className="bi bi-shield-check me-1" style={{ color: '#00B4D8' }}></i>{user.name}
+            <span className="badge p-2" style={{ background: '#E6FAF6', color: '#00684A', border: '1px solid rgba(16, 196, 168, 0.35)' }}>
+              <i className="bi bi-shield-check me-1" style={{ color: '#10C4A8' }}></i>{user.name}
             </span>
           </div>
         </div>
@@ -133,38 +133,38 @@ function AdminDashboard() {
           </div>
         )}
 
-        {/* Stats Row */}
+        {/* Stats Row in MongoDB #10C4A8 cards */}
         <div className="row g-3 mb-4">
           <div className="col-md-4">
-            <div className="card-aesthetic p-3 d-flex align-items-center gap-3">
-              <div style={{ width: 50, height: 50, borderRadius: 12, background: 'rgba(0, 180, 216, 0.18)', color: '#00B4D8', border: '1px solid rgba(0, 180, 216, 0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
+            <div className="card-aesthetic p-3 d-flex align-items-center gap-3 shadow-sm" style={{ border: '1px solid rgba(0, 30, 43, 0.12)' }}>
+              <div style={{ width: 50, height: 50, borderRadius: 12, background: '#FFFFFF', color: '#001E2B', border: '1px solid rgba(0, 30, 43, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
                 <i className="bi bi-people-fill"></i>
               </div>
               <div>
-                <h4 style={{ fontWeight: 800, margin: 0, color: '#FFFFFF' }}>{users.length}</h4>
-                <small style={{ color: 'var(--text-muted)' }}>Registered Accounts</small>
+                <h4 style={{ fontWeight: 800, margin: 0, color: '#001E2B' }}>{users.length}</h4>
+                <small style={{ color: '#001E2B', opacity: 0.85 }}>Registered Accounts</small>
               </div>
             </div>
           </div>
           <div className="col-md-4">
-            <div className="card-aesthetic p-3 d-flex align-items-center gap-3">
-              <div style={{ width: 50, height: 50, borderRadius: 12, background: 'rgba(2, 62, 186, 0.25)', color: '#00B4D8', border: '1px solid rgba(0, 180, 216, 0.45)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
+            <div className="card-aesthetic p-3 d-flex align-items-center gap-3 shadow-sm" style={{ border: '1px solid rgba(0, 30, 43, 0.12)' }}>
+              <div style={{ width: 50, height: 50, borderRadius: 12, background: '#FFFFFF', color: '#00684A', border: '1px solid rgba(0, 30, 43, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
                 <i className="bi bi-patch-check-fill"></i>
               </div>
               <div>
-                <h4 style={{ fontWeight: 800, margin: 0, color: '#FFFFFF' }}>{providers.length}</h4>
-                <small style={{ color: 'var(--text-muted)' }}>Service Providers</small>
+                <h4 style={{ fontWeight: 800, margin: 0, color: '#001E2B' }}>{providers.length}</h4>
+                <small style={{ color: '#001E2B', opacity: 0.85 }}>Service Providers</small>
               </div>
             </div>
           </div>
           <div className="col-md-4">
-            <div className="card-aesthetic p-3 d-flex align-items-center gap-3">
-              <div style={{ width: 50, height: 50, borderRadius: 12, background: 'rgba(2, 62, 186, 0.45)', color: '#CAF0F8', border: '1px solid rgba(0, 180, 216, 0.35)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
+            <div className="card-aesthetic p-3 d-flex align-items-center gap-3 shadow-sm" style={{ border: '1px solid rgba(0, 30, 43, 0.12)' }}>
+              <div style={{ width: 50, height: 50, borderRadius: 12, background: '#FFFFFF', color: '#10C4A8', border: '1px solid rgba(0, 30, 43, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 24 }}>
                 <i className="bi bi-calendar2-check-fill"></i>
               </div>
               <div>
-                <h4 style={{ fontWeight: 800, margin: 0, color: '#FFFFFF' }}>{bookings.length}</h4>
-                <small style={{ color: 'var(--text-muted)' }}>Total Appointments</small>
+                <h4 style={{ fontWeight: 800, margin: 0, color: '#001E2B' }}>{bookings.length}</h4>
+                <small style={{ color: '#001E2B', opacity: 0.85 }}>Total Appointments</small>
               </div>
             </div>
           </div>
@@ -195,14 +195,14 @@ function AdminDashboard() {
         {/* Tab Content */}
         {loading ? (
           <div className="text-center py-5">
-            <div className="spinner-border" style={{ color: '#00B4D8' }}></div>
+            <div className="spinner-border" style={{ color: '#10C4A8' }}></div>
             <p className="text-muted mt-2">Loading data...</p>
           </div>
         ) : (
           <>
             {/* Providers Table */}
             {activeTab === 'providers' && (
-              <div className="card-aesthetic p-3">
+              <div className="card-aesthetic p-3 shadow-sm" style={{ border: '1px solid rgba(0, 30, 43, 0.12)' }}>
                 <div className="table-responsive">
                   <table className="table table-hover align-middle mb-0" style={{ fontSize: 14 }}>
                     <thead className="text-muted" style={{ fontSize: 12, textTransform: 'uppercase' }}>
@@ -254,13 +254,12 @@ function AdminDashboard() {
                             </button>
                             <Link
                               to="/dashboard"
-                              className="btn btn-sm ms-1"
+                              className="btn btn-sm ms-1 text-white"
                               style={{
                                 borderRadius: 8,
                                 fontSize: 12,
-                                background: 'rgba(0, 180, 216, 0.15)',
-                                color: '#CAF0F8',
-                                border: '1px solid rgba(0, 180, 216, 0.3)',
+                                background: '#001E2B',
+                                border: 'none',
                                 fontWeight: 600
                               }}
                               title="View Provider Analytics"
@@ -278,7 +277,7 @@ function AdminDashboard() {
 
             {/* Users Table */}
             {activeTab === 'users' && (
-              <div className="card-aesthetic p-3">
+              <div className="card-aesthetic p-3 shadow-sm" style={{ border: '1px solid rgba(0, 30, 43, 0.12)' }}>
                 <div className="table-responsive">
                   <table className="table table-hover align-middle mb-0" style={{ fontSize: 14 }}>
                     <thead className="text-muted" style={{ fontSize: 12, textTransform: 'uppercase' }}>
@@ -299,10 +298,10 @@ function AdminDashboard() {
                           <td>{u.email}</td>
                           <td>{u.phone || '—'}</td>
                           <td>
-                            <span className="badge text-capitalize" style={{
-                              background: u.role === 'admin' ? 'rgba(0, 180, 216, 0.25)' : u.role === 'provider' ? '#FBB02D' : 'rgba(2, 62, 186, 0.3)',
-                              color: u.role === 'admin' ? '#FFFFFF' : u.role === 'provider' ? '#03045E' : '#CAF0F8',
-                              border: '1px solid rgba(0, 180, 216, 0.3)'
+                            <span className="badge text-capitalize shadow-sm" style={{
+                              background: u.role === 'admin' ? '#001E2B' : u.role === 'provider' ? '#00684A' : '#FFFFFF',
+                              color: u.role === 'admin' ? '#FFFFFF' : u.role === 'provider' ? '#FFFFFF' : '#001E2B',
+                              border: '1px solid rgba(0, 30, 43, 0.15)'
                             }}>
                               {u.role}
                             </span>

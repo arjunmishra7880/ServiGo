@@ -20,9 +20,7 @@ export default function GradientBackground({
   const hasOverlay = Boolean(overlay) && !isLight;
   const overlayAlpha = typeof overlay === "number" ? overlay : overlayOpacity;
 
-  const bgGradient = isLight
-    ? "radial-gradient(130% 90% at 50% 0%, #E0F7FA 0%, #CAF0F8 35%, #F0F9FF 68%, #FFFFFF 100%)"
-    : "radial-gradient(130% 90% at 50% 0%, rgba(0, 180, 216, 0.45) 0%, rgba(0, 119, 182, 0.28) 28%, #061B40 58%, #020C1F 100%)";
+  const bgGradient = "radial-gradient(130% 90% at 50% 0%, rgba(16, 196, 168, 0.12) 0%, rgba(230, 250, 246, 0.40) 30%, #FFFBFC 65%, #FFFBFC 100%)";
 
   const wrapperStyle = fixed
     ? {

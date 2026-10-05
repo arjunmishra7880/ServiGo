@@ -3,13 +3,13 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const ThemeContext = createContext();
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
 
   useEffect(() => {
-    localStorage.setItem('servigo-theme', 'dark');
-    document.documentElement.setAttribute('data-theme', 'dark');
-    document.documentElement.classList.add('dark-mode');
-    document.documentElement.classList.remove('light-mode');
+    localStorage.setItem('servigo-theme', 'light');
+    document.documentElement.setAttribute('data-theme', 'light');
+    document.documentElement.classList.add('light-mode');
+    document.documentElement.classList.remove('dark-mode');
   }, []);
 
   const toggleTheme = () => {

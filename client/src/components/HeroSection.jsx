@@ -68,15 +68,15 @@ export default function HeroSection({
               display: "inline-flex",
               alignItems: "center",
               gap: 8,
-              background: "rgba(0, 180, 216, 0.18)",
-              border: "1px solid rgba(0, 180, 216, 0.45)",
+              background: "rgba(16, 196, 168, 0.12)",
+              border: "1px solid rgba(16, 196, 168, 0.35)",
               borderRadius: 30,
               padding: "6px 18px",
-              color: "#CAF0F8",
+              color: "#001E2B",
               fontSize: 13,
               fontWeight: 700,
               backdropFilter: "blur(10px)",
-              boxShadow: "0 4px 15px rgba(0, 180, 216, 0.25)"
+              boxShadow: "0 2px 10px rgba(16, 196, 168, 0.15)"
             }}
           >
             <span
@@ -84,8 +84,8 @@ export default function HeroSection({
                 width: 8,
                 height: 8,
                 borderRadius: "50%",
-                background: "#10B981",
-                boxShadow: "0 0 8px #10B981"
+                background: "#00684A",
+                boxShadow: "0 0 8px #00684A"
               }}
             ></span>
             <span>⚡ OVER 100+ VERIFIED LOCAL PROS AVAILABLE NOW</span>
@@ -97,11 +97,10 @@ export default function HeroSection({
           style={{
             fontSize: "clamp(2.2rem, 5.2vw, 3.8rem)",
             fontWeight: 900,
-            color: "#FFFFFF",
+            color: "#001E2B",
             letterSpacing: -1,
             lineHeight: 1.15,
-            marginBottom: 16,
-            textShadow: "0 4px 20px rgba(3, 4, 94, 0.8)"
+            marginBottom: 16
           }}
         >
           Book Verified Experts For
@@ -121,7 +120,7 @@ export default function HeroSection({
             <i className={"bi " + activeService.icon}></i>
             <span
               style={{
-                background: `linear-gradient(135deg, ${activeService.color} 0%, #CAF0F8 100%)`,
+                background: `linear-gradient(135deg, ${activeService.color} 0%, #001E2B 100%)`,
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 borderBottom: `2.5px solid ${activeService.color}55`,
@@ -136,7 +135,7 @@ export default function HeroSection({
         {/* Subtitle with Value Propositions */}
         <p
           style={{
-            color: "rgba(202, 240, 248, 0.9)",
+            color: "#3D4F58",
             fontSize: "clamp(1rem, 2vw, 1.2rem)",
             maxWidth: 640,
             margin: "0 auto 30px",
@@ -169,8 +168,8 @@ export default function HeroSection({
           <span
             style={{
               fontSize: 12,
-              color: "#00B4D8",
-              fontWeight: 700,
+              color: "#00684A",
+              fontWeight: 800,
               textTransform: "uppercase",
               letterSpacing: 0.5,
               marginRight: 4
@@ -189,25 +188,25 @@ export default function HeroSection({
               }}
               className="btn btn-sm"
               style={{
-                background: "rgba(0, 180, 216, 0.15)",
-                border: "1px solid rgba(0, 180, 216, 0.35)",
+                background: "#FFFFFF",
+                border: "1px solid rgba(16, 196, 168, 0.4)",
                 borderRadius: 20,
-                color: "#FFFFFF",
+                color: "#001E2B",
                 fontSize: 12,
                 fontWeight: 600,
                 padding: "4px 13px",
                 transition: "all 0.2s ease"
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.background = "rgba(0, 180, 216, 0.30)";
-                e.currentTarget.style.borderColor = "#00B4D8";
-                e.currentTarget.style.color = "#FFFFFF";
+                e.currentTarget.style.background = "#10C4A8";
+                e.currentTarget.style.borderColor = "#10C4A8";
+                e.currentTarget.style.color = "#001E2B";
                 e.currentTarget.style.transform = "translateY(-1px)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(0, 180, 216, 0.15)";
-                e.currentTarget.style.borderColor = "rgba(0, 180, 216, 0.35)";
-                e.currentTarget.style.color = "#FFFFFF";
+                e.currentTarget.style.background = "#FFFFFF";
+                e.currentTarget.style.borderColor = "rgba(16, 196, 168, 0.4)";
+                e.currentTarget.style.color = "#001E2B";
                 e.currentTarget.style.transform = "translateY(0)";
               }}
             >
@@ -221,25 +220,24 @@ export default function HeroSection({
         <div
           className="d-flex justify-content-center align-items-center gap-4 mt-5 flex-wrap"
           style={{
-            borderTop: "1px solid rgba(0, 180, 216, 0.2)",
+            borderTop: "1px solid rgba(16, 196, 168, 0.2)",
             paddingTop: 24
           }}
         >
           {[
-            { icon: "bi-patch-check-fill", title: "100% Verified", desc: "Background-checked Pros", color: "#00B4D8" },
-            { icon: "bi-stopwatch-fill", title: "30-Min Arrival", desc: "Prompt doorstep service", color: "#FBB02D" },
-            { icon: "bi-tag-fill", title: "Fixed Pricing", desc: "No hidden charges ever", color: "#10B981" },
-            { icon: "bi-shield-fill-check", title: "Service Warranty", desc: "30-Day guarantee", color: "#A855F7" }
+            { icon: "bi-patch-check-fill", title: "100% Verified", desc: "Background-checked Pros", color: "#00684A" },
+            { icon: "bi-stopwatch-fill", title: "30-Min Arrival", desc: "Prompt doorstep service", color: "#FFB02D" },
+            { icon: "bi-tag-fill", title: "Fixed Pricing", desc: "No hidden charges ever", color: "#10C4A8" },
+            { icon: "bi-shield-fill-check", title: "Service Warranty", desc: "30-Day guarantee", color: "#001E2B" }
           ].map((item) => (
             <div
               key={item.title}
-              className="d-flex align-items-center gap-2 text-start"
+              className="d-flex align-items-center gap-2 text-start shadow-sm"
               style={{
-                background: "linear-gradient(135deg, rgba(4, 20, 54, 0.85) 0%, rgba(2, 12, 38, 0.95) 100%)",
+                background: "linear-gradient(135deg, #10C4A8 0%, #0DB197 100%)",
                 padding: "8px 16px",
                 borderRadius: 14,
-                border: "1px solid rgba(0, 180, 216, 0.28)",
-                boxShadow: "0 4px 14px rgba(1, 10, 26, 0.35)"
+                border: "1px solid rgba(0, 30, 43, 0.12)"
               }}
             >
               <i
@@ -247,10 +245,10 @@ export default function HeroSection({
                 style={{ fontSize: 20, color: item.color }}
               ></i>
               <div>
-                <div style={{ color: "#FFFFFF", fontWeight: 700, fontSize: 13, lineHeight: 1.2 }}>
+                <div style={{ color: "#001E2B", fontWeight: 700, fontSize: 13, lineHeight: 1.2 }}>
                   {item.title}
                 </div>
-                <div style={{ color: "#CAF0F8", fontSize: 11 }}>
+                <div style={{ color: "#001E2B", opacity: 0.85, fontSize: 11 }}>
                   {item.desc}
                 </div>
               </div>

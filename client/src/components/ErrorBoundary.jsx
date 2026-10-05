@@ -34,8 +34,8 @@ export class ErrorBoundary extends React.Component {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            background: '#03045E',
-            color: '#FFFFFF',
+            background: '#FFFBFC',
+            color: '#001E2B',
             padding: '24px',
             fontFamily: 'system-ui, -apple-system, sans-serif'
           }}
@@ -44,12 +44,12 @@ export class ErrorBoundary extends React.Component {
             style={{
               maxWidth: '520px',
               width: '100%',
-              background: 'rgba(255, 255, 255, 0.05)',
-              border: '1.5px solid rgba(0, 180, 216, 0.4)',
+              background: '#FFFFFF',
+              border: '1.5px solid rgba(16, 196, 168, 0.4)',
               borderRadius: '20px',
               padding: '36px',
               textAlign: 'center',
-              boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5)',
+              boxShadow: '0 20px 50px rgba(0, 30, 43, 0.1)',
               backdropFilter: 'blur(16px)'
             }}
           >
@@ -58,33 +58,33 @@ export class ErrorBoundary extends React.Component {
                 width: '64px',
                 height: '64px',
                 borderRadius: '50%',
-                background: 'rgba(0, 180, 216, 0.2)',
-                border: '2px solid #00B4D8',
+                background: 'rgba(16, 196, 168, 0.15)',
+                border: '2px solid #10C4A8',
                 display: 'inline-flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: '28px',
-                color: '#00B4D8',
+                color: '#10C4A8',
                 marginBottom: '20px'
               }}
             >
               🛠️
             </div>
-            <h2 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '12px', color: '#CAF0F8' }}>
+            <h2 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '12px', color: '#001E2B' }}>
               Oops! Something unexpected happened
             </h2>
-            <p style={{ color: 'rgba(202, 240, 248, 0.85)', fontSize: '14px', lineHeight: '1.6', marginBottom: '24px' }}>
+            <p style={{ color: '#3D4F58', fontSize: '14px', lineHeight: '1.6', marginBottom: '24px' }}>
               ServiGo encountered a temporary glitch while rendering this view.
             </p>
             {this.state.error?.message && (
               <pre
                 style={{
-                  background: 'rgba(0, 0, 0, 0.3)',
-                  border: '1px solid rgba(0, 180, 216, 0.2)',
+                  background: '#F0FAF8',
+                  border: '1px solid rgba(16, 196, 168, 0.25)',
                   borderRadius: '10px',
                   padding: '12px',
                   fontSize: '12px',
-                  color: '#FF6B6B',
+                  color: '#D9534F',
                   textAlign: 'left',
                   overflowX: 'auto',
                   marginBottom: '24px'
@@ -97,8 +97,8 @@ export class ErrorBoundary extends React.Component {
               <button
                 onClick={this.handleReload}
                 style={{
-                  background: 'linear-gradient(135deg, #00B4D8 0%, #0077B6 100%)',
-                  color: '#FFFFFF',
+                  background: '#10C4A8',
+                  color: '#001E2B',
                   border: 'none',
                   borderRadius: '12px',
                   padding: '10px 22px',

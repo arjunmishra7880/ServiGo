@@ -50,11 +50,11 @@ export default function NotificationBanner() {
             zIndex: 9999,
             maxWidth: 380,
             width: 'calc(100% - 40px)',
-            background: 'linear-gradient(135deg, rgba(3, 14, 40, 0.98) 0%, rgba(0, 119, 182, 0.95) 100%)',
-            border: '2px solid #00B4D8',
+            background: '#001E2B',
+            border: '2px solid #10C4A8',
             borderRadius: 16,
             padding: '14px 18px',
-            boxShadow: '0 12px 35px rgba(0, 180, 216, 0.45)',
+            boxShadow: '0 12px 35px rgba(0, 30, 43, 0.45)',
             color: '#FFFFFF',
             animation: 'slideInRight 0.3s ease-out'
           }}
@@ -66,20 +66,20 @@ export default function NotificationBanner() {
                   width: 32,
                   height: 32,
                   borderRadius: '50%',
-                  background: 'rgba(0, 180, 216, 0.25)',
-                  border: '1.5px solid #00B4D8',
+                  background: 'rgba(16, 196, 168, 0.25)',
+                  border: '1.5px solid #10C4A8',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  color: '#00B4D8',
+                  color: '#10C4A8',
                   fontSize: 16
                 }}
               >
                 <i className="bi bi-bell-fill"></i>
               </span>
               <div>
-                <strong style={{ fontSize: 14, color: '#CAF0F8' }}>New Booking Request!</strong>
-                <div style={{ fontSize: 11, color: 'rgba(202, 240, 248, 0.75)' }}>Instant doorstep service</div>
+                <strong style={{ fontSize: 14, color: '#FFFFFF' }}>New Booking Request!</strong>
+                <div style={{ fontSize: 11, color: '#E6FAF6' }}>Instant doorstep service</div>
               </div>
             </div>
             <button
@@ -92,15 +92,15 @@ export default function NotificationBanner() {
             </button>
           </div>
 
-          <div className="p-2 mb-2 rounded-3" style={{ background: 'rgba(3, 4, 94, 0.65)', border: '1px solid rgba(0, 180, 216, 0.25)' }}>
+          <div className="p-2 mb-2 rounded-3" style={{ background: 'rgba(255, 255, 255, 0.1)', border: '1px solid rgba(16, 196, 168, 0.3)' }}>
             <div style={{ fontSize: 13, fontWeight: 700, color: '#FFFFFF' }}>
               {inAppToast.serviceTitle || 'Booked Service'}
             </div>
-            <div style={{ fontSize: 12, color: '#CAF0F8' }}>
+            <div style={{ fontSize: 12, color: '#E6FAF6' }}>
               Customer: <strong>{inAppToast.customerName || 'A customer'}</strong>
             </div>
             {inAppToast.totalAmount && (
-              <div style={{ fontSize: 12, color: '#FBB02D', fontWeight: 700 }}>
+              <div style={{ fontSize: 12, color: '#10C4A8', fontWeight: 800 }}>
                 Total: ₹{inAppToast.totalAmount}
               </div>
             )}
@@ -111,8 +111,8 @@ export default function NotificationBanner() {
               href="/bookings"
               className="btn btn-sm"
               style={{
-                background: 'linear-gradient(135deg, #00B4D8 0%, #0077B6 100%)',
-                color: '#FFFFFF',
+                background: '#10C4A8',
+                color: '#001E2B',
                 borderRadius: 10,
                 fontSize: 12,
                 fontWeight: 700,
@@ -139,11 +139,11 @@ export default function NotificationBanner() {
             zIndex: 9998,
             maxWidth: 390,
             width: 'calc(100% - 48px)',
-            background: 'linear-gradient(145deg, rgba(3, 14, 40, 0.98) 0%, rgba(5, 24, 56, 0.98) 100%)',
-            border: '1.5px solid rgba(0, 180, 216, 0.45)',
+            background: '#001E2B',
+            border: '1.5px solid #10C4A8',
             borderRadius: 16,
             padding: '14px 18px',
-            boxShadow: '0 10px 30px rgba(1, 10, 26, 0.65), 0 0 16px rgba(0, 180, 216, 0.25)',
+            boxShadow: '0 10px 30px rgba(0, 30, 43, 0.45)',
             backdropFilter: 'blur(12px)',
             animation: 'fadeInUp 0.3s ease-out'
           }}
@@ -154,12 +154,12 @@ export default function NotificationBanner() {
                 width: 38,
                 height: 38,
                 borderRadius: '50%',
-                background: 'linear-gradient(135deg, rgba(0, 180, 216, 0.25) 0%, rgba(2, 62, 186, 0.45) 100%)',
-                border: '1.5px solid #00B4D8',
+                background: 'rgba(16, 196, 168, 0.25)',
+                border: '1.5px solid #10C4A8',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                color: '#00B4D8',
+                color: '#10C4A8',
                 fontSize: 18,
                 flexShrink: 0
               }}
@@ -170,7 +170,7 @@ export default function NotificationBanner() {
               <div style={{ color: '#FFFFFF', fontWeight: 700, fontSize: 13, marginBottom: 2 }}>
                 {user.role === 'provider' ? 'Enable Booking Alerts' : 'Stay Updated'}
               </div>
-              <p style={{ color: '#CAF0F8', fontSize: 12, lineHeight: 1.4, margin: '0 0 10px', opacity: 0.9 }}>
+              <p style={{ color: '#E6FAF6', fontSize: 12, lineHeight: 1.4, margin: '0 0 10px', opacity: 0.9 }}>
                 Get instant desktop & mobile push notifications via Service Worker when a user books or messages you.
               </p>
               <div className="d-flex align-items-center gap-2">
@@ -178,14 +178,14 @@ export default function NotificationBanner() {
                   onClick={handleEnableNotifications}
                   className="btn btn-sm"
                   style={{
-                    background: 'linear-gradient(135deg, #FBB02D 0%, #E59F24 100%)',
-                    color: '#03045E',
+                    background: '#10C4A8',
+                    color: '#001E2B',
                     fontWeight: 700,
                     borderRadius: 10,
                     fontSize: 12,
                     padding: '5px 14px',
                     border: 'none',
-                    boxShadow: '0 2px 8px rgba(251, 176, 45, 0.35)'
+                    boxShadow: '0 2px 8px rgba(16, 196, 168, 0.35)'
                   }}
                 >
                   <i className="bi bi-check2-circle me-1"></i>Enable Alerts
@@ -195,8 +195,8 @@ export default function NotificationBanner() {
                   className="btn btn-sm"
                   style={{
                     background: 'transparent',
-                    color: '#CAF0F8',
-                    border: '1px solid rgba(202, 240, 248, 0.25)',
+                    color: '#FFFFFF',
+                    border: '1px solid rgba(255, 255, 255, 0.25)',
                     borderRadius: 10,
                     fontSize: 12,
                     padding: '5px 12px'

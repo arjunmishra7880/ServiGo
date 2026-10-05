@@ -214,7 +214,7 @@ function Home() {
               <span className="brand-text fs-4">
                 <i
                   className="bi bi-tools me-2"
-                  style={{ color: "#00B4D8" }}
+                  style={{ color: "#10C4A8" }}
                 ></i>
                 ServiGo
               </span>
@@ -225,17 +225,18 @@ function Home() {
               <div
                 className="d-flex align-items-center"
                 style={{
-                  background: "rgba(3, 4, 94, 0.75)",
-                  border: "1px solid rgba(0, 180, 216, 0.35)",
+                  background: "#FFFFFF",
+                  border: "1.5px solid #10C4A8",
                   borderRadius: 20,
                   padding: "4px 12px",
                   gap: 8,
                   transition: "all 0.25s ease",
+                  boxShadow: "0 2px 8px rgba(16, 196, 168, 0.15)",
                 }}
               >
                 <i
                   className="bi bi-search"
-                  style={{ color: "#00B4D8", fontSize: 13, cursor: "pointer" }}
+                  style={{ color: "#00684A", fontSize: 13, cursor: "pointer" }}
                   onClick={() => {
                     const el = document.getElementById("smart-search-input") || document.querySelector("input[placeholder*='Search service']");
                     if (el) {
@@ -262,19 +263,19 @@ function Home() {
                     background: "transparent",
                     border: "none",
                     outline: "none",
-                    color: "#FFFFFF",
+                    color: "#001E2B",
                     fontSize: 13,
                     width: 135,
                     transition: "width 0.25s ease",
                   }}
                   onFocus={(e) => {
                     e.target.style.width = "185px";
-                    e.target.parentElement.style.borderColor = "#00B4D8";
-                    e.target.parentElement.style.boxShadow = "0 0 12px rgba(0, 180, 216, 0.4)";
+                    e.target.parentElement.style.borderColor = "#001E2B";
+                    e.target.parentElement.style.boxShadow = "0 0 12px rgba(16, 196, 168, 0.4)";
                   }}
                   onBlur={(e) => {
                     if (!e.target.value) e.target.style.width = "135px";
-                    e.target.parentElement.style.borderColor = "rgba(0, 180, 216, 0.35)";
+                    e.target.parentElement.style.borderColor = "#10C4A8";
                     e.target.parentElement.style.boxShadow = "none";
                   }}
                 />
@@ -283,10 +284,10 @@ function Home() {
               <a
                 href="#categories"
                 style={{
-                  color: "#CAF0F8",
+                  color: "#001E2B",
                   textDecoration: "none",
                   fontSize: 15,
-                  fontWeight: 500,
+                  fontWeight: 600,
                 }}
               >
                 Services
@@ -294,10 +295,10 @@ function Home() {
               <a
                 href="#map-section"
                 style={{
-                  color: "#CAF0F8",
+                  color: "#001E2B",
                   textDecoration: "none",
                   fontSize: 15,
-                  fontWeight: 500,
+                  fontWeight: 600,
                 }}
               >
                 Nearby
@@ -310,11 +311,11 @@ function Home() {
                       to="/admin"
                       className="btn btn-sm"
                       style={{
-                        background: "linear-gradient(135deg, #FBB02D 0%, #E59F24 100%)",
-                        color: "#03045E",
+                        background: "linear-gradient(135deg, #FFB02D 0%, #E59E24 100%)",
+                        color: "#001E2B",
                         fontWeight: 700,
                         borderRadius: 10,
-                        border: "1px solid #FBB02D",
+                        border: "1px solid #FFB02D",
                       }}
                     >
                       <i className="bi bi-shield-check me-1"></i>Admin
@@ -325,11 +326,11 @@ function Home() {
                       to="/dashboard"
                       className="btn btn-sm"
                       style={{
-                        background: "rgba(0, 180, 216, 0.18)",
-                        color: "#CAF0F8",
+                        background: "#E6FAF6",
+                        color: "#00684A",
                         fontWeight: 600,
                         borderRadius: 10,
-                        border: "1px solid rgba(0, 180, 216, 0.35)",
+                        border: "1px solid #10C4A8",
                       }}
                     >
                       <i className="bi bi-graph-up-arrow me-1"></i>Analytics
@@ -344,7 +345,7 @@ function Home() {
                   <span
                     style={{
                       fontSize: 14,
-                      color: "#CAF0F8",
+                      color: "#001E2B",
                       fontWeight: 600,
                     }}
                   >
@@ -412,8 +413,8 @@ function Home() {
                 className="d-flex align-items-center justify-content-center text-white"
                 style={{ minHeight: "680px" }}
               >
-                <div className="spinner-border me-2" style={{ color: "#00B4D8" }} role="status"></div>
-                <span style={{ color: "#CAF0F8" }}>Loading 3D world...</span>
+                <div className="spinner-border me-2" style={{ color: "#10C4A8" }} role="status"></div>
+                <span style={{ color: "#001E2B" }}>Loading 3D world...</span>
               </div>
             }
           >
@@ -476,8 +477,8 @@ function Home() {
         {/* ─── Stats Row ─── */}
         <section
           style={{
-            borderTop: "1px solid rgba(0, 180, 216, 0.2)",
-            borderBottom: "1px solid rgba(0, 180, 216, 0.2)",
+            borderTop: "1px solid rgba(16, 196, 168, 0.2)",
+            borderBottom: "1px solid rgba(16, 196, 168, 0.2)",
             padding: "20px 0",
           }}
         >
@@ -488,25 +489,25 @@ function Home() {
                   label: "Verified Providers",
                   value: "4+",
                   icon: "bi-patch-check-fill",
-                  color: "#00B4D8",
+                  color: "#10C4A8",
                 },
                 {
                   label: "Service Categories",
                   value: "6",
                   icon: "bi-grid-fill",
-                  color: "#FBB02D",
+                  color: "#FFB02D",
                 },
                 {
                   label: "Bookings Made",
                   value: "3+",
                   icon: "bi-calendar-check-fill",
-                  color: "#00B4D8",
+                  color: "#00684A",
                 },
                 {
                   label: "5-Star Reviews",
                   value: "100%",
                   icon: "bi-star-fill",
-                  color: "#FBB02D",
+                  color: "#FFB02D",
                 },
               ].map((stat) => (
                 <div key={stat.label} className="col-6 col-md-3 py-2">
@@ -570,8 +571,7 @@ function Home() {
                   style={{
                     fontWeight: 800,
                     fontSize: 24,
-                    color: "#FFFFFF",
-                    textShadow: "0 2px 14px rgba(1, 10, 26, 0.7)",
+                    color: "#001E2B",
                     marginBottom: 2,
                   }}
                 >
@@ -580,7 +580,7 @@ function Home() {
                       <span style={{ opacity: 0.85, fontSize: 20 }}>
                         {selectedSubCategory.categoryName} &gt;{" "}
                       </span>
-                      <span style={{ color: selectedSubCategory.accentColor || "#00B4D8" }}>
+                      <span style={{ color: "#00684A" }}>
                         {selectedSubCategory.name}
                       </span>{" "}
                       Providers
@@ -593,7 +593,7 @@ function Home() {
                 </h2>
                 <p
                   style={{
-                    color: "rgba(202, 240, 248, 0.78)",
+                    color: "#3D4F58",
                     fontSize: 14,
                     margin: 0,
                   }}
@@ -606,12 +606,13 @@ function Home() {
               <div className="d-flex align-items-center gap-2">
                 <span
                   style={{
-                    background: "linear-gradient(135deg, #00B4D8 0%, #023EBA 100%)",
-                    color: "#FFFFFF",
+                    background: "linear-gradient(135deg, #10C4A8 0%, #0DB197 100%)",
+                    color: "#001E2B",
                     borderRadius: 20,
                     padding: "5px 14px",
                     fontSize: 13,
                     fontWeight: 700,
+                    boxShadow: "0 2px 10px rgba(16, 196, 168, 0.25)",
                   }}
                 >
                   {filteredProviders.length === providers.length
@@ -622,13 +623,13 @@ function Home() {
                   <button
                     onClick={() => setSelectedSubCategory(null)}
                     style={{
-                      background: "rgba(0, 180, 216, 0.18)",
-                      border: `1.5px solid ${selectedSubCategory.accentColor || "#00B4D8"}`,
+                      background: "#E6FAF6",
+                      border: "1.5px solid #10C4A8",
                       borderRadius: 10,
                       padding: "4px 12px",
                       fontSize: 13,
                       cursor: "pointer",
-                      color: "#FFFFFF",
+                      color: "#00684A",
                       fontWeight: 600,
                     }}
                   >
@@ -639,13 +640,14 @@ function Home() {
                   <button
                     onClick={handleReset}
                     style={{
-                      background: "rgba(202, 240, 248, 0.12)",
-                      border: "1px solid rgba(0, 180, 216, 0.35)",
+                      background: "#E6FAF6",
+                      border: "1px solid #10C4A8",
                       borderRadius: 10,
                       padding: "4px 12px",
                       fontSize: 13,
                       cursor: "pointer",
-                      color: "#CAF0F8",
+                      color: "#00684A",
+                      fontWeight: 600,
                     }}
                   >
                     Clear All ×
@@ -656,13 +658,12 @@ function Home() {
 
             {/* ─── Filter & Sorting Toolbar ─── */}
             <div
-              className="p-3 mb-4"
+              className="p-3 p-md-4 mb-4"
               style={{
-                background: "linear-gradient(135deg, rgba(4, 20, 54, 0.90) 0%, rgba(2, 12, 38, 0.96) 100%)",
-                backdropFilter: "blur(16px)",
-                border: "1.5px solid rgba(0, 180, 216, 0.35)",
-                borderRadius: 18,
-                boxShadow: "0 10px 30px rgba(1, 10, 26, 0.55), 0 0 20px rgba(0, 180, 216, 0.15)",
+                background: "#FFFFFF",
+                border: "1.5px solid rgba(226, 232, 240, 0.9)",
+                borderRadius: 20,
+                boxShadow: "0 8px 30px rgba(0, 30, 43, 0.04), 0 1px 3px rgba(0, 30, 43, 0.02)",
               }}
             >
               <div className="d-flex flex-wrap align-items-center justify-content-between gap-3">
@@ -672,13 +673,13 @@ function Home() {
                     <span
                       style={{
                         fontSize: 13,
-                        fontWeight: 700,
-                        color: "#00B4D8",
+                        fontWeight: 800,
+                        color: "#001E2B",
                         textTransform: "uppercase",
                         letterSpacing: 0.5,
                       }}
                     >
-                      <i className="bi bi-arrow-down-up me-1" style={{ color: "#00B4D8" }}></i>
+                      <i className="bi bi-arrow-down-up me-1" style={{ color: "#10C4A8" }}></i>
                       Sort:
                     </span>
                     <select
@@ -687,52 +688,45 @@ function Home() {
                       className="form-select form-select-sm"
                       style={{
                         width: "auto",
-                        background: "rgba(0, 180, 216, 0.15)",
-                        color: "#FFFFFF",
-                        borderColor: "rgba(0, 180, 216, 0.35)",
-                        borderRadius: 10,
+                        background: "#FFFFFF",
+                        color: "#001E2B",
+                        borderColor: "#CBD5E1",
+                        borderRadius: 12,
                         fontWeight: 600,
                         fontSize: 13,
                         cursor: "pointer",
                       }}
                     >
-                      <option value="recommended" style={{ background: "#051838", color: "#fff" }}>⚡ Recommended</option>
-                      <option value="rating_desc" style={{ background: "#051838", color: "#fff" }}>⭐ Top Rated (5.0 → 1.0)</option>
-                      <option value="price_asc" style={{ background: "#051838", color: "#fff" }}>💰 Price: Low to High</option>
-                      <option value="price_desc" style={{ background: "#051838", color: "#fff" }}>💎 Price: High to Low</option>
-                      <option value="exp_desc" style={{ background: "#051838", color: "#fff" }}>🏆 Most Experienced</option>
+                      <option value="recommended">⚡ Recommended</option>
+                      <option value="rating_desc">⭐ Top Rated (5.0 → 1.0)</option>
+                      <option value="price_asc">💰 Price: Low to High</option>
+                      <option value="price_desc">💎 Price: High to Low</option>
+                      <option value="exp_desc">🏆 Most Experienced</option>
                     </select>
                   </div>
 
                   {/* Verified Only Toggle */}
                   <button
                     onClick={() => setVerifiedOnly(!verifiedOnly)}
-                    className="btn btn-sm"
+                    className="btn btn-sm rounded-pill px-3"
                     style={{
-                      borderRadius: 10,
-                      fontWeight: 600,
+                      fontWeight: 700,
                       fontSize: 13,
                       transition: "all 0.2s ease",
-                      background: verifiedOnly
-                        ? "linear-gradient(135deg, #00B4D8 0%, #0077B6 100%)"
-                        : "rgba(0, 180, 216, 0.12)",
-                      color: "#FFFFFF",
-                      border: verifiedOnly
-                        ? "1.5px solid #00B4D8"
-                        : "1px solid rgba(0, 180, 216, 0.3)",
-                      boxShadow: verifiedOnly
-                        ? "0 3px 12px rgba(0, 180, 216, 0.4)"
-                        : "none",
+                      background: verifiedOnly ? "#10C4A8" : "#FFFFFF",
+                      color: "#001E2B",
+                      border: verifiedOnly ? "1.5px solid #10C4A8" : "1.5px solid #CBD5E1",
+                      boxShadow: verifiedOnly ? "0 2px 8px rgba(16, 196, 168, 0.3)" : "none",
                     }}
                   >
                     <i
                       className={
                         verifiedOnly
-                          ? "bi bi-patch-check-fill me-1"
+                          ? "bi bi-patch-check-fill me-1 text-dark"
                           : "bi bi-patch-check me-1"
                       }
                       style={{
-                        color: verifiedOnly ? "#FFFFFF" : "#00B4D8",
+                        color: verifiedOnly ? "#001E2B" : "#10C4A8",
                       }}
                     ></i>
                     Verified Only
@@ -742,12 +736,12 @@ function Home() {
                 {/* Right Controls: Rating Pills & Max Rate Slider */}
                 <div className="d-flex flex-wrap align-items-center gap-3">
                   {/* Rating Selector */}
-                  <div className="d-flex align-items-center gap-1">
+                  <div className="d-flex align-items-center gap-1.5">
                     <span
                       style={{
                         fontSize: 13,
-                        fontWeight: 700,
-                        color: "#00B4D8",
+                        fontWeight: 800,
+                        color: "#001E2B",
                         marginRight: 4,
                       }}
                     >
@@ -763,21 +757,14 @@ function Home() {
                         <button
                           key={r.label}
                           onClick={() => setMinRating(r.val)}
-                          className="btn btn-sm py-1 px-2"
+                          className="btn btn-sm py-1 px-2.5 rounded-pill"
                           style={{
-                            borderRadius: 8,
                             fontSize: 12,
-                            fontWeight: isSelected ? 700 : 500,
-                            background: isSelected
-                              ? "#FBB02D"
-                              : "rgba(0, 180, 216, 0.12)",
-                            color: isSelected ? "#03045E" : "#CAF0F8",
-                            border: isSelected
-                              ? "1px solid #FBB02D"
-                              : "1px solid rgba(0, 180, 216, 0.25)",
-                            boxShadow: isSelected
-                              ? "0 2px 8px rgba(251, 176, 45, 0.4)"
-                              : "none",
+                            fontWeight: isSelected ? 800 : 600,
+                            background: isSelected ? "#001E2B" : "#FFFFFF",
+                            color: isSelected ? "#FFFFFF" : "#475569",
+                            border: isSelected ? "1px solid #001E2B" : "1px solid #CBD5E1",
+                            boxShadow: isSelected ? "0 2px 8px rgba(0, 30, 43, 0.2)" : "none",
                           }}
                         >
                           {r.label}
@@ -796,8 +783,8 @@ function Home() {
                         <span
                           style={{
                             fontSize: 12,
-                            color: "#00B4D8",
-                            fontWeight: 600,
+                            color: "#64748B",
+                            fontWeight: 700,
                           }}
                         >
                           Max Rate:
@@ -805,8 +792,8 @@ function Home() {
                         <span
                           style={{
                             fontSize: 12,
-                            color: "#FFFFFF",
-                            fontWeight: 700,
+                            color: "#001E2B",
+                            fontWeight: 800,
                           }}
                         >
                           {maxPrice >= 1500 ? "Any Budget" : `≤ ₹${maxPrice}/hr`}
@@ -820,7 +807,7 @@ function Home() {
                         value={maxPrice}
                         onChange={(e) => setMaxPrice(Number(e.target.value))}
                         style={{
-                          accentColor: "#00B4D8",
+                          accentColor: "#10C4A8",
                           cursor: "pointer",
                           height: 5,
                         }}
@@ -833,26 +820,26 @@ function Home() {
               {/* Active Filter Chips */}
               {hasActiveFilters && (
                 <div
-                  className="d-flex align-items-center justify-content-between pt-2 mt-2 flex-wrap gap-2"
+                  className="d-flex align-items-center justify-content-between pt-3 mt-3 flex-wrap gap-2"
                   style={{
-                    borderTop: "1px solid rgba(0, 180, 216, 0.2)",
+                    borderTop: "1px solid rgba(0, 30, 43, 0.08)",
                   }}
                 >
                   <div className="d-flex align-items-center flex-wrap gap-2">
-                    <span style={{ fontSize: 12, color: "rgba(202, 240, 248, 0.7)" }}>
+                    <span style={{ fontSize: 12, color: "#64748B", fontWeight: 700 }}>
                       Active:
                     </span>
                     {minRating > 0 && (
                       <span
-                        className="badge d-flex align-items-center gap-1"
+                        className="badge rounded-pill d-flex align-items-center gap-1"
                         style={{
-                          background: "rgba(0, 180, 216, 0.2)",
-                          color: "#FFFFFF",
-                          borderRadius: 12,
-                          padding: "4px 8px",
+                          background: "#FFFBEB",
+                          color: "#B45309",
+                          padding: "5px 10px",
                           fontSize: 11,
                           cursor: "pointer",
-                          border: "1px solid rgba(0, 180, 216, 0.35)",
+                          border: "1px solid #FDE68A",
+                          fontWeight: 700,
                         }}
                         onClick={() => setMinRating(0)}
                         title="Click to remove"
@@ -863,35 +850,35 @@ function Home() {
                     )}
                     {selectedSubCategory && (
                       <span
-                        className="badge d-flex align-items-center gap-1"
+                        className="badge rounded-pill d-flex align-items-center gap-1"
                         style={{
-                          background: selectedSubCategory.accentColor || "#00B4D8",
-                          color: "#FFFFFF",
-                          borderRadius: 12,
-                          padding: "4px 10px",
+                          background: "#E6FAF6",
+                          color: "#00684A",
+                          padding: "5px 12px",
                           fontSize: 11,
                           cursor: "pointer",
                           fontWeight: 700,
+                          border: "1px solid rgba(16, 196, 168, 0.3)"
                         }}
                         onClick={() => setSelectedSubCategory(null)}
                         title="Click to remove"
                       >
                         <i className={"bi " + selectedSubCategory.icon + " me-1"}></i>
                         Sub: {selectedSubCategory.name}
-                        <i className="bi bi-x-circle-fill text-white ms-1"></i>
+                        <i className="bi bi-x-circle-fill text-muted ms-1"></i>
                       </span>
                     )}
                     {verifiedOnly && (
                       <span
-                        className="badge d-flex align-items-center gap-1"
+                        className="badge rounded-pill d-flex align-items-center gap-1"
                         style={{
-                          background: "rgba(0, 180, 216, 0.2)",
-                          color: "#FFFFFF",
-                          borderRadius: 12,
-                          padding: "4px 8px",
+                          background: "#EFF6FF",
+                          color: "#2563EB",
+                          padding: "5px 10px",
                           fontSize: 11,
                           cursor: "pointer",
-                          border: "1px solid rgba(0, 180, 216, 0.35)",
+                          border: "1px solid rgba(37, 99, 235, 0.2)",
+                          fontWeight: 700,
                         }}
                         onClick={() => setVerifiedOnly(false)}
                         title="Click to remove"
@@ -902,15 +889,15 @@ function Home() {
                     )}
                     {maxPrice < 1500 && (
                       <span
-                        className="badge d-flex align-items-center gap-1"
+                        className="badge rounded-pill d-flex align-items-center gap-1"
                         style={{
-                          background: "rgba(0, 180, 216, 0.2)",
-                          color: "#FFFFFF",
-                          borderRadius: 12,
-                          padding: "4px 8px",
+                          background: "#F1F5F9",
+                          color: "#001E2B",
+                          padding: "5px 10px",
                           fontSize: 11,
                           cursor: "pointer",
-                          border: "1px solid rgba(0, 180, 216, 0.35)",
+                          border: "1px solid #CBD5E1",
+                          fontWeight: 700,
                         }}
                         onClick={() => setMaxPrice(1500)}
                         title="Click to remove"
@@ -921,15 +908,15 @@ function Home() {
                     )}
                     {sortBy !== "recommended" && (
                       <span
-                        className="badge d-flex align-items-center gap-1"
+                        className="badge rounded-pill d-flex align-items-center gap-1"
                         style={{
-                          background: "rgba(0, 180, 216, 0.2)",
-                          color: "#FFFFFF",
-                          borderRadius: 12,
-                          padding: "4px 8px",
+                          background: "#F1F5F9",
+                          color: "#001E2B",
+                          padding: "5px 10px",
                           fontSize: 11,
                           cursor: "pointer",
-                          border: "1px solid rgba(0, 180, 216, 0.35)",
+                          border: "1px solid #CBD5E1",
+                          fontWeight: 700,
                         }}
                         onClick={() => setSortBy("recommended")}
                         title="Click to remove"
@@ -945,8 +932,8 @@ function Home() {
                     className="btn btn-link p-0 text-decoration-none"
                     style={{
                       fontSize: 12,
-                      color: "#00B4D8",
-                      fontWeight: 600,
+                      color: "#00684A",
+                      fontWeight: 800,
                     }}
                   >
                     <i className="bi bi-arrow-counterclockwise me-1"></i>Reset All Filters
@@ -959,289 +946,382 @@ function Home() {
               <div className="text-center py-5">
                 <div
                   className="spinner-border"
-                  style={{ color: "#00B4D8" }}
+                  style={{ color: "#10C4A8" }}
                 ></div>
-                <p style={{ color: "rgba(255,255,255,0.8)", marginTop: 12 }}>
+                <p style={{ color: "#001E2B", marginTop: 12 }}>
                   Finding providers...
                 </p>
               </div>
             ) : providers.length === 0 ? (
-              <div className="card-aesthetic p-5 text-center">
+              <div
+                className="p-5 text-center rounded-4 shadow-sm"
+                style={{
+                  background: "#FFFFFF",
+                  border: "1.5px solid rgba(226, 232, 240, 0.9)",
+                  borderRadius: 22
+                }}
+              >
                 <i
                   className="bi bi-search"
-                  style={{ fontSize: 40, color: "var(--text-muted)" }}
+                  style={{ fontSize: 40, color: "#94A3B8" }}
                 ></i>
-                <h5 style={{ marginTop: 16, color: "var(--text-secondary)" }}>
+                <h5 style={{ marginTop: 16, color: "#001E2B", fontWeight: 800 }}>
                   No providers found
                 </h5>
-                <p style={{ color: "var(--text-muted)", marginBottom: 20 }}>
+                <p style={{ color: "#64748B", marginBottom: 20 }}>
                   Try a different keyword or reset the filter.
                 </p>
                 <button
                   onClick={handleReset}
-                  className="btn-primary-aesthetic btn btn-sm px-4"
+                  className="btn btn-sm px-4 rounded-pill"
+                  style={{
+                    background: "#10C4A8",
+                    color: "#001E2B",
+                    fontWeight: 700,
+                    border: "none"
+                  }}
                 >
                   Reset Search
                 </button>
               </div>
             ) : filteredProviders.length === 0 ? (
-              <div className="card-aesthetic p-5 text-center">
+              <div
+                className="p-5 text-center rounded-4 shadow-sm"
+                style={{
+                  background: "#FFFFFF",
+                  border: "1.5px solid rgba(226, 232, 240, 0.9)",
+                  borderRadius: 22
+                }}
+              >
                 <i
                   className="bi bi-funnel"
-                  style={{ fontSize: 40, color: "var(--text-muted)" }}
+                  style={{ fontSize: 40, color: "#94A3B8" }}
                 ></i>
-                <h5 style={{ marginTop: 16, color: "var(--text-secondary)" }}>
+                <h5 style={{ marginTop: 16, color: "#001E2B", fontWeight: 800 }}>
                   No providers match your filters
                 </h5>
-                <p style={{ color: "var(--text-muted)", marginBottom: 20 }}>
+                <p style={{ color: "#64748B", marginBottom: 20 }}>
                   Try loosening your rating or price constraints.
                 </p>
                 <button
                   onClick={handleResetFilters}
-                  className="btn-primary-aesthetic btn btn-sm px-4"
+                  className="btn btn-sm px-4 rounded-pill"
+                  style={{
+                    background: "#10C4A8",
+                    color: "#001E2B",
+                    fontWeight: 700,
+                    border: "none"
+                  }}
                 >
                   Reset Filters
                 </button>
               </div>
             ) : (
               <div className="row g-4">
-                {filteredProviders.map((p) => (
-                  <div key={p.id} className="col-md-6">
-                    <div className="card-aesthetic p-4 h-100">
-                      {/* Provider Header */}
-                      <div className="d-flex align-items-start justify-content-between mb-2">
+                {filteredProviders.map((p) => {
+                  const primaryService = p.services?.[0];
+                  const catName = primaryService?.category?.name || "General";
+                  
+                  return (
+                    <div key={p.id} className="col-12 col-lg-6">
+                      <div className="p-4 rounded-4 h-100 position-relative d-flex flex-column justify-content-between provider-profile-card">
+                        {/* Provider Header */}
                         <div>
-                          <h5
+                          <div className="d-flex align-items-start justify-content-between mb-3 gap-2">
+                            <div className="d-flex align-items-center gap-3">
+                              {/* Squircle Avatar / Category Icon */}
+                              <div
+                                style={{
+                                  width: 48,
+                                  height: 48,
+                                  borderRadius: 14,
+                                  background: "#E6FAF6",
+                                  color: "#00684A",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  justifyContent: "center",
+                                  fontSize: 22,
+                                  fontWeight: 800,
+                                  flexShrink: 0,
+                                  boxShadow: "0 2px 8px rgba(16, 196, 168, 0.2)"
+                                }}
+                              >
+                                <i className={`bi ${catName.includes("IT") ? "bi-laptop" : catName.includes("Electric") ? "bi-lightning-charge-fill" : catName.includes("Plumb") ? "bi-wrench-adjustable" : catName.includes("Clean") ? "bi-stars" : "bi-tools"}`}></i>
+                              </div>
+
+                              <div>
+                                <h5
+                                  style={{
+                                    fontWeight: 800,
+                                    fontSize: 17,
+                                    marginBottom: 2,
+                                    lineHeight: 1.3
+                                  }}
+                                >
+                                  <Link
+                                    to={"/providers/" + p.id}
+                                    style={{
+                                      color: "#001E2B",
+                                      textDecoration: "none"
+                                    }}
+                                    className="hover-primary"
+                                  >
+                                    {p.businessName || p.user?.name}
+                                  </Link>
+                                  {p.isVerified && (
+                                    <i
+                                      className="bi bi-patch-check-fill ms-2 text-success"
+                                      style={{ fontSize: 15 }}
+                                      title="Verified Professional"
+                                    ></i>
+                                  )}
+                                </h5>
+                                <div style={{ fontSize: 13, color: "#64748B", fontWeight: 500 }}>
+                                  <i className="bi bi-person me-1"></i>
+                                  {p.user?.name}
+                                  <span className="mx-2">·</span>
+                                  <i className="bi bi-briefcase me-1"></i>
+                                  {p.experience} yrs exp
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="text-end flex-shrink-0">
+                              <span
+                                className="badge rounded-pill"
+                                style={{
+                                  background: "#FFFBEB",
+                                  color: "#B45309",
+                                  border: "1px solid #FDE68A",
+                                  borderRadius: 20,
+                                  padding: "4px 10px",
+                                  fontWeight: 800,
+                                  fontSize: 13
+                                }}
+                              >
+                                ★ {p.rating}
+                              </span>
+                              <div
+                                style={{
+                                  fontSize: 11.5,
+                                  color: "#94A3B8",
+                                  marginTop: 3,
+                                  fontWeight: 600
+                                }}
+                              >
+                                {p.reviewCount} review{p.reviewCount !== 1 ? "s" : ""}
+                              </div>
+                            </div>
+                          </div>
+
+                          <p
                             style={{
-                              fontWeight: 700,
-                              fontSize: 17,
-                              marginBottom: 2,
+                              color: "#475569",
+                              fontSize: 13,
+                              marginBottom: 14,
+                              lineHeight: 1.45
                             }}
                           >
+                            {p.bio}
+                          </p>
+
+                          {/* Info Tags */}
+                          <div className="d-flex flex-wrap gap-2 mb-3">
+                            <span
+                              className="badge rounded-pill"
+                              style={{
+                                background: "#F1F5F9",
+                                color: "#475569",
+                                padding: "5px 12px",
+                                fontSize: 12,
+                                fontWeight: 600,
+                                border: "1px solid #E2E8F0"
+                              }}
+                            >
+                              <i className="bi bi-geo-alt-fill me-1 text-danger"></i>
+                              {p.city}
+                            </span>
+                            <span
+                              className="badge rounded-pill"
+                              style={{
+                                background: "#E6FAF6",
+                                color: "#00684A",
+                                padding: "5px 12px",
+                                fontSize: 12,
+                                fontWeight: 700,
+                                border: "1px solid rgba(16, 196, 168, 0.3)"
+                              }}
+                            >
+                              <i className="bi bi-cash me-1 text-success"></i>From ₹{p.hourlyRate}/hr
+                            </span>
+                            <span
+                              className="badge rounded-pill"
+                              style={{
+                                background: "#EFF6FF",
+                                color: "#2563EB",
+                                padding: "5px 12px",
+                                fontSize: 12,
+                                fontWeight: 600,
+                                border: "1px solid rgba(37, 99, 235, 0.2)"
+                              }}
+                            >
+                              <i className="bi bi-shield-check me-1"></i>Verified Pro
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Services Offered */}
+                        <div
+                          style={{
+                            borderTop: "1px solid rgba(0, 30, 43, 0.08)",
+                            paddingTop: 14,
+                            marginTop: 10
+                          }}
+                        >
+                          <div
+                            style={{
+                              fontSize: 11,
+                              fontWeight: 800,
+                              textTransform: "uppercase",
+                              letterSpacing: 0.5,
+                              color: "#64748B",
+                              marginBottom: 10,
+                            }}
+                          >
+                            Services Offered
+                          </div>
+                          <div className="d-flex flex-column gap-2">
+                            {p.services &&
+                              p.services.map((s) => {
+                                const queryStr = selectedSubCategory
+                                  ? (selectedSubCategory.query || selectedSubCategory.name).toLowerCase()
+                                  : "";
+                                const isMatch = Boolean(
+                                  selectedSubCategory &&
+                                    ((s.title || "").toLowerCase().includes(queryStr) ||
+                                      (s.description || "").toLowerCase().includes(queryStr) ||
+                                      (queryStr === "ac" &&
+                                        ((s.title || "").toLowerCase().includes("ac ") ||
+                                          (s.title || "").toLowerCase().includes("air cond"))))
+                                );
+
+                                return (
+                                  <div
+                                    key={s.id}
+                                    style={{
+                                      background: isMatch ? "#E6FAF6" : "#F8FAFC",
+                                      border: isMatch
+                                        ? "1.5px solid #10C4A8"
+                                        : "1px solid #E2E8F0",
+                                      borderRadius: 14,
+                                      padding: "10px 14px",
+                                      display: "flex",
+                                      justifyContent: "space-between",
+                                      alignItems: "center",
+                                      transition: "all 0.2s ease",
+                                      boxShadow: isMatch
+                                        ? "0 4px 14px rgba(16, 196, 168, 0.15)"
+                                        : "none",
+                                    }}
+                                  >
+                                    <div>
+                                      <div
+                                        style={{
+                                          fontWeight: 700,
+                                          fontSize: 13.5,
+                                          color: "#001E2B",
+                                          display: "flex",
+                                          alignItems: "center",
+                                          gap: 6,
+                                        }}
+                                      >
+                                        {s.title}
+                                        {isMatch && (
+                                          <span
+                                            className="badge rounded-pill"
+                                            style={{
+                                              background: "#10C4A8",
+                                              color: "#001E2B",
+                                              fontSize: 10,
+                                              fontWeight: 800,
+                                              padding: "2px 8px"
+                                            }}
+                                          >
+                                            Matched
+                                          </span>
+                                        )}
+                                      </div>
+                                      <div
+                                        style={{
+                                          fontSize: 12,
+                                          color: "#64748B",
+                                          maxWidth: 260,
+                                          overflow: "hidden",
+                                          textOverflow: "ellipsis",
+                                          whiteSpace: "nowrap",
+                                          marginTop: 2
+                                        }}
+                                      >
+                                        {s.description}
+                                      </div>
+                                    </div>
+                                    <div className="d-flex align-items-center gap-2">
+                                      <span
+                                        style={{
+                                          fontWeight: 800,
+                                          color: "#001E2B",
+                                          fontSize: 14,
+                                        }}
+                                      >
+                                        ₹{s.price}
+                                      </span>
+                                      <button
+                                        onClick={() =>
+                                          setActiveBooking({
+                                            service: s,
+                                            provider: p,
+                                          })
+                                        }
+                                        className="btn btn-sm rounded-pill"
+                                        style={{
+                                          background: "#10C4A8",
+                                          color: "#001E2B",
+                                          fontWeight: 700,
+                                          padding: "5px 14px",
+                                          fontSize: 12,
+                                          border: "none",
+                                          boxShadow: "0 2px 8px rgba(16, 196, 168, 0.25)"
+                                        }}
+                                      >
+                                        Book
+                                      </button>
+                                    </div>
+                                  </div>
+                                );
+                              })}
+                          </div>
+
+                          <div className="d-flex justify-content-between align-items-center mt-3 pt-2">
                             <Link
                               to={"/providers/" + p.id}
                               style={{
-                                color: "var(--text-primary)",
+                                color: "#00684A",
+                                fontWeight: 700,
+                                fontSize: 13,
                                 textDecoration: "none",
+                                display: "flex",
+                                alignItems: "center",
+                                gap: 4
                               }}
-                              className="hover-primary"
                             >
-                              {p.businessName || p.user.name}
+                              View Profile &amp; Reviews <i className="bi bi-arrow-right"></i>
                             </Link>
-                            {p.isVerified && (
-                              <i
-                                className="bi bi-patch-check-fill ms-2"
-                                style={{ color: "#00B4D8", fontSize: 14 }}
-                                title="Verified"
-                              ></i>
-                            )}
-                          </h5>
-                          <div
-                            style={{ fontSize: 13, color: "var(--text-muted)" }}
-                          >
-                            <i className="bi bi-person me-1"></i>
-                            {p.user.name}
-                            <span className="mx-2">·</span>
-                            <i className="bi bi-briefcase me-1"></i>
-                            {p.experience} yrs exp
                           </div>
-                        </div>
-                        <div className="text-end">
-                          <span
-                            style={{
-                              background: "rgba(0, 180, 216, 0.2)",
-                              color: "#CAF0F8",
-                              borderRadius: 20,
-                              padding: "3px 10px",
-                              fontWeight: 700,
-                              fontSize: 14,
-                              border: "1px solid rgba(0, 180, 216, 0.35)",
-                            }}
-                          >
-                            ★ {p.rating}
-                          </span>
-                          <div
-                            style={{
-                              fontSize: 12,
-                              color: "var(--text-muted)",
-                              marginTop: 2,
-                            }}
-                          >
-                            {p.reviewCount} review
-                            {p.reviewCount !== 1 ? "s" : ""}
-                          </div>
-                        </div>
-                      </div>
-
-                      <p
-                        style={{
-                          color: "var(--text-secondary)",
-                          fontSize: 13,
-                          marginBottom: 12,
-                        }}
-                      >
-                        {p.bio}
-                      </p>
-
-                      {/* Info Tags */}
-                      <div className="d-flex flex-wrap gap-2 mb-3">
-                        <span
-                          style={{
-                            background: "rgba(0, 180, 216, 0.16)",
-                            color: "#CAF0F8",
-                            borderRadius: 8,
-                            padding: "3px 10px",
-                            fontSize: 12,
-                            border: "1px solid rgba(0, 180, 216, 0.30)",
-                          }}
-                        >
-                          <i className="bi bi-geo-alt me-1 text-danger"></i>
-                          {p.city}
-                        </span>
-                        <span
-                          style={{
-                            background: "rgba(0, 180, 216, 0.16)",
-                            color: "#CAF0F8",
-                            borderRadius: 8,
-                            padding: "3px 10px",
-                            fontSize: 12,
-                            border: "1px solid rgba(0, 180, 216, 0.30)",
-                          }}
-                        >
-                          <i className="bi bi-cash me-1" style={{ color: "#00B4D8" }}></i>From ₹
-                          {p.hourlyRate}/hr
-                        </span>
-                      </div>
-
-                      {/* Services */}
-                      <div
-                        style={{
-                          borderTop: "1px solid var(--border-light)",
-                          paddingTop: 12,
-                        }}
-                      >
-                        <div
-                          style={{
-                            fontSize: 11,
-                            fontWeight: 700,
-                            textTransform: "uppercase",
-                            letterSpacing: 0.5,
-                            color: "#00B4D8",
-                            marginBottom: 8,
-                          }}
-                        >
-                          Services Offered
-                        </div>
-                        <div className="d-flex flex-column gap-2">
-                          {p.services &&
-                            p.services.map((s) => {
-                              const queryStr = selectedSubCategory
-                                ? (selectedSubCategory.query || selectedSubCategory.name).toLowerCase()
-                                : "";
-                              const isMatch = Boolean(
-                                selectedSubCategory &&
-                                  ((s.title || "").toLowerCase().includes(queryStr) ||
-                                    (s.description || "").toLowerCase().includes(queryStr) ||
-                                    (queryStr === "ac" &&
-                                      ((s.title || "").toLowerCase().includes("ac ") ||
-                                        (s.title || "").toLowerCase().includes("air cond"))))
-                              );
-
-                              return (
-                                <div
-                                  key={s.id}
-                                  style={{
-                                    background: isMatch
-                                      ? "linear-gradient(135deg, rgba(0, 180, 216, 0.35) 0%, rgba(0, 119, 182, 0.6) 100%)"
-                                      : "rgba(0, 180, 216, 0.08)",
-                                    border: isMatch
-                                      ? `1.5px solid ${selectedSubCategory.accentColor || "#00B4D8"}`
-                                      : "1px solid rgba(0, 180, 216, 0.22)",
-                                    borderRadius: 10,
-                                    padding: "8px 12px",
-                                    display: "flex",
-                                    justifyContent: "space-between",
-                                    alignItems: "center",
-                                    transition: "all 0.2s ease",
-                                    boxShadow: isMatch
-                                      ? "0 4px 14px rgba(0, 180, 216, 0.35)"
-                                      : "none",
-                                  }}
-                                >
-                                  <div>
-                                    <div
-                                      style={{
-                                        fontWeight: 600,
-                                        fontSize: 13,
-                                        color: "var(--text-primary)",
-                                        display: "flex",
-                                        alignItems: "center",
-                                        gap: 6,
-                                      }}
-                                    >
-                                      {s.title}
-                                      {isMatch && (
-                                        <span
-                                          style={{
-                                            background: selectedSubCategory.accentColor || "#00B4D8",
-                                            color: "#fff",
-                                            fontSize: 10,
-                                            padding: "1px 7px",
-                                            borderRadius: 10,
-                                            fontWeight: 700,
-                                          }}
-                                        >
-                                          Matched
-                                        </span>
-                                      )}
-                                    </div>
-                                    <div
-                                      style={{
-                                        fontSize: 12,
-                                        color: "var(--text-muted)",
-                                        maxWidth: 260,
-                                        overflow: "hidden",
-                                        textOverflow: "ellipsis",
-                                        whiteSpace: "nowrap",
-                                      }}
-                                    >
-                                      {s.description}
-                                    </div>
-                                  </div>
-                                  <div className="d-flex align-items-center gap-2">
-                                    <span
-                                      style={{
-                                        fontWeight: 700,
-                                        color: "#00B4D8",
-                                        fontSize: 14,
-                                      }}
-                                    >
-                                      ₹{s.price}
-                                    </span>
-                                    <button
-                                      onClick={() =>
-                                        setActiveBooking({
-                                          service: s,
-                                          provider: p,
-                                        })
-                                      }
-                                      className="btn-primary-aesthetic btn btn-sm"
-                                      style={{
-                                        padding: "5px 14px",
-                                        fontSize: 13,
-                                      }}
-                                    >
-                                      Book
-                                    </button>
-                                  </div>
-                                </div>
-                              );
-                            })}
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             )}
           </div>
@@ -1269,22 +1349,21 @@ function Home() {
           />
         )}
 
-        {/* ─── Footer ─── */}
+        {/* ─── Footer: MongoDB Compass Slate ─── */}
         <footer
           style={{
-            background: "rgba(3, 4, 94, 0.96)",
-            backdropFilter: "blur(12px)",
-            borderTop: "1px solid rgba(0, 180, 216, 0.2)",
-            color: "#CAF0F8",
+            background: "#001E2B",
+            borderTop: "2px solid #10C4A8",
+            color: "#FFFFFF",
             padding: "36px 0",
             textAlign: "center",
           }}
         >
           <div className="container">
-            <span style={{ color: "#FFFFFF", fontWeight: 800, fontSize: 20 }}>
+            <span style={{ color: "#10C4A8", fontWeight: 800, fontSize: 20 }}>
               ServiGo
             </span>
-            <p style={{ marginTop: 8, marginBottom: 0, fontSize: 14, color: "rgba(202, 240, 248, 0.75)" }}>
+            <p style={{ marginTop: 8, marginBottom: 0, fontSize: 14, color: "#94A3B8" }}>
               Your Trusted Local Services Platform &copy; 2026
             </p>
           </div>

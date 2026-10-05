@@ -7,26 +7,26 @@ import {
   XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer
 } from 'recharts';
 
-// Ocean Royale Palette:
-// #03045E (Primary background), #023EBA (Main brand), #00B4D8 (Highlights), #CAF0F8 (Cards/Ice), #FBB02D (CTA gold)
+// MongoDB Compass Palette:
+// #FFFBFC (Main canvas), #10C4A8 (Cards & components), #00684A (Forest green), #001E2B (Deep slate), #E6FAF6 (Mint ice tint)
 const PALETTE = {
-  darkest: '#03045E',
-  deepNavy: '#023EBA',
-  midNavy: '#0077B6',
-  steelBlue: '#00B4D8',
-  iceSlate: '#CAF0F8',
+  darkest: '#001E2B',
+  deepNavy: '#00684A',
+  midNavy: '#0DB197',
+  steelBlue: '#10C4A8',
+  iceSlate: '#E6FAF6',
   lightIce: '#FFFFFF',
-  ctaGold: '#FBB02D'
+  ctaGold: '#FFB02D'
 };
 
 const CHART_COLORS = {
-  completed: '#00B4D8',
-  accepted: '#CAF0F8',
-  pending: '#FBB02D',
-  cancelled: '#023EBA',
-  earnings: '#00B4D8',
-  bookings: '#CAF0F8',
-  serviceBar: '#00B4D8'
+  completed: '#10C4A8',
+  accepted: '#00684A',
+  pending: '#FFB02D',
+  cancelled: '#001E2B',
+  earnings: '#10C4A8',
+  bookings: '#00684A',
+  serviceBar: '#10C4A8'
 };
 
 // Custom interactive tooltip for Charts
@@ -35,22 +35,22 @@ const CustomTrendTooltip = ({ active, payload, label }) => {
   return (
     <div
       style={{
-        background: 'rgba(3, 4, 94, 0.95)',
+        background: 'rgba(0, 30, 43, 0.95)',
         backdropFilter: 'blur(12px)',
-        border: '1px solid rgba(0, 180, 216, 0.45)',
+        border: '1px solid rgba(16, 196, 168, 0.45)',
         borderRadius: 12,
         padding: '10px 14px',
         color: '#FFFFFF',
-        boxShadow: '0 12px 30px rgba(3, 4, 94, 0.7)',
+        boxShadow: '0 12px 30px rgba(0, 30, 43, 0.7)',
         fontSize: 13
       }}
     >
-      <div style={{ fontWeight: 700, borderBottom: '1px solid rgba(0, 180, 216, 0.25)', paddingBottom: 4, marginBottom: 6, color: '#00B4D8' }}>
-        <i className="bi bi-calendar3 me-1" style={{ color: '#00B4D8' }}></i>{label}
+      <div style={{ fontWeight: 700, borderBottom: '1px solid rgba(16, 196, 168, 0.25)', paddingBottom: 4, marginBottom: 6, color: '#10C4A8' }}>
+        <i className="bi bi-calendar3 me-1" style={{ color: '#10C4A8' }}></i>{label}
       </div>
       {payload.map((p, i) => (
         <div key={i} className="d-flex align-items-center justify-content-between gap-3 mb-1">
-          <span style={{ color: p.color || '#CAF0F8', fontSize: 12, fontWeight: 600 }}>
+          <span style={{ color: p.color || '#E6FAF6', fontSize: 12, fontWeight: 600 }}>
             {p.name}:
           </span>
           <span style={{ fontWeight: 800, color: '#FFFFFF' }}>
@@ -71,13 +71,13 @@ const CustomPieTooltip = ({ active, payload }) => {
   return (
     <div
       style={{
-        background: 'rgba(3, 4, 94, 0.95)',
-        border: '1px solid rgba(0, 180, 216, 0.45)',
+        background: 'rgba(0, 30, 43, 0.95)',
+        border: '1px solid rgba(16, 196, 168, 0.45)',
         borderRadius: 10,
         padding: '8px 12px',
         color: '#FFFFFF',
         fontSize: 12,
-        boxShadow: '0 8px 24px rgba(3, 4, 94, 0.6)'
+        boxShadow: '0 8px 24px rgba(0, 30, 43, 0.6)'
       }}
     >
       <span style={{ color: item.payload.color || item.fill, fontWeight: 700 }}>
@@ -95,30 +95,30 @@ const CustomServiceTooltip = ({ active, payload, label }) => {
   return (
     <div
       style={{
-        background: 'rgba(3, 4, 94, 0.95)',
-        border: '1px solid rgba(0, 180, 216, 0.45)',
+        background: 'rgba(0, 30, 43, 0.95)',
+        border: '1px solid rgba(16, 196, 168, 0.45)',
         borderRadius: 12,
         padding: '10px 14px',
         color: '#FFFFFF',
         fontSize: 13,
-        boxShadow: '0 12px 30px rgba(3, 4, 94, 0.7)'
+        boxShadow: '0 12px 30px rgba(0, 30, 43, 0.7)'
       }}
     >
-      <div style={{ fontWeight: 700, color: '#00B4D8', marginBottom: 6, borderBottom: '1px solid rgba(0, 180, 216, 0.2)', paddingBottom: 4 }}>
+      <div style={{ fontWeight: 700, color: '#10C4A8', marginBottom: 6, borderBottom: '1px solid rgba(16, 196, 168, 0.2)', paddingBottom: 4 }}>
         {item?.fullName || label}
       </div>
       <div className="d-flex justify-content-between gap-3 mb-1">
-        <span style={{ color: '#CAF0F8' }}>Bookings:</span>
+        <span style={{ color: '#E6FAF6' }}>Bookings:</span>
         <strong style={{ color: '#FFFFFF' }}>{item?.bookings || 0}</strong>
       </div>
       <div className="d-flex justify-content-between gap-3 mb-1">
-        <span style={{ color: '#CAF0F8' }}>Revenue Generated:</span>
-        <strong style={{ color: '#00B4D8' }}>₹{(item?.revenue || 0).toLocaleString()}</strong>
+        <span style={{ color: '#E6FAF6' }}>Revenue Generated:</span>
+        <strong style={{ color: '#10C4A8' }}>₹{(item?.revenue || 0).toLocaleString()}</strong>
       </div>
       {item?.price && (
         <div className="d-flex justify-content-between gap-3">
-          <span style={{ color: '#CAF0F8' }}>Base Rate:</span>
-          <span style={{ color: '#00B4D8' }}>₹{item.price}</span>
+          <span style={{ color: '#E6FAF6' }}>Base Rate:</span>
+          <span style={{ color: '#10C4A8' }}>₹{item.price}</span>
         </div>
       )}
     </div>
@@ -942,14 +942,14 @@ function ProviderDashboard() {
                                       width: 32,
                                       height: 32,
                                       borderRadius: '50%',
-                                      background: 'linear-gradient(135deg, #023EBA 0%, #00B4D8 100%)',
-                                      color: '#FFFFFF',
+                                      background: '#10C4A8',
+                                      color: '#001E2B',
                                       display: 'flex',
                                       alignItems: 'center',
                                       justifyContent: 'center',
                                       fontWeight: 700,
                                       fontSize: 12,
-                                      border: '1px solid rgba(0, 180, 216, 0.4)'
+                                      border: '1px solid rgba(0, 30, 43, 0.2)'
                                     }}
                                   >
                                     {b.customerName ? b.customerName.charAt(0).toUpperCase() : 'C'}
@@ -1077,14 +1077,14 @@ function ProviderDashboard() {
                                     width: 36,
                                     height: 36,
                                     borderRadius: '50%',
-                                    background: 'linear-gradient(135deg, #023EBA 0%, #00B4D8 100%)',
-                                    color: '#FFFFFF',
+                                    background: '#10C4A8',
+                                    color: '#001E2B',
                                     display: 'flex',
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     fontWeight: 700,
                                     fontSize: 13,
-                                    border: '1px solid rgba(0, 180, 216, 0.4)'
+                                    border: '1px solid rgba(0, 30, 43, 0.2)'
                                   }}
                                 >
                                   {rev.customerName ? rev.customerName.charAt(0).toUpperCase() : 'U'}
@@ -1103,13 +1103,13 @@ function ProviderDashboard() {
                                   </div>
                                 </div>
                               </div>
-                              <span className="badge" style={{ background: 'rgba(193, 232, 255, 0.18)', color: PALETTE.lightIce, border: '1px solid rgba(125, 160, 202, 0.4)', fontSize: 11 }}>
-                                <i className="bi bi-patch-check-fill me-1"></i>Verified Hire
+                              <span className="badge" style={{ background: 'rgba(16, 196, 168, 0.18)', color: '#FFFFFF', border: '1px solid rgba(16, 196, 168, 0.4)', fontSize: 11 }}>
+                                <i className="bi bi-patch-check-fill me-1" style={{ color: '#10C4A8' }}></i>Verified Hire
                               </span>
                             </div>
 
                             {/* Stars */}
-                            <div className="mb-2" style={{ fontSize: 14, color: PALETTE.lightIce }}>
+                            <div className="mb-2" style={{ fontSize: 14, color: '#FFB02D' }}>
                               {[1, 2, 3, 4, 5].map((s) => (
                                 <i key={s} className={`bi bi-star${s <= rev.rating ? '-fill' : ''} me-1`}></i>
                               ))}
@@ -1171,10 +1171,10 @@ function getFallbackData() {
       bookingGrowth: '+12.4%'
     },
     statusBreakdown: [
-      { name: 'Completed', value: 26, color: '#00B4D8' },
-      { name: 'Accepted', value: 4, color: '#CAF0F8' },
-      { name: 'Pending', value: 2, color: '#FBB02D' },
-      { name: 'Cancelled', value: 1, color: '#023EBA' }
+      { name: 'Completed', value: 26, color: '#10C4A8' },
+      { name: 'Accepted', value: 4, color: '#00684A' },
+      { name: 'Pending', value: 2, color: '#FFB02D' },
+      { name: 'Cancelled', value: 1, color: '#001E2B' }
     ],
     monthlyTrend: [
       { month: "Nov '25", shortMonth: 'Nov', earnings: 14200, bookings: 4 },
@@ -1191,11 +1191,11 @@ function getFallbackData() {
       { month: "Oct '26", shortMonth: 'Oct', earnings: 29200, bookings: 12 }
     ],
     ratingDistribution: [
-      { star: '5 Stars', starsLabel: '5 ★', count: 19, percentage: 70, color: '#00B4D8' },
-      { star: '4 Stars', starsLabel: '4 ★', count: 6, percentage: 22, color: '#38BDF8' },
-      { star: '3 Stars', starsLabel: '3 ★', count: 2, percentage: 5, color: '#023EBA' },
-      { star: '2 Stars', starsLabel: '2 ★', count: 1, percentage: 2, color: '#0077B6' },
-      { star: '1 Star', starsLabel: '1 ★', count: 0, percentage: 0, color: '#03045E' }
+      { star: '5 Stars', starsLabel: '5 ★', count: 19, percentage: 70, color: '#10C4A8' },
+      { star: '4 Stars', starsLabel: '4 ★', count: 6, percentage: 22, color: '#0DB197' },
+      { star: '3 Stars', starsLabel: '3 ★', count: 2, percentage: 5, color: '#00684A' },
+      { star: '2 Stars', starsLabel: '2 ★', count: 1, percentage: 2, color: '#3D4F58' },
+      { star: '1 Star', starsLabel: '1 ★', count: 0, percentage: 0, color: '#001E2B' }
     ],
     servicePopularity: [
       { id: 1, name: 'Tap & Pipe Leak Repair', fullName: 'Tap & Pipe Leak Repair', bookings: 14, revenue: 4900, price: 350 },

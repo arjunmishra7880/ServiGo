@@ -318,19 +318,18 @@ export default function SmartSearchBar({
       {/* ─── Search Console Box ─── */}
       <div
         style={{
-          background:
-            "linear-gradient(135deg, rgba(4, 20, 54, 0.92) 0%, rgba(2, 12, 38, 0.98) 100%)",
+          background: "#FFFFFF",
           borderRadius: 20,
           padding: "8px 10px",
           display: "flex",
           alignItems: "center",
           gap: 10,
           boxShadow: isOpen
-            ? "0 18px 45px rgba(0, 180, 216, 0.35)"
-            : "0 16px 40px rgba(1, 10, 26, 0.75)",
+            ? "0 18px 45px rgba(16, 196, 168, 0.30)"
+            : "0 14px 35px rgba(0, 30, 43, 0.10)",
           border: isOpen
-            ? "2px solid #00B4D8"
-            : "1.5px solid rgba(0, 180, 216, 0.45)",
+            ? "2px solid #10C4A8"
+            : "1.5px solid rgba(16, 196, 168, 0.45)",
           transition: "all 0.25s ease"
         }}
       >
@@ -342,11 +341,11 @@ export default function SmartSearchBar({
             display: "flex",
             alignItems: "center",
             gap: 6,
-            background: "rgba(0, 180, 216, 0.2)",
-            border: "1px solid rgba(0, 180, 216, 0.30)",
+            background: "#E6FAF6",
+            border: "1px solid #10C4A8",
             borderRadius: 14,
             padding: "8px 14px",
-            color: "#00B4D8",
+            color: "#00684A",
             fontSize: 13,
             fontWeight: 600,
             cursor: "pointer",
@@ -356,7 +355,7 @@ export default function SmartSearchBar({
         >
           <i className="bi bi-geo-alt-fill text-danger"></i>
           <span>{userLocation ? "Near You" : "Mumbai"}</span>
-          <i className="bi bi-crosshair" style={{ fontSize: 11, color: "#00B4D8" }}></i>
+          <i className="bi bi-crosshair" style={{ fontSize: 11, color: "#00684A" }}></i>
         </div>
 
         {/* Search Input Form */}
@@ -377,7 +376,7 @@ export default function SmartSearchBar({
               paddingLeft: 4
             }}
           >
-            <i className="bi bi-search" style={{ color: "#00B4D8", fontSize: 16 }}></i>
+            <i className="bi bi-search" style={{ color: "#00684A", fontSize: 16 }}></i>
             <input
               ref={inputRef}
               type="text"
@@ -395,9 +394,9 @@ export default function SmartSearchBar({
                 outline: "none",
                 background: "transparent",
                 fontSize: 15,
-                color: "#FFFFFF",
+                color: "#001E2B",
                 width: "100%",
-                fontWeight: 500
+                fontWeight: 600
               }}
             />
           </div>
@@ -412,7 +411,7 @@ export default function SmartSearchBar({
               style={{
                 background: "none",
                 border: "none",
-                color: "#CAF0F8",
+                color: "#64748B",
                 cursor: "pointer",
                 fontSize: 18,
                 padding: "0 6px"
@@ -448,12 +447,10 @@ export default function SmartSearchBar({
             top: "calc(100% + 8px)",
             left: 0,
             right: 0,
-            background:
-              "linear-gradient(155deg, rgba(4, 18, 48, 0.98) 0%, rgba(2, 10, 32, 0.99) 100%)",
-            backdropFilter: "blur(18px)",
-            border: "1.5px solid rgba(0, 180, 216, 0.45)",
+            background: "#FFFFFF",
+            border: "1.5px solid #10C4A8",
             borderRadius: 18,
-            boxShadow: "0 22px 50px rgba(1, 10, 26, 0.85), 0 0 25px rgba(0, 180, 216, 0.2)",
+            boxShadow: "0 22px 50px rgba(0, 30, 43, 0.15), 0 0 25px rgba(16, 196, 168, 0.12)",
             padding: "12px 14px",
             maxHeight: 420,
             overflowY: "auto",
@@ -468,29 +465,28 @@ export default function SmartSearchBar({
                 alignItems: "center",
                 gap: 6,
                 padding: "4px 8px 10px",
-                borderBottom: "1px solid rgba(0, 180, 216, 0.2)",
+                borderBottom: "1px solid rgba(16, 196, 168, 0.2)",
                 marginBottom: 8,
                 fontSize: 12,
                 fontWeight: 700,
-                color: "#00B4D8",
+                color: "#00684A",
                 letterSpacing: 0.5
               }}
             >
-              <i className="bi bi-fire"></i> TRENDING & POPULAR SEARCHES
+              <i className="bi bi-fire text-danger"></i> TRENDING & POPULAR SEARCHES
             </div>
           )}
-
 
           {!hasAnyResults && searchQuery && (
             <div className="p-4 text-center">
               <i
                 className="bi bi-search"
-                style={{ fontSize: 28, color: "#00B4D8", opacity: 0.7 }}
+                style={{ fontSize: 28, color: "#10C4A8", opacity: 0.8 }}
               ></i>
-              <div style={{ color: "#FFFFFF", fontSize: 14, fontWeight: 600, marginTop: 8 }}>
+              <div style={{ color: "#001E2B", fontSize: 14, fontWeight: 700, marginTop: 8 }}>
                 No direct hint matching "{searchQuery}"
               </div>
-              <small style={{ color: "rgba(202, 240, 248, 0.75)" }}>
+              <small style={{ color: "#64748B" }}>
                 Press <strong>Enter</strong> to search all provider profiles and bios.
               </small>
             </div>
@@ -503,7 +499,7 @@ export default function SmartSearchBar({
                 style={{
                   fontSize: 11,
                   fontWeight: 800,
-                  color: "#00B4D8",
+                  color: "#00684A",
                   textTransform: "uppercase",
                   letterSpacing: 0.8,
                   padding: "4px 8px"
@@ -528,10 +524,10 @@ export default function SmartSearchBar({
                       alignItems: "center",
                       justifyContent: "space-between",
                       background: isSelected
-                        ? "rgba(0, 180, 216, 0.3)"
+                        ? "#E6FAF6"
                         : "transparent",
                       border: isSelected
-                        ? "1px solid #00B4D8"
+                        ? "1px solid #10C4A8"
                         : "1px solid transparent",
                       transition: "all 0.15s ease"
                     }}
@@ -543,7 +539,7 @@ export default function SmartSearchBar({
                           height: 28,
                           borderRadius: 8,
                           background: `${cat.accentColor}25`,
-                          color: cat.accentColor || "#00B4D8",
+                          color: cat.accentColor || "#10C4A8",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
@@ -554,9 +550,9 @@ export default function SmartSearchBar({
                       </span>
                       <span
                         style={{
-                          color: "#FFFFFF",
+                          color: "#001E2B",
                           fontSize: 14,
-                          fontWeight: 600
+                          fontWeight: 700
                         }}
                       >
                         {highlightMatch(cat.title, searchQuery)}
@@ -565,10 +561,11 @@ export default function SmartSearchBar({
                     <span
                       style={{
                         fontSize: 11,
-                        color: "#00B4D8",
-                        background: "rgba(0, 180, 216, 0.15)",
+                        color: "#00684A",
+                        background: "#E6FAF6",
                         padding: "2px 8px",
-                        borderRadius: 12
+                        borderRadius: 12,
+                        fontWeight: 600
                       }}
                     >
                       {cat.badge}
@@ -586,7 +583,7 @@ export default function SmartSearchBar({
                 style={{
                   fontSize: 11,
                   fontWeight: 800,
-                  color: "#00B4D8",
+                  color: "#00684A",
                   textTransform: "uppercase",
                   letterSpacing: 0.8,
                   padding: "4px 8px"
@@ -611,10 +608,10 @@ export default function SmartSearchBar({
                       alignItems: "center",
                       justifyContent: "space-between",
                       background: isSelected
-                        ? "rgba(0, 180, 216, 0.3)"
+                        ? "#E6FAF6"
                         : "transparent",
                       border: isSelected
-                        ? "1px solid #00B4D8"
+                        ? "1px solid #10C4A8"
                         : "1px solid transparent",
                       transition: "all 0.15s ease"
                     }}
@@ -625,8 +622,8 @@ export default function SmartSearchBar({
                           width: 28,
                           height: 28,
                           borderRadius: "50%",
-                          background: "rgba(0, 180, 216, 0.15)",
-                          color: "#00B4D8",
+                          background: "#E6FAF6",
+                          color: "#00684A",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
@@ -638,16 +635,16 @@ export default function SmartSearchBar({
                       <div>
                         <span
                           style={{
-                            color: "#FFFFFF",
+                            color: "#001E2B",
                             fontSize: 14,
-                            fontWeight: 600
+                            fontWeight: 700
                           }}
                         >
                           {highlightMatch(sub.title, searchQuery)}
                         </span>
                         <small
                           style={{
-                            color: "#CAF0F8",
+                            color: "#64748B",
                             marginLeft: 8,
                             fontSize: 11,
                             opacity: 0.8
@@ -660,8 +657,8 @@ export default function SmartSearchBar({
                     <span
                       style={{
                         fontSize: 11,
-                        color: "#00B4D8",
-                        fontWeight: 600
+                        color: "#00684A",
+                        fontWeight: 700
                       }}
                     >
                       View Options →
@@ -679,7 +676,7 @@ export default function SmartSearchBar({
                 style={{
                   fontSize: 11,
                   fontWeight: 800,
-                  color: "#00B4D8",
+                  color: "#00684A",
                   textTransform: "uppercase",
                   letterSpacing: 0.8,
                   padding: "4px 8px"
@@ -707,10 +704,10 @@ export default function SmartSearchBar({
                       alignItems: "center",
                       justifyContent: "space-between",
                       background: isSelected
-                        ? "rgba(0, 180, 216, 0.3)"
+                        ? "#E6FAF6"
                         : "transparent",
                       border: isSelected
-                        ? "1px solid #00B4D8"
+                        ? "1px solid #10C4A8"
                         : "1px solid transparent",
                       transition: "all 0.15s ease"
                     }}
@@ -721,8 +718,8 @@ export default function SmartSearchBar({
                           width: 28,
                           height: 28,
                           borderRadius: 8,
-                          background: "rgba(0, 180, 216, 0.2)",
-                          color: "#00B4D8",
+                          background: "#E6FAF6",
+                          color: "#00684A",
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
@@ -734,14 +731,14 @@ export default function SmartSearchBar({
                       <div>
                         <span
                           style={{
-                            color: "#FFFFFF",
+                            color: "#001E2B",
                             fontSize: 13,
-                            fontWeight: 600
+                            fontWeight: 700
                           }}
                         >
                           {highlightMatch(srv.title, searchQuery)}
                         </span>
-                        <div style={{ color: "#CAF0F8", fontSize: 11, opacity: 0.8 }}>
+                        <div style={{ color: "#64748B", fontSize: 11 }}>
                           by {srv.providerName || "Verified Professional"}
                         </div>
                       </div>
@@ -749,13 +746,13 @@ export default function SmartSearchBar({
                     <div className="d-flex align-items-center gap-2">
                       <span
                         style={{
-                          background: "rgba(0, 180, 216, 0.2)",
-                          color: "#CAF0F8",
+                          background: "#E6FAF6",
+                          color: "#00684A",
                           padding: "2px 8px",
                           borderRadius: 8,
                           fontSize: 12,
                           fontWeight: 700,
-                          border: "1px solid rgba(0, 180, 216, 0.3)"
+                          border: "1px solid rgba(16, 196, 168, 0.35)"
                         }}
                       >
                         ₹{srv.price}
@@ -776,18 +773,18 @@ export default function SmartSearchBar({
           {/* Footer Tip */}
           <div
             style={{
-              borderTop: "1px solid rgba(0, 180, 216, 0.2)",
+              borderTop: "1px solid rgba(0, 30, 43, 0.10)",
               paddingTop: 8,
               marginTop: 8,
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
               fontSize: 11,
-              color: "rgba(202, 240, 248, 0.7)"
+              color: "#64748B"
             }}
           >
             <span>
-              Use <kbd style={{ background: "#03045E", color: "#FFFFFF", padding: "1px 5px", borderRadius: 4, border: "1px solid rgba(0, 180, 216, 0.3)" }}>↑</kbd> <kbd style={{ background: "#03045E", color: "#FFFFFF", padding: "1px 5px", borderRadius: 4, border: "1px solid rgba(0, 180, 216, 0.3)" }}>↓</kbd> to navigate, <kbd style={{ background: "#03045E", color: "#FFFFFF", padding: "1px 5px", borderRadius: 4, border: "1px solid rgba(0, 180, 216, 0.3)" }}>Enter</kbd> to select
+              Use <kbd style={{ background: "#001E2B", color: "#FFFFFF", padding: "1px 5px", borderRadius: 4 }}>↑</kbd> <kbd style={{ background: "#001E2B", color: "#FFFFFF", padding: "1px 5px", borderRadius: 4 }}>↓</kbd> to navigate, <kbd style={{ background: "#001E2B", color: "#FFFFFF", padding: "1px 5px", borderRadius: 4 }}>Enter</kbd> to select
             </span>
             <span>ESC to close</span>
           </div>
