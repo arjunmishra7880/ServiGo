@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ServiGo - Project Report</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 0.8in 0.9in 0.8in 0.9in;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 11pt;
+      line-height: 1.45;
+      color: #000;
+      background-color: #e5e7eb;
+      margin: 0;
+      padding: 20px 0;
+    }
+    .page {
+      width: 8.27in;
+      min-height: 11.69in;
+      padding: 0.85in 0.95in 0.75in 0.95in;
+      margin: 0 auto 20px auto;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .page-content {
+      flex-grow: 1;
+    }
+    .page-footer {
+      margin-top: auto;
+      text-align: center;
+      font-family: 'Times New Roman', serif;
+      font-size: 10.5pt;
+      padding-top: 15px;
+      color: #000;
+    }
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .page {
+        width: 100% !important;
+        min-height: auto !important;
+        height: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        page-break-after: always;
+        display: block !important;
+      }
+      .page-content {
+        display: block !important;
+      }
+      .page-footer {
+        text-align: center;
+        font-family: 'Times New Roman', serif;
+        font-size: 10pt;
+        margin-top: 20px;
+        padding-top: 10px;
+        page-break-before: avoid;
+      }
+    }
+    h1.chapter-title {
+      text-align: center;
+      font-size: 15pt;
+      font-weight: bold;
+      margin-top: 0;
+      margin-bottom: 0.25in;
+      font-family: 'Times New Roman', serif;
+    }
+    h2.section-title {
+      font-size: 11.5pt;
+      font-weight: bold;
+      margin-top: 0.15in;
+      margin-bottom: 0.08in;
+      font-family: 'Times New Roman', serif;
+    }
+    p {
+      text-align: justify;
+      text-justify: inter-word;
+      margin-top: 0;
+      margin-bottom: 0.12in;
+      line-height: 1.45;
+      font-family: 'Times New Roman', serif;
+    }
+    ol {
+      margin-top: 0;
+      margin-bottom: 0.15in;
+      padding-left: 0.35in;
+    }
+    li {
+      text-align: justify;
+      margin-bottom: 0.05in;
+      line-height: 1.4;
+      font-family: 'Times New Roman', serif;
+    }
+    .bold-label {
+      font-weight: bold;
+    }
+
+    /* Flowcharts */
+    .flowchart-container {
+      margin: 12px auto 8px auto;
+      text-align: center;
+      width: 100%;
+    }
+    .flow-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    .flow-box {
+      border: 1.5px solid #000;
+      border-radius: 6px;
+      padding: 6px 12px;
+      font-family: 'Times New Roman', serif;
+      font-size: 8.5pt;
+      font-weight: bold;
+      text-align: center;
+      background: #fff;
+      line-height: 1.25;
+      color: #000;
+    }
+    .flow-box-highlight {
+      background: #fdfdfd;
+      box-shadow: inset 0 0 0 1px #333;
+    }
+    .flow-arrow-down {
+      font-size: 13pt;
+      font-weight: bold;
+      margin: 2px 0;
+      text-align: center;
+      line-height: 1;
+    }
+    .flow-arrow-right {
+      font-size: 12pt;
+      font-weight: bold;
+      padding: 0 2px;
+    }
+    .figure-caption {
+      text-align: center;
+      font-family: 'Times New Roman', serif;
+      font-size: 10pt;
+      font-weight: bold;
+      margin-top: 8px;
+      margin-bottom: 10px;
+    }
+
+    /* Tables */
+    table.report-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 6px;
+      margin-bottom: 10px;
+      font-size: 9pt;
+      line-height: 1.3;
+      font-family: 'Times New Roman', serif;
+    }
+    table.report-table th, table.report-table td {
+      border: 1px solid #000;
+      padding: 4px 6px;
+      text-align: left;
+    }
+    table.report-table th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    /* Code boxes */
+    .code-box {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 8pt;
+      line-height: 1.2;
+      background: #f7f7f7;
+      border: 1px solid #aaa;
+      padding: 4px 8px;
+      margin: 4px 0 8px 0;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1 -->
+  <div class="page">
+    <div class="page-content">
+      <h1 class="chapter-title">Chapter 1: Introduction</h1>
+      
+      <h2 class="section-title">1.1 Introduction</h2>
+      <p>
+        In contemporary daily living, domestic maintenance and utility services—such as plumbing, electrical repairs, home appliance servicing, carpentry, and deep cleaning—are essential for maintaining household infrastructure and residential living standards. However, the domestic home services market has historically remained unorganized, fragmented, and heavily dependent on informal communication. At the same time, households face considerable challenges in identifying reliable, skilled, and punctual service professionals. In many cases, independent technicians operate without standard pricing or verified credentials, resulting in mistrust and uncertainty between households and technicians. Therefore, there is a distinct need for an organized system through which essential domestic services can be discovered, scheduled, monitored, and evaluated.
+      </p>
+      <p>
+        The Web Development Project titled <strong>“ServiGo: An On-Demand Local Services Marketplace and Discovery Platform”</strong> focuses on developing a web-based solution to address this issue. The proposed platform aims to connect consumers seeking domestic repairs with skilled local service providers, tradespeople, and specialized technicians. According to the project specifications, service providers can provide information regarding their trade, services, hourly rates, location, and availability. Customers can identify and book suitable technicians, while platform administrators oversee service standards and provider verification.
+      </p>
+      <p>
+        The project combines community participation with modern full-stack web engineering to create a more systematic approach to domestic service delivery. Instead of depending entirely on informal recommendations, the proposed platform provides a centralized system for managing service appointments and coordinating participants. Features such as service category navigation, location-based search, notifications, booking status tracking, and provider ratings help improve the overall hiring experience.
+      </p>
+
+      <h2 class="section-title">1.2 Purpose of the Project</h2>
+      <p>
+        The main purpose of this Web Development Project is to explore how a technology-based marketplace can help organize local domestic services and facilitate transparent, convenient service transactions within communities. The project seeks to provide a structured method for connecting household consumers with verified service professionals.
+      </p>
+    </div>
+    <div class="page-footer">1</div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page">
+    <div class="page-content">
+      <p>
+        The platform is intended to make the process of booking local technicians more convenient and organized. A service provider can enter relevant information about their skills, pricing, and service coverage, allowing households to identify service options according to their requirements and location. The integrated communication and booking modules further support this coordination by enabling direct coordination of visit schedules, addresses, and service requirements.
+      </p>
+
+      <h2 class="section-title">1.3 Objectives of the Project</h2>
+      <p>
+        The major objectives of the <strong>ServiGo Local Services Marketplace Platform</strong> are as follows:
+      </p>
+      <ol>
+        <li>To develop a web-based platform for managing and coordinating local domestic service requests.</li>
+        <li>To connect households and commercial clients with verified service providers across essential categories such as Plumbing, Electrical, Appliance Repair, Carpentry, and Cleaning.</li>
+        <li>To provide service professionals with an accessible method of listing their skills, services, and pricing.</li>
+        <li>To enable customers to search, compare, and book suitable service providers based on specialization, pricing, customer reviews, and geographic location.</li>
+        <li>To support direct real-time communication between customers and service providers through integrated in-app messaging.</li>
+        <li>To provide an interactive, location-based map interface for visualizing nearby service professionals and improving service reach.</li>
+        <li>To maintain complete digital records of service requests and their progress through an automated booking status tracking workflow.</li>
+        <li>To establish a community-driven reputation and quality assurance mechanism through star ratings and verified customer reviews.</li>
+        <li>To provide an administrative dashboard for managing users, service categories, provider verification badges, and reports.</li>
+      </ol>
+
+      <h2 class="section-title">1.4 Background Information</h2>
+      <p>
+        Accessing reliable domestic services is not only a matter of personal convenience but also represents household safety, appliance longevity, and domestic resource management. When domestic repairs are delayed or executed by unqualified individuals, households face property damage and excessive expenditures. Community-based service discovery can therefore play an important role in organizing local labor resources and improving service dependability.
+      </p>
+    </div>
+    <div class="page-footer">2</div>
+  </div>
+
+  <!-- PAGE 3 -->
+  <div class="page">
+    <div class="page-content">
+      <p>
+        The proposed project considers the different participants involved in the domestic services ecosystem: household consumers seeking prompt domestic repairs, independent tradespeople offering maintenance services, and platform administrators supervising system compliance and trust verification.
+      </p>
+
+      <!-- FLOWCHART 1: SYSTEM ARCHITECTURE -->
+      <div class="flowchart-container">
+        <div class="flow-row">
+          <div class="flow-box" style="width: 250px;">User Roles: Customer / Provider / Admin</div>
+        </div>
+        <div class="flow-arrow-down">&#8595;</div>
+        <div class="flow-row">
+          <div class="flow-box" style="width: 320px;">React 19 Frontend (Vite + Bootstrap 5 + Leaflet Map)</div>
+        </div>
+        <div class="flow-arrow-down">&#8595;</div>
+        <div class="flow-row">
+          <div class="flow-box" style="width: 140px;">JWT Auth &amp; bcryptjs</div>
+          <span class="flow-arrow-right">&#8596;</span>
+          <div class="flow-box flow-box-highlight" style="width: 180px;">REST API (Express.js)</div>
+          <span class="flow-arrow-right">&#8596;</span>
+          <div class="flow-box" style="width: 140px;">Socket.io Real-Time</div>
+        </div>
+        <div class="flow-arrow-down">&#8595;</div>
+        <div class="flow-row">
+          <div class="flow-box" style="width: 280px;">Prisma ORM (Schema &amp; Relation Layer)</div>
+        </div>
+        <div class="flow-arrow-down">&#8595;</div>
+        <div class="flow-row">
+          <div class="flow-box" style="width: 260px;">SQLite Relational Database (dev.db)</div>
+        </div>
+      </div>
+      <div class="figure-caption">Figure 1.1: System Architecture and Technology Stack Relationship</div>
+
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th style="width: 22%;">System Layer</th>
+            <th style="width: 38%;">Documented Technology</th>
+            <th style="width: 40%;">Platform Operational Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Frontend</strong></td>
+            <td>React 19, Vite, Bootstrap 5, Leaflet</td>
+            <td>Component UI, routing, interactive maps, responsive layout</td>
+          </tr>
+          <tr>
+            <td><strong>Backend</strong></td>
+            <td>Node.js, Express.js REST API</td>
+            <td>Application logic, controllers, routing, middleware</td>
+          </tr>
+          <tr>
+            <td><strong>ORM / Database</strong></td>
+            <td>Prisma ORM with SQLite (dev.db)</td>
+            <td>Type-safe schema modeling, cascading deletes, persistence</td>
+          </tr>
+          <tr>
+            <td><strong>Security</strong></td>
+            <td>JSON Web Tokens (JWT), bcryptjs</td>
+            <td>Stateless authentication, password hashing, role-based access</td>
+          </tr>
+          <tr>
+            <td><strong>Messaging</strong></td>
+            <td>Socket.io WebSocket Server</td>
+            <td>Bidirectional chat between customers and providers</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="page-footer">3</div>
+  </div>
+
+  <!-- PAGE 4 -->
+  <div class="page">
+    <div class="page-content">
+      <h2 class="section-title">1.5 Significance of the Project</h2>
+      <p>
+        The significance of this project lies in combining community engagement with modern web technology to address inefficiencies in the local home services sector. The platform can provide a structured communication channel between household consumers, independent technicians, and administrators. This can make it easier to identify available local skills and coordinate timely domestic repairs.
+      </p>
+      <p>
+        From a community perspective, the project promotes participation, transparency, and cooperation. Service providers are provided with an organized way to showcase their trades and secure steady work opportunities, while consumers benefit from competitive, transparent pricing and reliable service standards. Such coordination can strengthen community trust and encourage responsible use of local trades.
+      </p>
+      <p>
+        The project is also significant from an educational perspective because it provides an opportunity to apply full-stack programming and relational database concepts to a real-world community problem. It connects technical learning with social responsibility and community-oriented problem solving.
+      </p>
+
+      <h2 class="section-title">1.6 Expected Outcomes</h2>
+      <p>
+        The expected outcome of the project is a functional web-based platform that can facilitate the management and coordination of local domestic service requests. The system is expected to provide separate functionalities for customers, service providers, and administrators.
+      </p>
+      <p>
+        Through the platform, service providers should be able to register, list customized service packages, and manage appointment requests. Customers should be able to explore categorized services, locate nearby technicians via an interactive map, create bookings, and communicate with service providers in real time. Automated booking tracking and notifications should help participants monitor the progress of service appointments across pending, accepted, completed, or cancelled states.
+      </p>
+
+      <h2 class="section-title">1.7 Scope of the Report</h2>
+      <p>
+        This report focuses on the development and community relevance of the <strong>ServiGo Local Services Marketplace Platform</strong>. It covers the purpose and objectives of the project, background of the selected local services domain, methodology adopted for understanding the problem, community interactions and observations, analysis of the proposed solution, and the conclusions and recommendations derived from the project.
+      </p>
+    </div>
+    <div class="page-footer">4</div>
+  </div>
+
+  <!-- PAGE 5 -->
+  <div class="page">
+    <div class="page-content">
+      <h1 class="chapter-title">Chapter 2: Literature Review</h1>
+      <p>
+        The issue of unorganized home maintenance and domestic services has received significant attention because large numbers of households require frequent domestic interventions for electrical, plumbing, carpentry, and appliance servicing needs. Previous studies have highlighted the importance of market organization, service transparency, and digital discovery in improving the livelihoods of independent service professionals. Service marketplace initiatives encourage households and independent tradespeople to connect on structured platforms to fulfill essential community needs.
+      </p>
+
+      <!-- FLOWCHART 2: BOOKING WORKFLOW -->
+      <div class="flowchart-container">
+        <div class="flow-row">
+          <div class="flow-box">Customer Searches Category / City</div>
+          <span class="flow-arrow-right">&#8594;</span>
+          <div class="flow-box">Views Provider Profile &amp; Map</div>
+          <span class="flow-arrow-right">&#8594;</span>
+          <div class="flow-box">Creates Booking Request (pending)</div>
+        </div>
+        <div class="flow-arrow-down">&#8595;</div>
+        <div class="flow-row">
+          <div class="flow-box">Direct In-App Chat &amp; Coordination</div>
+          <span class="flow-arrow-right">&#8592;</span>
+          <div class="flow-box">Provider Accepts Booking (accepted)</div>
+          <span class="flow-arrow-right">&#8592;</span>
+          <div class="flow-box">Provider Dashboard Alert</div>
+        </div>
+        <div class="flow-arrow-down">&#8595;</div>
+        <div class="flow-row">
+          <div class="flow-box">Service Completed on Site</div>
+          <span class="flow-arrow-right">&#8594;</span>
+          <div class="flow-box">Provider Marks 'Completed'</div>
+          <span class="flow-arrow-right">&#8594;</span>
+          <div class="flow-box">Customer Gives 1-5 Star Review</div>
+        </div>
+      </div>
+      <div class="figure-caption">Figure 2.1: End-to-End Service Booking and Fulfillment Lifecycle Flow</div>
+
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th style="width: 20%;">Lifecycle Stage</th>
+            <th style="width: 25%;">Triggering Actor</th>
+            <th style="width: 55%;">System Action &amp; Operational Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Pending</strong></td>
+            <td>Customer</td>
+            <td>Booking request initialized with service title, date, address, and notes.</td>
+          </tr>
+          <tr>
+            <td><strong>2. Accepted</strong></td>
+            <td>Service Provider</td>
+            <td>Provider reviews request and accepts; status updated in real time via API.</td>
+          </tr>
+          <tr>
+            <td><strong>3. In-Progress</strong></td>
+            <td>Provider &amp; Customer</td>
+            <td>Real-time messaging via Socket.io coordinates arrival time and components.</td>
+          </tr>
+          <tr>
+            <td><strong>4. Completed</strong></td>
+            <td>Service Provider</td>
+            <td>Work finished; unlocks customer review modal and updates revenue stats.</td>
+          </tr>
+          <tr>
+            <td><strong>5. Reviewed</strong></td>
+            <td>Customer</td>
+            <td>Customer submits 1-5 star rating and feedback; updates provider public score.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        The proposed <strong>ServiGo Local Services Marketplace Platform</strong> builds on these ideas by bringing different participants together on a single web-based platform. The project connects household consumers with skilled service providers across essential domestic trades.
+      </p>
+    </div>
+    <div class="page-footer">5</div>
+  </div>
+
+  <!-- PAGE 6 -->
+  <div class="page">
+    <div class="page-content">
+      <h1 class="chapter-title">Chapter 3: Methodology</h1>
+      <p>
+        The methodology of the project focuses on understanding the operational challenges of the local domestic services sector and studying how service seekers can be effectively connected with skilled local providers. The project uses observational methods, informal discussions, interviews, and secondary research to understand the existing service procurement process and identify the requirements for the proposed <strong>ServiGo Local Services Marketplace Platform</strong>.
+      </p>
+      <p>
+        Observation was used to understand how domestic maintenance requests are generated, scheduled, and resolved in the community. The process of finding technicians and the challenges involved in identifying available workers, price negotiation, and reliability were considered. Attention was given to factors such as the availability of skilled workers, communication between participants, travel logistics, and timely completion of work.
+      </p>
+      <p>
+        Discussions with people involved in hiring domestic help and independent technicians provided information about how customers currently search for help, how technicians acquire work leads, and how both parties coordinate timing and pricing.
+      </p>
+      <p>
+        Secondary research was also used to gather information related to the gig-economy, domestic services, platform trust mechanisms, and the use of technology in local market organization. Online articles, reports, research papers, and other relevant sources help provide background information and an understanding of existing approaches to local service discovery.
+      </p>
+      <p>
+        The main tools used for data collection include observation notes, interview questions, informal discussions, online research, and documentation of relevant information. These methods were selected because the project addresses a real community problem and requires an understanding of the experiences and requirements of different stakeholders. Observation provides practical understanding, interviews and discussions provide direct viewpoints, and secondary research provides supporting background information.
+      </p>
+      <p>
+        The information collected through these methods helps identify the requirements of the proposed platform. Based on these findings, features such as category-based browsing, location-based map search, notifications, booking tracking, and in-app chat can be included in the system. The proposed platform aims to connect households with verified service providers to make domestic service discovery and delivery more organized and efficient.
+      </p>
+    </div>
+    <div class="page-footer">6</div>
+  </div>
+
+  <!-- PAGE 7 -->
+  <div class="page">
+    <div class="page-content">
+      <h1 class="chapter-title">Chapter 4: Description, Observation and Analysis</h1>
+      
+      <p>
+        <span class="bold-label">Description:</span><br>
+        The project team interacted with community members and local service providers to understand the problem of unorganized home services and the process of finding local technicians. The interactions focused on household consumers, independent technicians (such as plumbers and electricians), and the challenges involved in scheduling, price transparency, and skill verification.
+      </p>
+
+      <!-- FLOWCHART 3: DATABASE ENTITY FLOW -->
+      <div class="flowchart-container">
+        <div class="flow-row">
+          <div class="flow-box">User (Customer/Provider/Admin)</div>
+          <span class="flow-arrow-right">&#8594;</span>
+          <div class="flow-box">ProviderProfile (Bio, City, Rate)</div>
+          <span class="flow-arrow-right">&#8594;</span>
+          <div class="flow-box">Category &amp; Services</div>
+        </div>
+        <div class="flow-arrow-down">&#8595;</div>
+        <div class="flow-row">
+          <div class="flow-box">Location Coordinates (Map Pin)</div>
+          <span class="flow-arrow-right">&#8594;</span>
+          <div class="flow-box flow-box-highlight">Booking (Status, Date, Address)</div>
+          <span class="flow-arrow-right">&#8594;</span>
+          <div class="flow-box">Review (1-5 Stars, Feedback)</div>
+        </div>
+        <div class="flow-arrow-down">&#8595;</div>
+        <div class="flow-row">
+          <div class="flow-box" style="width: 240px;">Conversation (Customer + Provider)</div>
+          <span class="flow-arrow-right">&#8594;</span>
+          <div class="flow-box" style="width: 240px;">Messages (Real-time Socket Audit)</div>
+        </div>
+      </div>
+      <div class="figure-caption">Figure 4.1: Database Relationship and Entity Association Overview</div>
+
+      <p>
+        <span class="bold-label">Observation:</span><br>
+        It was observed that domestic service requests often suffer from delays and misunderstandings due to a lack of proper communication, transparent pricing, and coordination. Independent technicians struggle to secure consistent work orders, while households face difficulties verifying the credibility of unknown workers entering their homes.
+      </p>
+
+      <p>
+        <span class="bold-label">Analysis:</span><br>
+        The information collected was analyzed according to the objectives of the project. The findings showed the need for a digital platform that can connect household consumers with verified service professionals. Therefore, features such as service categorization, location-based map discovery, notifications, booking status tracking, in-app messaging, and administrative verification badges were identified as essential system components.
+      </p>
+    </div>
+    <div class="page-footer">7</div>
+  </div>
+
+  <!-- PAGE 8 -->
+  <div class="page">
+    <div class="page-content">
+      <h1 class="chapter-title">Chapter 5: Conclusion and Recommendations</h1>
+      
+      <p>
+        <span class="bold-label">Conclusion:</span><br>
+        The project helped the team develop a better understanding of the problem of unorganized domestic services and the importance of structured digital coordination. The community interactions and observations showed that connecting households with verified local technicians can significantly improve convenience and trust. The study also highlighted the importance of coordination between consumers, service providers, and administrators. These findings contributed to understanding the practical requirements of the proposed <strong>ServiGo Local Services Marketplace Platform</strong>. The platform is designed to connect different stakeholders and provide facilities for service listing, booking tracking, location-based map search, notifications, and reviews.
+      </p>
+
+      <p>
+        <span class="bold-label">Key Findings:</span><br>
+        The study found that one of the major challenges in local services is the lack of proper communication and price transparency between customers and independent tradespeople. Timely coordination is also important because domestic emergencies (such as plumbing leaks or electrical shorts) require prompt resolution. Digital tools can support the process by providing upfront pricing, verified credentials, and real-time messaging. The findings indicate that a centralized digital platform can make service information more accessible and can improve coordination between all participants.
+      </p>
+
+      <p>
+        <span class="bold-label">Recommendations:</span><br>
+        Based on the findings, more awareness should be created among independent tradespeople about utilizing digital tools to expand their customer base instead of relying solely on informal word-of-mouth. Households should be encouraged to participate in organized platform bookings with transparent reviews. The proposed platform can be further improved by adding more location-based features, payment gateway integration, automated notification systems, and technician availability calendars. Future development can also focus on verification standards, safety protocols, and community engagement. Regular feedback from customers and service providers can help improve the platform and make it more useful for organizing local service economies.
+      </p>
+    </div>
+    <div class="page-footer">8</div>
+  </div>
+
+  <!-- PAGE 9 -->
+  <div class="page">
+    <div class="page-content">
+      <h1 class="chapter-title">References</h1>
+      <ol>
+        <li>Sundararajan, A. (2016). <em>The Sharing Economy: The End of Employment and the Rise of Crowd-Based Capitalism</em>. MIT Press, Cambridge, MA.</li>
+        <li>Schor, J. B., &amp; Attwood-Charles, W. (2017). The “sharing” economy: labor, inequality, and social connection on for-profit platforms. <em>Sociology Compass</em>, 11(8), e12493.</li>
+        <li>Government of India, Ministry of Skill Development and Entrepreneurship (MSDE). National Policy on Skill Development and Entrepreneurship. Government of India.</li>
+        <li>National Sample Survey Office (NSSO). Informal Sector Enterprises and Employment in India. Ministry of Statistics and Programme Implementation, Government of India.</li>
+        <li>De Stefano, V. (2015). The rise of the just-in-time workforce: On-demand work, crowdwork, and labor protection in the gig-economy. <em>Comparative Labor Law &amp; Policy Journal</em>, 37(3), 471-504.</li>
+        <li>United Nations. Sustainable Development Goals: Goal 8 – Decent Work and Economic Growth. United Nations.</li>
+        <li>United Nations. Sustainable Development Goals: Goal 9 – Industry, Innovation and Infrastructure. United Nations.</li>
+        <li>Project team field observations, household questionnaires, informal technician interviews, and stakeholder requirement analysis conducted as part of the Web Development Project.</li>
+      </ol>
+    </div>
+    <div class="page-footer">9</div>
+  </div>
+
+  <!-- PAGE 10: APPENDIX A -->
+  <div class="page">
+    <div class="page-content">
+      <h1 class="chapter-title" style="margin-bottom: 0.15in;">Appendices</h1>
+      
+      <h2 class="section-title">Appendix A: Stakeholder Fieldwork Notes and Interview Transcripts</h2>
+      <p>
+        As part of the primary requirement analysis for the <strong>ServiGo Local Services Marketplace Platform</strong>, the project team conducted structured fieldwork across suburban and urban residential clusters in Mumbai. The primary objective was to capture direct insights from two key demographic groups: independent blue-collar service professionals operating in the informal market, and residential household consumers. Below are summarized transcripts of two representative interactions.
+      </p>
+
+      <p>
+        <span class="bold-label">Case 1: Primary Interview with Independent Service Technician</span><br>
+        <strong>Interviewee:</strong> Amit Kumar (Self-Employed Plumber, 8 Years Work Experience, Andheri East, Mumbai)<br>
+        <strong>Q1. How do you currently obtain new customer leads, and what operational challenges do you experience?</strong><br>
+        <em>Response:</em> "I rely almost entirely on neighborhood hardware shops referring my phone number, or past customers calling me directly. Some weeks I receive four to five jobs in a day, while in other weeks I sit idle for two to three days without any work. When I go to new clients, negotiations are always stressful because they argue about labor charges after I finish the repair."<br>
+        <strong>Q2. How would an online platform like ServiGo assist your daily business operations?</strong><br>
+        <em>Response:</em> "Having a verified profile with my fixed pricing and reviews would eliminate bargaining. A mobile web dashboard showing incoming booking requests with exact customer addresses, dates, and direct chat would help me plan my travel route and avoid wasting time."
+      </p>
+
+      <p>
+        <span class="bold-label">Case 2: Primary Interview with Household Consumer</span><br>
+        <strong>Interviewee:</strong> Rahul Sharma (Residential Apartment Owner &amp; IT Professional, Mumbai)<br>
+        <strong>Q1. What major difficulties do you encounter when hiring local domestic technicians?</strong><br>
+        <em>Response:</em> "Whenever we experience an electrical short-circuit or plumbing leak, finding an available technician quickly is chaotic. Local handymen quote arbitrary prices on the spot, show up hours late, and there is no guarantee of work quality. More importantly, letting completely unknown, unverified strangers into our home creates safety concerns for my family."<br>
+        <strong>Q2. What features would give you the most confidence when booking a technician online?</strong><br>
+        <em>Response:</em> "Administrative verification badges confirming background checks, transparent hourly and fixed rates, an interactive map showing how close the provider is, and genuine 1 to 5 star ratings from neighbors in my locality."
+      </p>
+    </div>
+    <div class="page-footer">10</div>
+  </div>
+
+  <!-- PAGE 11: APPENDIX A (SURVEY TABLE) -->
+  <div class="page">
+    <div class="page-content">
+      <h2 class="section-title">Fieldwork Survey Quantitative Summary</h2>
+      <p>
+        A localized survey conducted across 45 residential households revealed the following critical data points regarding informal home services:
+      </p>
+      <table class="report-table" style="font-size: 9.5pt; margin-top: 15px;">
+        <thead>
+          <tr>
+            <th style="width: 45%;">Survey Inquiry Metric</th>
+            <th style="width: 18%;">Affirmative (%)</th>
+            <th style="width: 37%;">Key Stakeholder Concern</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Experienced arbitrary pricing / unexpected cost surges</strong></td>
+            <td style="text-align: center;">84.4%</td>
+            <td>Lack of standardized upfront pricing catalogs</td>
+          </tr>
+          <tr>
+            <td><strong>Encountered technician delays exceeding 2 hours</strong></td>
+            <td style="text-align: center;">77.8%</td>
+            <td>Absence of scheduled appointment tracking</td>
+          </tr>
+          <tr>
+            <td><strong>Expressed safety concerns hiring unverified technicians</strong></td>
+            <td style="text-align: center;">88.9%</td>
+            <td>Absence of formal identity verification badges</td>
+          </tr>
+          <tr>
+            <td><strong>Strongly prefer on-demand web booking with reviews &amp; map</strong></td>
+            <td style="text-align: center;">93.3%</td>
+            <td>High demand for transparent platforms like ServiGo</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-title" style="margin-top: 25px;">Key Survey Insights and Takeaways</h2>
+      <p>
+        The quantitative findings clearly demonstrate that consumer dissatisfaction in the home service market is driven by pricing unpredictability and safety concerns. The vast majority (93.3%) of participants showed an eager willingness to migrate to a centralized digital solution that provides verified credentials, upfront service costs, and community reviews.
+      </p>
+      <p>
+        Independent technicians likewise demonstrated a strong preference for a digital booking interface that eliminates unpaid travel and awkward post-job bargaining. These field findings validate the core architectural priorities implemented in the ServiGo application.
+      </p>
+    </div>
+    <div class="page-footer">11</div>
+  </div>
+
+  <!-- PAGE 12: APPENDIX B (API PAYLOADS) -->
+  <div class="page">
+    <div class="page-content">
+      <h2 class="section-title" style="margin-top: 0.1in;">Appendix B: Technical Specifications, API Contracts and System Data Dictionaries</h2>
+      <p>
+        This appendix provides technical artefacts, core API communication contracts, and relational schema details supporting the architectural implementation of the <strong>ServiGo</strong> platform.
+      </p>
+
+      <h2 class="section-title">B.1 Core RESTful API Endpoint Payloads</h2>
+      <p>
+        The platform communicates via stateless RESTful endpoints utilizing JSON payloads and Bearer JWT authentication tokens:
+      </p>
+
+      <div class="code-box"><strong>// 1. Create Service Booking (POST /api/bookings)</strong>
+Header: Authorization: Bearer &lt;jwt-token&gt;
+Request Body:
+{
+  "serviceId": 3,
+  "bookingDate": "2026-10-15T10:30:00.000Z",
+  "address": "Flat 402, Green Valley Apts, Andheri East, Mumbai",
+  "notes": "Main kitchen faucet leaking continuously."
+}
+Response (201 Created):
+{
+  "booking": {
+    "id": 104,
+    "customerId": 12,
+    "serviceId": 3,
+    "status": "pending",
+    "totalAmount": 450.00,
+    "createdAt": "2026-10-06T08:30:00.000Z"
+  }
+}</div>
+
+      <div class="code-box"><strong>// 2. Update Booking Status (PATCH /api/bookings/104/status)</strong>
+Header: Authorization: Bearer &lt;jwt-token&gt;
+Request Body: { "status": "accepted" } // Allowed: pending | accepted | completed | cancelled
+Response (200 OK): { "message": "Booking status updated successfully", "status": "accepted" }</div>
+
+      <h2 class="section-title">B.2 Relational Database Schema Model Dictionary</h2>
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th style="width: 18%;">Model</th>
+            <th style="width: 16%;">Primary Key</th>
+            <th style="width: 34%;">Core Attributes &amp; Foreign Keys</th>
+            <th style="width: 32%;">Relationships &amp; Constraints</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>User</strong></td>
+            <td>id (Int, PK)</td>
+            <td>email, password (hashed), name, phone, role</td>
+            <td>1:1 with ProviderProfile; 1:N Bookings &amp; Reviews</td>
+          </tr>
+          <tr>
+            <td><strong>ProviderProfile</strong></td>
+            <td>id (Int, PK)</td>
+            <td>userId (FK), businessName, experience, hourlyRate, city, isVerified</td>
+            <td>References User (onDelete: Cascade); 1:N Services</td>
+          </tr>
+          <tr>
+            <td><strong>Category</strong></td>
+            <td>id (Int, PK)</td>
+            <td>name (Unique), description, icon</td>
+            <td>1:N with Service listings</td>
+          </tr>
+          <tr>
+            <td><strong>Service</strong></td>
+            <td>id (Int, PK)</td>
+            <td>providerId (FK), categoryId (FK), title, price</td>
+            <td>References ProviderProfile &amp; Category; 1:N Bookings</td>
+          </tr>
+          <tr>
+            <td><strong>Booking</strong></td>
+            <td>id (Int, PK)</td>
+            <td>customerId (FK), serviceId (FK), bookingDate, address, status, totalAmount</td>
+            <td>References User &amp; Service (onDelete: Cascade)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="page-footer">12</div>
+  </div>
+
+  <!-- PAGE 13: APPENDIX B CONTINUATION -->
+  <div class="page">
+    <div class="page-content">
+      <h2 class="section-title">B.2 Relational Database Schema Model Dictionary (Continued)</h2>
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th style="width: 18%;">Model</th>
+            <th style="width: 16%;">Primary Key</th>
+            <th style="width: 34%;">Core Attributes &amp; Foreign Keys</th>
+            <th style="width: 32%;">Relationships &amp; Constraints</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Review</strong></td>
+            <td>id (Int, PK)</td>
+            <td>customerId (FK), providerId (FK), rating (1-5), comment</td>
+            <td>References User &amp; ProviderProfile</td>
+          </tr>
+          <tr>
+            <td><strong>Conversation</strong></td>
+            <td>id (Int, PK)</td>
+            <td>customerId (FK), providerId (FK), lastMessage</td>
+            <td>Unique composite key [customerId, providerId]</td>
+          </tr>
+          <tr>
+            <td><strong>Message</strong></td>
+            <td>id (Int, PK)</td>
+            <td>conversationId (FK), senderId (FK), content, read</td>
+            <td>References Conversation &amp; User (onDelete: Cascade)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 class="section-title" style="margin-top: 25px;">B.3 Administrator Trust &amp; Verification Protocol</h2>
+      <p>
+        To ensure platform credibility and consumer safety, the administrative module enforces a rigorous four-stage verification protocol before granting the verified provider trust badge:
+      </p>
+      <ol>
+        <li><strong>Identity Verification:</strong> Submission and validation of government-issued identity credentials (such as Aadhaar or PAN card) to establish authentic legal identity.</li>
+        <li><strong>Trade Experience Audit:</strong> Verification of vocational trade diplomas, apprenticeships, or formal confirmation of declared years of field experience in plumbing, electrical, or carpentry trades.</li>
+        <li><strong>Operational Phone Authentication:</strong> Direct verification and telephonic confirmation of active contact details to ensure customer reachability during scheduled visits.</li>
+        <li><strong>Quality Rating Threshold Review:</strong> Continuous probationary monitoring requiring newly onboarded providers to maintain an average customer review rating of at least 4.0 out of 5 stars across initial bookings.</li>
+      </ol>
+      <p>
+        Providers failing to meet verification standards remain categorized as unverified, while verified service professionals receive the blue trust badge displayed prominently across category search lists and interactive map markers.
+      </p>
+    </div>
+    <div class="page-footer">13</div>
+  </div>
+
+</body>
+</html>

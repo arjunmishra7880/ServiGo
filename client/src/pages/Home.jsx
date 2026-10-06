@@ -519,14 +519,14 @@ function Home() {
                     style={{
                       fontSize: 22,
                       fontWeight: 800,
-                      color: "#FFFFFF",
+                      color: "#001E2B",
                       marginTop: 4,
                     }}
                   >
                     {stat.value}
                   </div>
                   <div
-                    style={{ fontSize: 13, color: "rgba(202, 240, 248, 0.75)" }}
+                    style={{ fontSize: 13, fontWeight: 600, color: "#3D4F58" }}
                   >
                     {stat.label}
                   </div>

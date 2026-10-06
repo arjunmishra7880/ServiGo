@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ServiGo - Complete Project Details & Viva Preparation Guide</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    @page {
+      size: A4;
+      margin: 12mm 14mm 12mm 14mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1e293b;
+      background-color: #ffffff;
+      line-height: 1.55;
+      font-size: 12.5px;
+    }
+
+    /* Cover / Header Banner */
+    .header-banner {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+      color: #ffffff;
+      padding: 22px 26px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #4338ca;
+      box-shadow: 0 4px 15px rgba(15, 23, 42, 0.15);
+    }
+
+    .header-banner .badge {
+      display: inline-block;
+      background: rgba(99, 102, 241, 0.35);
+      color: #a5b4fc;
+      border: 1px solid rgba(165, 180, 252, 0.3);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .header-banner h1 {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      margin-bottom: 6px;
+    }
+
+    .header-banner h1 span {
+      color: #38bdf8;
+    }
+
+    .header-banner p {
+      font-size: 13px;
+      color: #cbd5e1;
+      line-height: 1.45;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      font-size: 11px;
+      color: #94a3b8;
+    }
+
+    .header-meta span strong {
+      color: #f1f5f9;
+    }
+
+    /* Section Styles */
+    h2 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #0f172a;
+      border-left: 4px solid #4f46e5;
+      padding-left: 10px;
+      margin: 16px 0 10px 0;
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    h3 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e1b4b;
+      margin: 12px 0 6px 0;
+      page-break-after: avoid;
+      break-after: avoid;
+    }
+
+    p {
+      margin-bottom: 8px;
+      color: #334155;
+    }
+
+    ul, ol {
+      margin-left: 18px;
+      margin-bottom: 8px;
+      color: #334155;
+    }
+
+    li {
+      margin-bottom: 4px;
+      line-height: 1.5;
+    }
+
+    /* Badges & Pills */
+    .pill {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-size: 10px;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+    .pill-blue { background: #e0f2fe; color: #0369a1; }
+    .pill-green { background: #dcfce7; color: #15803d; }
+    .pill-purple { background: #f3e8ff; color: #7e22ce; }
+    .pill-amber { background: #fef3c7; color: #b45309; }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 14px 0;
+      font-size: 11.5px;
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #334155;
+      text-align: left;
+      padding: 7px 10px;
+      font-weight: 700;
+      border-bottom: 2px solid #e2e8f0;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    td {
+      padding: 6px 10px;
+      border-bottom: 1px solid #f1f5f9;
+      color: #334155;
+      vertical-align: top;
+      line-height: 1.45;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #fafafa;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin: 10px 0;
+      font-size: 12px;
+      border-left: 4px solid;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .callout-speech {
+      background: #f0fdf4;
+      border-color: #22c55e;
+      color: #14532d;
+    }
+
+    .callout-speech strong {
+      color: #166534;
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12.5px;
+    }
+
+    .callout-tip {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
+
+    .callout-tip strong {
+      color: #1d4ed8;
+      display: block;
+      margin-bottom: 4px;
+      font-size: 12.5px;
+    }
+
+    /* Q&A Cards */
+    .qa-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 9px 12px;
+      margin-bottom: 8px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .qa-card .question {
+      font-weight: 700;
+      color: #1e1b4b;
+      font-size: 12.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .qa-card .question-badge {
+      background: #4f46e5;
+      color: #ffffff;
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .qa-card .answer {
+      color: #334155;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .qa-card .answer strong {
+      color: #0f172a;
+    }
+
+    /* Code Snippets */
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 1px 4px;
+      border-radius: 3px;
+      border: 1px solid #e2e8f0;
+      white-space: nowrap;
+    }
+
+    /* Architecture Visual Blocks */
+    .arch-flow {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 10px 0;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .arch-card {
+      flex: 1;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .arch-card .arch-title {
+      font-weight: 700;
+      font-size: 11.5px;
+      color: #1e293b;
+      margin-bottom: 4px;
+    }
+
+    .arch-card .arch-tech {
+      font-size: 10.5px;
+      color: #4f46e5;
+      font-weight: 600;
+    }
+
+    .arch-card .arch-desc {
+      font-size: 10px;
+      color: #64748b;
+      margin-top: 4px;
+    }
+
+    .arch-arrow {
+      display: flex;
+      align-items: center;
+      color: #94a3b8;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    /* Page Breaks */
+    .page-break {
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 10px;
+      color: #94a3b8;
+      margin-top: 16px;
+      padding-top: 8px;
+      border-top: 1px solid #e2e8f0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- COVER BANNER -->
+  <div class="header-banner">
+    <div class="badge">Comprehensive Viva Voce & Project Defense Dossier</div>
+    <h1>ServiGo <span>(Local Service Finder)</span></h1>
+    <p>A Full-Stack On-Demand Local Services Marketplace with Real-Time WebSockets, Role-Based Access Control, Geo-Discovery & Intelligent Support Automation.</p>
+    <div class="header-meta">
+      <span><strong>Core Stack:</strong> React 19, Node.js, Express, Prisma ORM, SQLite/PostgreSQL, Socket.io</span>
+      <span><strong>Target:</strong> Practical Exam / Viva Voce Defense</span>
+      <span><strong>System Status:</strong> Fully Operational</span>
+    </div>
+  </div>
+
+  <!-- SECTION 1: 30-SECOND PITCH & OVERVIEW -->
+  <h2>1. 30-Second Elevator Pitch & Project Overview</h2>
+  
+  <div class="callout callout-speech">
+    <strong>🎤 What to say when the examiner asks: "Introduce your project / Apne project ke bare mein batao"</strong>
+    "Good morning/afternoon Sir/Ma'am. My project is <strong>ServiGo (Local Service Finder)</strong>. It is a full-stack hyper-local on-demand marketplace connecting local residents with verified service professionals such as electricians, plumbers, appliance technicians, and carpenters. We built this application using <strong>React 19 + Vite</strong> on the client side, <strong>Node.js + Express</strong> on the backend, <strong>Prisma ORM with SQLite</strong> as our database layer, and <strong>Socket.io</strong> for real-time bi-directional chat and notification alerts. It features complete Role-Based Access Control (Customer, Service Provider, Admin), interactive Leaflet map discovery, and an intelligent automated customer support assistant."
+  </div>
+
+  <h3>Problem Statement vs. ServiGo Solution</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 50%;">Offline / Conventional Market Problem</th>
+        <th style="width: 50%;">ServiGo Digital Solution</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Unverified Technicians:</strong> Customers rely on unvetted local leads with high security risks and inconsistent skill levels.</td>
+        <td><strong>Admin Verification:</strong> Providers submit credentials; platform admins review and award a trusted 'Verified' badge.</td>
+      </tr>
+      <tr>
+        <td><strong>Opaque Pricing:</strong> No standardized price charts lead to unexpected high bargaining and overcharging.</td>
+        <td><strong>Transparent Rate Cards:</strong> Providers list fixed service prices and hourly rates upfront on their profiles.</td>
+      </tr>
+      <tr>
+        <td><strong>No Booking Lifecycle Tracking:</strong> Communication via phone calls leads to missed appointments with zero audit trail.</td>
+        <td><strong>End-to-End Status Pipeline:</strong> Bookings move systematically: <code>Pending</code> ➔ <code>Accepted</code> ➔ <code>Completed</code> / <code>Cancelled</code>.</td>
+      </tr>
+      <tr>
+        <td><strong>Fake or Non-Existent Reviews:</strong> Word-of-mouth feedback cannot be authenticated or validated.</td>
+        <td><strong>Verified Customer Reviews:</strong> Only customers who have actually completed a booking can submit star ratings and reviews.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 2: SYSTEM ARCHITECTURE & TECH STACK -->
+  <div class="page-break"></div>
+  <h2>2. System Architecture & Technology Stack</h2>
+  
+  <div class="arch-flow">
+    <div class="arch-card">
+      <div class="arch-title">Client Tier (Frontend)</div>
+      <div class="arch-tech">React 19 + Vite + Bootstrap 5</div>
+      <div class="arch-desc">SPA navigation, Context API, responsive UI, Leaflet map</div>
+    </div>
+    <div class="arch-arrow">◄──►</div>
+    <div class="arch-card">
+      <div class="arch-title">Application Tier (API)</div>
+      <div class="arch-tech">Node.js + Express + Socket.io</div>
+      <div class="arch-desc">REST API, JWT auth, RBAC middleware, WebSocket rooms</div>
+    </div>
+    <div class="arch-arrow">◄──►</div>
+    <div class="arch-card">
+      <div class="arch-title">Data Tier (Database)</div>
+      <div class="arch-tech">Prisma ORM + SQLite / PostgreSQL</div>
+      <div class="arch-desc">Declarative schema, migrations, type-safe queries, cascades</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tier / Layer</th>
+        <th>Technologies Used</th>
+        <th>Why Selected? (Examiner Justification)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Frontend (Presentation)</strong></td>
+        <td>React 19, Vite, React Router v7, Bootstrap 5, Bootstrap Icons</td>
+        <td>Component-driven modularity, instant hot-reloading with Vite (10x faster than CRA), zero-reloading Single Page Application (SPA) navigation.</td>
+      </tr>
+      <tr>
+        <td><strong>Backend (Logic/API)</strong></td>
+        <td>Node.js runtime, Express.js framework</td>
+        <td>Event-driven, non-blocking asynchronous I/O ideal for handling concurrent I/O requests and high-traffic booking pipelines.</td>
+      </tr>
+      <tr>
+        <td><strong>Database & ORM</strong></td>
+        <td>Prisma ORM, SQLite (local) / PostgreSQL ready</td>
+        <td>Type-safe query builder, automated migration handling, declarative modeling, and complete defense against SQL Injection vulnerabilities.</td>
+      </tr>
+      <tr>
+        <td><strong>Authentication & Security</strong></td>
+        <td>JWT (JSON Web Tokens), bcryptjs</td>
+        <td>Stateless authentication with secure bearer tokens. Salted multi-round hashing (10 rounds) protecting credentials against dictionary attacks.</td>
+      </tr>
+      <tr>
+        <td><strong>Real-Time Layer</strong></td>
+        <td>Socket.io (WebSockets with HTTP fallback)</td>
+        <td>Bi-directional, event-driven communication enabling low-latency live chat and instant booking notification alerts.</td>
+      </tr>
+      <tr>
+        <td><strong>Geolocation</strong></td>
+        <td>Leaflet.js + OpenStreetMap</td>
+        <td>Open-source, privacy-friendly mapping library without costly Google Maps API billing or rate limits.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 3: DATABASE DESIGN & SCHEMA (PRISMA MODELS) -->
+  <div class="page-break"></div>
+  <h2>3. Database Design & Entity Relationships (ER)</h2>
+  <p>The relational database is orchestrated using Prisma schema definitions in <code>server/prisma/schema.prisma</code>:</p>
+
+  <div class="arch-flow">
+    <div class="arch-card" style="text-align: left;">
+      <div class="arch-title">User Account</div>
+      <div class="arch-desc">Stores authentication details, role (<code>customer</code>, <code>provider</code>, <code>admin</code>), and contact information.</div>
+    </div>
+    <div class="arch-arrow">1 : 1</div>
+    <div class="arch-card" style="text-align: left;">
+      <div class="arch-title">Provider Profile</div>
+      <div class="arch-desc">Stores business name, bio, experience, hourly rate, city, and <code>isVerified</code> admin badge status.</div>
+    </div>
+    <div class="arch-arrow">1 : N</div>
+    <div class="arch-card" style="text-align: left;">
+      <div class="arch-title">Service Catalog</div>
+      <div class="arch-desc">Individual offerings with price, category link, title, and description available for booking.</div>
+    </div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Model</th>
+        <th>Key Attributes</th>
+        <th>Relationships & Constraints</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>User</code></td>
+        <td><code>id, email, password, name, phone, role</code></td>
+        <td>Primary identity. 1-to-1 with ProviderProfile; 1-to-Many with Bookings (as customer), Reviews, and Conversations.</td>
+      </tr>
+      <tr>
+        <td><code>ProviderProfile</code></td>
+        <td><code>id, userId, businessName, bio, hourlyRate, isVerified, city</code></td>
+        <td>1-to-1 foreign key to <code>User</code> (<code>onDelete: Cascade</code>). 1-to-Many with Services, Reviews, and Conversations.</td>
+      </tr>
+      <tr>
+        <td><code>Category</code></td>
+        <td><code>id, name, description, icon</code></td>
+        <td>1-to-Many with Services. Holds 8 seeded categories (IT, Appliances, Plumbing, Electrician, Cleaning, Carpentry, Painting, Pest Control).</td>
+      </tr>
+      <tr>
+        <td><code>Service</code></td>
+        <td><code>id, providerId, categoryId, title, description, price</code></td>
+        <td>Links a Provider to a Category with custom pricing. 1-to-Many with Bookings.</td>
+      </tr>
+      <tr>
+        <td><code>Booking</code></td>
+        <td><code>id, customerId, serviceId, bookingDate, address, status, totalAmount</code></td>
+        <td>Core transaction entity. References customer (<code>User</code>) and <code>Service</code>. Status: <code>pending</code>, <code>accepted</code>, <code>completed</code>, <code>cancelled</code>.</td>
+      </tr>
+      <tr>
+        <td><code>Review</code></td>
+        <td><code>id, customerId, providerId, rating (1-5), comment, createdAt</code></td>
+        <td>Stores verified customer feedback linked directly to Provider's profile for aggregated rating computation.</td>
+      </tr>
+      <tr>
+        <td><code>Conversation</code> / <code>Message</code></td>
+        <td><code>id, customerId, providerId, lastMessage</code> | <code>id, conversationId, senderId, content</code></td>
+        <td>Persists 1-on-1 socket conversations. Unique composite constraint: <code>@@unique([customerId, providerId])</code>.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 4: USER ROLES & FLOWS -->
+  <div class="page-break"></div>
+  <h2>4. Core Modules & User Roles</h2>
+
+  <h3>A. Customer Module</h3>
+  <ul>
+    <li><strong>Discovery & Filters:</strong> Filter by category, keyword, city, minimum rating (e.g. 4.5+), price ceiling, and verified badge.</li>
+    <li><strong>Geo-Services Map:</strong> View provider availability plotted on an interactive Leaflet map.</li>
+    <li><strong>Booking Dispatch:</strong> Open interactive booking modal, pick appointment schedule, address, and special notes.</li>
+    <li><strong>Order Tracker:</strong> Monitor ongoing bookings under <code>/bookings</code> with real-time status transitions.</li>
+    <li><strong>Review & Ratings:</strong> Post verified star ratings & comments upon completion.</li>
+    <li><strong>Real-Time Chat:</strong> Direct instant messaging with assigned technicians.</li>
+  </ul>
+
+  <h3>B. Service Provider Module</h3>
+  <ul>
+    <li><strong>Provider Dashboard (<code>/dashboard</code>):</strong> Overview of incoming requests, accepted jobs, and completed services.</li>
+    <li><strong>Action Hub:</strong> One-click Accept, Decline, or Mark as Completed on active client orders.</li>
+    <li><strong>Service Catalog Manager:</strong> Add, edit, or adjust pricing for individual service offerings.</li>
+    <li><strong>Analytics & Metrics:</strong> Visual metrics for total revenue generated, customer satisfaction score, and monthly volume.</li>
+  </ul>
+
+  <h3>C. Administrator Module</h3>
+  <ul>
+    <li><strong>Admin Dashboard (<code>/admin</code>):</strong> Global platform telemetry (active users, total bookings, gross platform revenue).</li>
+    <li><strong>Provider Verification Engine:</strong> Review onboarding providers and toggle the verified green trust badge.</li>
+    <li><strong>Ecosystem Auditing:</strong> Platform-wide supervision of service quality and dispute moderation.</li>
+  </ul>
+
+  <h3>D. Smart Auxiliary Features</h3>
+  <ul>
+    <li><strong>Intelligent Support Chatbot:</strong> Client-side natural language pattern matcher providing answers to booking, cancellation, registration, and payment FAQs.</li>
+    <li><strong>Notification Banner:</strong> Live system status alerts and real-time updates.</li>
+  </ul>
+
+  <!-- SECTION 5: SECURITY & AUTHENTICATION -->
+  <h2>5. Security, Authorization & Authentication Architecture</h2>
+
+  <div class="callout callout-tip">
+    <strong>🔒 How Authentication Works (Examiner Question)</strong>
+    <ol>
+      <li><strong>Password Hashing:</strong> Passwords are never saved in plaintext. During registration, <code>bcryptjs.hash(password, 10)</code> applies 10 salt rounds to generate an irreversible digest.</li>
+      <li><strong>JWT Issuance:</strong> Upon successful credentials verification in <code>/api/auth/login</code>, the server signs a JSON Web Token with payload <code>{ id, email, role }</code> using an environment secret key.</li>
+      <li><strong>Token Transmission:</strong> The client stores the JWT in <code>localStorage</code> and injects it into the HTTP header: <code>Authorization: Bearer &lt;token&gt;</code>.</li>
+      <li><strong>Middleware Verification:</strong> <code>authenticateToken</code> intercepts incoming protected requests, decodes the token with <code>jwt.verify()</code>, and attaches <code>req.user</code>.</li>
+      <li><strong>Role-Based Authorization (RBAC):</strong> <code>authorizeRoles('admin')</code> or <code>authorizeRoles('provider')</code> protects restricted endpoints from unauthorized user roles.</li>
+    </ol>
+  </div>
+
+  <!-- SECTION 6: TOP 15 VIVA QUESTIONS & ANSWERS (PART 1) -->
+  <div class="page-break"></div>
+  <h2>6. Top 15 Viva Voce Questions & High-Scoring Answers</h2>
+
+  <div class="qa-card">
+    <div class="question"><span class="question-badge">Q1</span> Explain the overall architecture of your system.</div>
+    <div class="answer">
+      "Our application follows a decoupled <strong>3-Tier Model-View-Controller (MVC) Client-Server Architecture</strong>. The presentation layer is built as a Single Page Application using <strong>React 19 and Vite</strong>. The application logic is governed by an asynchronous <strong>Node.js Express REST API server</strong> alongside a <strong>Socket.io WebSocket server</strong> for real-time events. The data tier utilizes <strong>Prisma ORM with SQLite</strong> (readily switchable to PostgreSQL/MySQL in production)."
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="question"><span class="question-badge">Q2</span> Why did you choose React + Vite over traditional server-rendered templates or CRA?</div>
+    <div class="answer">
+      "Create-React-App (CRA) is deprecated and relies on Webpack, which causes slow development server starts and heavy build overhead. <strong>Vite</strong> uses native ES modules (ESM) in development with <strong>Hot Module Replacement (HMR)</strong> that is virtually instantaneous. Furthermore, React's component-based virtual DOM ensures high UI responsiveness without full page reloads."
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="question"><span class="question-badge">Q3</span> How does JWT authentication differ from traditional session-cookie authentication?</div>
+    <div class="answer">
+      "Traditional session-based authentication requires the server to store active session IDs in server memory or a Redis store, which causes scalability bottlenecks in distributed server setups. <strong>JWT is stateless</strong>—the token itself securely encapsulates user identity and permissions in a cryptographically signed payload. The server only needs to verify the cryptographic signature without querying session tables on every request."
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="question"><span class="question-badge">Q4</span> What is an ORM, and why did you choose Prisma over raw SQL queries?</div>
+    <div class="answer">
+      "An <strong>Object-Relational Mapper (ORM)</strong> bridges object-oriented programming code with relational database tables. We chose Prisma because it provides <strong>compile-time type safety</strong>, automated database migrations, clean schema definition syntax, and complete immunity against SQL injection attacks through automatic parameterized queries."
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="question"><span class="question-badge">Q5</span> How does real-time communication work with Socket.io? Compare it with HTTP.</div>
+    <div class="answer">
+      "HTTP is a stateless, half-duplex protocol where the client must initiate requests and the server cannot push data proactively. <strong>Socket.io</strong> establishes a full-duplex, persistent TCP connection via WebSockets. We utilize Socket rooms (e.g. <code>conversation:12</code>) so when a customer or provider emits a message, only members of that room receive it instantly without polling the database repeatedly."
+    </div>
+  </div>
+
+  <!-- SECTION 6: TOP 15 VIVA QUESTIONS & ANSWERS (PART 2) -->
+  <div class="page-break"></div>
+  <h2>6. Top 15 Viva Voce Questions & High-Scoring Answers (Contd.)</h2>
+
+  <div class="qa-card">
+    <div class="question"><span class="question-badge">Q6</span> What are the lifecycle states of a service booking in your application?</div>
+    <div class="answer">
+      "A booking operates as a state machine:
+      1. <strong><code>pending</code>:</strong> Created by customer, waiting for provider response.
+      2. <strong><code>accepted</code>:</strong> Provider confirms the appointment date and time.
+      3. <strong><code>completed</code>:</strong> Service is fulfilled; enables customer review submission.
+      4. <strong><code>cancelled</code>:</strong> Terminated by either customer or provider prior to fulfillment."
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="question"><span class="question-badge">Q7</span> Why do you hash passwords using bcryptjs instead of MD5 or SHA-256?</div>
+    <div class="answer">
+      "Standard algorithms like MD5 or SHA-256 are general-purpose cryptographic hash functions designed to be fast, making them highly vulnerable to GPU-accelerated brute-force attacks and precomputed Rainbow Table lookups. <strong>bcrypt</strong> is a key-derivation function that incorporates a salt (to defeat rainbow tables) and is computationally slow with configurable work factors (salt rounds = 10) to withstand brute-force attacks."
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="question"><span class="question-badge">Q8</span> What is CORS, and why did you configure it on the Express server?</div>
+    <div class="answer">
+      "<strong>Cross-Origin Resource Sharing (CORS)</strong> is a browser security policy that prohibits a web application running on one origin (e.g., <code>http://localhost:5173</code>) from accessing resources on a different origin (e.g., <code>http://localhost:5000</code>). We installed and configured the <code>cors()</code> middleware in Express to explicitly allow authorized frontend clients to execute API requests."
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="question"><span class="question-badge">Q9</span> How do you manage global state across the React frontend?</div>
+    <div class="answer">
+      "We utilized <strong>React's Context API</strong> (<code>AuthContext</code> and <code>ThemeContext</code>). <code>AuthContext</code> maintains user session information (logged-in user profile, JWT token, login/logout handlers) and persists them in <code>localStorage</code>, avoiding the complexity and boilerplate of Redux while providing accessible state across all components."
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="question"><span class="question-badge">Q10</span> How does your rule-based support chatbot work?</div>
+    <div class="answer">
+      "The <code>SupportChatBot</code> component implements an offline natural language knowledge base (KB). User input text is normalized and evaluated against keyword pattern arrays using regex and token matching (e.g. matching 'book', 'hire', 'schedule'). If a match occurs, the appropriate formatted guidance is rendered instantly; otherwise, it offers suggested question chips."
+    </div>
+  </div>
+
+  <!-- SECTION 6: TOP 15 VIVA QUESTIONS & ANSWERS (PART 3) -->
+  <div class="page-break"></div>
+  <h2>6. Top 15 Viva Voce Questions & High-Scoring Answers (Contd.)</h2>
+
+  <div class="qa-card">
+    <div class="question"><span class="question-badge">Q11</span> How did you implement map-based provider discovery without paid APIs?</div>
+    <div class="answer">
+      "Instead of using Google Maps API, which requires paid billing accounts and API keys, we used <strong>Leaflet.js with OpenStreetMap (OSM)</strong> tiles. We plot provider coordinates dynamically on an interactive map layer with custom markers and popup action buttons."
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="question"><span class="question-badge">Q12</span> What happens if a user tries to access a protected route without a token?</div>
+    <div class="answer">
+      "Our <code>authenticateToken</code> middleware checks the <code>Authorization</code> request header. If missing, it immediately halts execution and returns HTTP <code>401 Unauthorized</code>. If the token is tampered with or expired, <code>jwt.verify()</code> throws an exception and returns HTTP <code>403 Forbidden</code>."
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="question"><span class="question-badge">Q13</span> Explain the difference between <code>Cascade</code> delete in your Prisma schema.</div>
+    <div class="answer">
+      "We declared <code>onDelete: Cascade</code> on child relationships (such as User to ProviderProfile, or ProviderProfile to Services). If a user account or provider is deleted from the system, all associated services, bookings, messages, and reviews are automatically removed by the database to prevent orphaned records and maintain referential integrity."
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="question"><span class="question-badge">Q14</span> How can this system scale to handle thousands of concurrent users?</div>
+    <div class="answer">
+      "To scale ServiGo for production:
+      1. Migrate SQLite to a managed cluster such as <strong>PostgreSQL or MySQL</strong>.
+      2. Deploy the Express backend in containers (Docker) behind an <strong>NGINX reverse proxy or AWS ALB</strong>.
+      3. Use <strong>Redis Pub/Sub</strong> with Socket.io Redis Adapter to distribute WebSocket events across multiple server instances.
+      4. Place static assets and client build files on a global <strong>CDN (Cloudflare/Vercel)</strong>."
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="question"><span class="question-badge">Q15</span> What are the current limitations and future scope of ServiGo?</div>
+    <div class="answer">
+      "<strong>Current Limitations:</strong> Direct cash-on-delivery/offline payments; lack of SMS OTP verification.
+      <strong>Future Scope:</strong> Integration of payment gateways (Razorpay / Stripe), live GPS technician tracking on maps during transit, AI-powered price recommendation algorithms, and native mobile apps using React Native."
+    </div>
+  </div>
+
+  <!-- SECTION 7: STEP-BY-STEP LIVE DEMO GUIDE -->
+  <div class="page-break"></div>
+  <h2>7. Examiner Live Demo Walkthrough (Step-by-Step)</h2>
+  
+  <div class="callout callout-speech">
+    <strong>📋 Follow this exact 5-minute presentation routine during your practical exam:</strong>
+    <ol>
+      <li><strong>Boot the Application:</strong> Run <code>npm run dev</code> from root directory. Confirm client at <code>http://localhost:5173</code> and API health check at <code>http://localhost:5000/api/health</code>.</li>
+      <li><strong>Walkthrough Homepage:</strong> Show category cards, filter by "Plumbing" or city "Mumbai", and scroll down to the Leaflet map showing nearby technicians.</li>
+      <li><strong>Perform a Customer Booking:</strong>
+        <ul>
+          <li>Click Login and use Customer Demo: <code>rahul.sharma@example.com</code> / <code>password123</code>.</li>
+          <li>Select a provider (e.g. Amit Plumber), click <strong>Book Now</strong>, select date and address, and submit.</li>
+          <li>Open <strong>My Bookings</strong> to show the booking in <span class="pill pill-amber">PENDING</span> status.</li>
+        </ul>
+      </li>
+      <li><strong>Demonstrate Provider Order Acceptance (Incognito Window):</strong>
+        <ul>
+          <li>Open an Incognito/Private browser window and login as Provider: <code>amit.plumber@example.com</code> / <code>password123</code>.</li>
+          <li>Open <strong>Provider Dashboard</strong> (<code>/dashboard</code>), show the incoming request, click <strong>Accept</strong>, then click <strong>Mark Completed</strong>.</li>
+        </ul>
+      </li>
+      <li><strong>Show Customer Review & Real-Time Chat:</strong>
+        <ul>
+          <li>Return to the Customer window, refresh My Bookings to show status changed to <span class="pill pill-green">COMPLETED</span>.</li>
+          <li>Click <strong>Leave Review</strong>, submit a 5-star rating with comments.</li>
+          <li>Open the chat widget to demonstrate bi-directional instant messaging with the provider.</li>
+        </ul>
+      </li>
+      <li><strong>Admin Verification (Bonus):</strong>
+        <ul>
+          <li>Login as Admin: <code>admin@localservice.com</code> / <code>admin123</code>.</li>
+          <li>Demonstrate provider verification toggle and platform telemetry overview.</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <!-- SECTION 8: DEMO CREDENTIALS & FILE CHEAT SHEET -->
+  <div class="page-break"></div>
+  <h2>8. Demo Accounts & Important File References</h2>
+
+  <h3>Seeded Demo Accounts for Examination</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Role</th>
+        <th>Demo Email</th>
+        <th>Password</th>
+        <th>Key Responsibilities</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="pill pill-blue">Customer</span></td>
+        <td><code>rahul.sharma@example.com</code></td>
+        <td><code>password123</code></td>
+        <td>Search providers, schedule appointments, track status, rate & review services.</td>
+      </tr>
+      <tr>
+        <td><span class="pill pill-purple">Provider</span></td>
+        <td><code>amit.plumber@example.com</code></td>
+        <td><code>password123</code></td>
+        <td>Manage bookings (Accept/Complete), update catalog, monitor performance analytics.</td>
+      </tr>
+      <tr>
+        <td><span class="pill pill-green">Admin</span></td>
+        <td><code>admin@localservice.com</code></td>
+        <td><code>admin123</code></td>
+        <td>Platform analytics, verify/unverify provider credentials, audit system operations.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Important Project Files Cheat-Sheet (When asked to "Show Code"):</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Module / Concept</th>
+        <th>File Path in Codebase</th>
+        <th>What to Highlight to Examiner</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Database Schema</td>
+        <td><code>server/prisma/schema.prisma</code></td>
+        <td>Relational models, cascade rules, and role constraints.</td>
+      </tr>
+      <tr>
+        <td>JWT Auth Middleware</td>
+        <td><code>server/src/middlewares/auth.js</code></td>
+        <td><code>authenticateToken</code> and <code>authorizeRoles</code> implementation.</td>
+      </tr>
+      <tr>
+        <td>Real-Time WebSockets</td>
+        <td><code>server/src/socket.js</code></td>
+        <td>Socket rooms, token verification on socket handshake, message dispatch.</td>
+      </tr>
+      <tr>
+        <td>Server Entry Point</td>
+        <td><code>server/src/index.js</code></td>
+        <td>Express setup, CORS configuration, API route mounting, HTTP server binding.</td>
+      </tr>
+      <tr>
+        <td>Client Routing</td>
+        <td><code>client/src/App.jsx</code></td>
+        <td>React Router routes, ThemeProvider, and global chatbot mounting.</td>
+      </tr>
+      <tr>
+        <td>Auth Context State</td>
+        <td><code>client/src/context/AuthContext.jsx</code></td>
+        <td>React Context API, localStorage token synchronization, login/logout functions.</td>
+      </tr>
+      <tr>
+        <td>Support Chatbot</td>
+        <td><code>client/src/components/SupportChatBot.jsx</code></td>
+        <td>Pattern-matching knowledge base and conversational interface.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="footer-note">
+    ServiGo Project Viva Dossier &copy; 2026 &bull; Designed & Prepared for Academic Viva Voce & Technical Defense
+  </div>
+
+</body>
+</html>
